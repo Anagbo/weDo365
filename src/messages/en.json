@@ -278,7 +278,6 @@
       "One-off"
     ],
     "companyLabel": "Company or association",
-    "orgLabel": "Org. no.",
     "personLabel": "Contact person",
     "emailLabel": "Email",
     "phoneLabel": "Phone",
@@ -395,7 +394,8 @@
     "skipLink": "Skip to content",
     "menu": "Menu",
     "breadcrumb": "Breadcrumb",
-    "sending": "Sending …"
+    "sending": "Sending …",
+    "choose": "Choose …"
   },
   "errors": {
     "required": "Please fill in this field.",
@@ -406,7 +406,6 @@
     "zip": "Enter five digits, e.g. 123 45.",
     "date": "Enter a valid date.",
     "datePast": "Choose today or a later date.",
-    "orgNr": "Enter ten digits, e.g. 556677-8899.",
     "tooLong": "The text is too long.",
     "submitFailed": "We could not send your request just now. Please try again or call us on {phone}."
   }

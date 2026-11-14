@@ -26,7 +26,6 @@ export type ErrorKey =
   | "zip"
   | "date"
   | "datePast"
-  | "orgNr"
   | "tooLong";
 
 const err = (key: ErrorKey) => ({ error: key });
@@ -80,13 +79,6 @@ const preferredDate = z
   .min(1, err("required"))
   .regex(/^\d{4}-\d{2}-\d{2}$/, err("date"))
   .refine((d) => d >= todayInStockholm(), err("datePast"));
-
-/** Ten digits, optionally NNNNNN-NNNN. */
-const orgNr = z
-  .string(err("required"))
-  .trim()
-  .min(1, err("required"))
-  .regex(/^\d{6}-?\d{4}$/, err("orgNr"));
 
 const locale = z.enum(routing.locales);
 
@@ -142,7 +134,6 @@ export const businessFields = z.object({
   area: intInRange(LIMITS.area),
   frequency: z.enum(QUOTE_FREQUENCY_IDS, err("choose")),
   company: text(MAX.company),
-  orgNr,
   contactName: text(MAX.name),
   email,
   phone,

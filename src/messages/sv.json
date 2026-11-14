@@ -278,7 +278,6 @@
       "En gång"
     ],
     "companyLabel": "Företag eller förening",
-    "orgLabel": "Org.nr",
     "personLabel": "Kontaktperson",
     "emailLabel": "E-post",
     "phoneLabel": "Telefon",
@@ -395,7 +394,8 @@
     "skipLink": "Hoppa till innehållet",
     "menu": "Meny",
     "breadcrumb": "Brödsmulor",
-    "sending": "Skickar …"
+    "sending": "Skickar …",
+    "choose": "Välj …"
   },
   "errors": {
     "required": "Fyll i det här fältet.",
@@ -406,7 +406,6 @@
     "zip": "Ange fem siffror, t.ex. 123 45.",
     "date": "Ange ett giltigt datum.",
     "datePast": "Välj dagens datum eller ett senare.",
-    "orgNr": "Ange tio siffror, t.ex. 556677-8899.",
     "tooLong": "Texten är för lång.",
     "submitFailed": "Det gick inte att skicka just nu. Försök igen eller ring oss på {phone}."
   }

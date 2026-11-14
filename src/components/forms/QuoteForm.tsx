@@ -35,11 +35,10 @@ import {
 } from "./fields";
 
 type Values = {
-  premises: PremisesId;
+  premises: PremisesId | "";
   area: string;
-  frequency: QuoteFrequencyId;
+  frequency: QuoteFrequencyId | "";
   company: string;
-  orgNr: string;
   contactName: string;
   email: string;
   phone: string;
@@ -54,21 +53,19 @@ const FIELD_ORDER: readonly Field[] = [
   "area",
   "frequency",
   "company",
-  "orgNr",
   "contactName",
   "email",
   "phone",
   "message",
 ];
 
-/** The selects start on their first option, as in the prototype. */
+/** The selects start on their "Välj …" placeholder (empty value). */
 function emptyValues(): Values {
   return {
-    premises: PREMISES_IDS[0],
+    premises: "",
     area: "",
-    frequency: QUOTE_FREQUENCY_IDS[0],
+    frequency: "",
     company: "",
-    orgNr: "",
     contactName: "",
     email: "",
     phone: "",
@@ -162,6 +159,7 @@ export function QuoteForm({ consent }: { consent: ReactNode }) {
         <SelectField
           {...field("premises")}
           label={t("typeLabel")}
+          placeholder={ui("choose")}
           value={values.premises}
           onChange={(e) => set("premises", e.target.value as PremisesId)}
           options={PREMISES_IDS.map((value, i) => ({
@@ -182,6 +180,7 @@ export function QuoteForm({ consent }: { consent: ReactNode }) {
         <SelectField
           {...field("frequency")}
           label={t("freqLabel")}
+          placeholder={ui("choose")}
           value={values.frequency}
           onChange={(e) => set("frequency", e.target.value as QuoteFrequencyId)}
           options={QUOTE_FREQUENCY_IDS.map((value, i) => ({
@@ -201,25 +200,16 @@ export function QuoteForm({ consent }: { consent: ReactNode }) {
           onChange={(e) => set("company", e.target.value)}
         />
         <TextField
-          {...field("orgNr")}
-          label={t("orgLabel")}
-          inputMode="numeric"
-          maxLength={11}
-          value={values.orgNr}
-          onChange={(e) => set("orgNr", e.target.value)}
-        />
-      </div>
-
-      <div className="grid gap-[18px] md:grid-cols-2">
-        <TextField
           {...field("contactName")}
           label={t("personLabel")}
           autoComplete="name"
           maxLength={MAX.name}
           value={values.contactName}
           onChange={(e) => set("contactName", e.target.value)}
-          className="md:col-span-2"
         />
+      </div>
+
+      <div className="grid gap-[18px] md:grid-cols-2">
         <TextField
           {...field("email")}
           label={t("emailLabel")}

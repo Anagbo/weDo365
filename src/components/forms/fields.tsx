@@ -106,10 +106,13 @@ export function SelectField({
   error,
   className = "",
   options,
+  placeholder,
   ...select
 }: Common &
   Omit<SelectHTMLAttributes<HTMLSelectElement>, "id" | "name"> & {
     options: { value: string; label: string }[];
+    /** First, empty option ("Välj …"); it cannot be chosen again. */
+    placeholder?: string;
   }) {
   return (
     <div className={`flex flex-col gap-1.5 ${className}`}>
@@ -117,6 +120,11 @@ export function SelectField({
         {label}
       </label>
       <select {...select} {...a11y(id, error)} className={controlClass}>
+        {placeholder ? (
+          <option value="" disabled>
+            {placeholder}
+          </option>
+        ) : null}
         {options.map((o) => (
           <option key={o.value} value={o.value}>
             {o.label}
