@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
 /** Placeholder logo until the real one arrives: green "W" square + wordmark. */
-export async function Logo({ inverted = false }: { inverted?: boolean }) {
+export async function Logo() {
   const t = await getTranslations("nav");
   const siteName = (await getTranslations("meta"))("siteName");
 
@@ -10,19 +10,17 @@ export async function Logo({ inverted = false }: { inverted?: boolean }) {
     <Link
       href="/"
       aria-label={t("homeAria")}
-      className={`inline-flex min-h-11 items-center gap-2.5 no-underline ${
-        inverted ? "text-white" : "text-ink"
-      }`}
+      className="inline-flex min-h-11 items-center gap-2.5 text-ink no-underline"
     >
       <span
         aria-hidden="true"
-        className="grid size-[38px] place-items-center rounded-[10px] bg-green font-heading text-xl font-extrabold text-white"
+        className="grid size-[38px] place-items-center rounded-logo bg-green font-heading text-base font-extrabold text-white"
       >
         W
       </span>
       <span
         aria-hidden="true"
-        className="font-heading text-xl font-extrabold tracking-[-0.02em]"
+        className="font-heading text-[21px] font-extrabold tracking-[-0.02em]"
       >
         {siteName}
       </span>

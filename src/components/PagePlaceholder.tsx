@@ -8,13 +8,9 @@ export function PagePlaceholder({
 }) {
   return (
     <div className="container-site py-16 md:py-24">
-      <h1 className="max-w-3xl text-4xl md:text-[56px] md:leading-[1.08]">
-        {title}
-      </h1>
+      <h1 className="max-w-3xl text-h1-sm md:text-h1">{title}</h1>
       {lead ? (
-        <p className="mt-5 max-w-2xl text-lg text-muted md:text-[19px]">
-          {lead}
-        </p>
+        <p className="mt-5 max-w-[620px] text-lead text-muted">{lead}</p>
       ) : null}
     </div>
   );

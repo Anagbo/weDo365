@@ -54,8 +54,15 @@ export function SiteNav({
 
   const close = () => setOpen(false);
 
-  const linkClass = (current: boolean) =>
-    `inline-flex min-h-11 items-center text-ink no-underline decoration-green decoration-2 underline-offset-8 hover:underline ${
+  // Desktop: 2px green bar under the current page (as in the prototype).
+  const desktopLinkClass = (current: boolean) =>
+    `inline-flex min-h-11 items-center border-b-2 py-2.5 text-ink no-underline hover:border-green ${
+      current ? "border-green font-bold" : "border-transparent font-medium"
+    }`;
+
+  // Mobile menu rows: same idea, as an underline on the text.
+  const mobileLinkClass = (current: boolean) =>
+    `flex min-h-12 w-full items-center py-2 text-lg text-ink no-underline decoration-green decoration-2 underline-offset-8 hover:underline ${
       current ? "font-bold underline" : "font-medium"
     }`;
 
@@ -73,7 +80,7 @@ export function SiteNav({
                   <Link
                     href={item.href}
                     aria-current={current ? "page" : undefined}
-                    className={linkClass(current)}
+                    className={desktopLinkClass(current)}
                   >
                     {item.label}
                   </Link>
@@ -138,7 +145,7 @@ export function SiteNav({
                     href={item.href}
                     aria-current={current ? "page" : undefined}
                     onClick={close}
-                    className={`${linkClass(current)} w-full py-2 text-lg`}
+                    className={mobileLinkClass(current)}
                   >
                     {item.label}
                   </Link>

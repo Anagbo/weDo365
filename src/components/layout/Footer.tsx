@@ -2,12 +2,11 @@ import type { ComponentProps } from "react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { bookHref, type ServiceId } from "@/config/site";
-import { Logo } from "@/components/Logo";
 
 type Href = ComponentProps<typeof Link>["href"];
 
 const linkClass =
-  "inline-flex min-h-11 items-center text-white/85 no-underline hover:text-white hover:underline";
+  "inline-flex min-h-11 items-center text-[15px] text-white/85 no-underline hover:text-white hover:underline";
 
 function Column({
   id,
@@ -22,7 +21,7 @@ function Column({
     <section id={id} aria-labelledby={id ? `${id}-title` : undefined}>
       <h2
         id={id ? `${id}-title` : undefined}
-        className="mb-3 font-sans text-sm font-semibold tracking-normal text-white uppercase"
+        className="mb-3 font-sans text-eyebrow text-white uppercase"
       >
         {title}
       </h2>
@@ -48,10 +47,12 @@ export async function Footer() {
 
   return (
     <footer className="mt-auto bg-ink text-white [&_:focus-visible]:outline-white">
-      <div className="container-site grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
-        <section id="om" className="flex flex-col gap-3">
-          <Logo inverted />
-          <p className="text-white/85">{t("about")}</p>
+      <div className="container-site grid gap-8 pt-14 pb-10 sm:grid-cols-2 lg:grid-cols-4">
+        <section id="om" className="flex flex-col gap-2.5">
+          <p className="font-heading text-[22px] font-extrabold tracking-[-0.02em] text-white">
+            {meta("siteName")}
+          </p>
+          <p className="text-[15px] text-white/85">{t("about")}</p>
           <p className="text-sm text-white/85">{t("org")}</p>
         </section>
 
@@ -79,7 +80,7 @@ export async function Footer() {
                 {t("email")}
               </a>
             </li>
-            <li className="flex min-h-11 items-center text-white/85">
+            <li className="flex min-h-11 items-center text-[15px] text-white/85">
               {t("area")}
             </li>
           </ul>
@@ -101,8 +102,8 @@ export async function Footer() {
         </Column>
       </div>
 
-      <div className="border-t border-white/15">
-        <p className="container-site py-6 text-sm text-white/75">
+      <div className="container-site pb-8">
+        <p className="border-t border-white/15 pt-5 text-sm text-white/75">
           {t("copyright")}
         </p>
       </div>

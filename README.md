@@ -32,6 +32,14 @@ These functional strings were not in the approved copy and were added by the dev
 | `ui.skipLink` | Hoppa till innehållet | Skip to content | Skip link, visible on keyboard focus |
 | `ui.menu`     | Meny                  | Menu            | Menu button in the header on mobile  |
 
+### Taken from the prototype
+
+This text was in the approved prototype (`docs/prototype/`) but missing from the messages files, so it was copied over as is:
+
+| Key                     | Swedish                              | English                            | Where                        |
+| ----------------------- | ------------------------------------ | ---------------------------------- | ---------------------------- |
+| `home.businessPhotoAlt` | Foto: städning av kontor (egen bild) | Photo: office cleaning (own photo) | Photo caption, business band |
+
 ## Placeholders to fill in
 
 Text in square brackets is a placeholder for the owner. Used so far:
@@ -39,5 +47,11 @@ Text in square brackets is a placeholder for the owner. Used so far:
 - `[ORG.NR]` – organisation number (footer)
 - `[E-POST]` / `[EMAIL]` – the part before `@wedo365ab.se` (footer)
 - `[TEXT FRÅN WEDO365]` – privacy policy and terms pages
+- `[FÖRSÄKRINGSBOLAG]` / `[INSURER]` – insurance company (home trust bar)
+- `[BETYG]` / `[RATING]` and `[ANTAL]` / `[COUNT]` – Reco.se rating and number of reviews (home trust bar, reviews)
+- `[Kundomdöme …]`, `[Förnamn]`, `[Område]` – the three review cards (home)
+- `[Svar från WeDo365 …]`, `[Checklista …]`, `[Avbokningsregler …]` – FAQ answers (home)
+
+Photos: every grey box with a "Foto: …" caption is a placeholder for an own photo (no stock photos). See `src/components/sections/PhotoPlaceholder.tsx` for how to drop one in.
 
 The complete list follows in phase 7.
