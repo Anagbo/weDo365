@@ -138,6 +138,7 @@
     "title": "Hemstädning i Stockholm – WeDo365",
     "breadcrumbHome": "Start",
     "breadcrumbHomes": "För hemmet",
+    "breadcrumbCurrent": "Hemstädning",
     "h1": "Hemstädning i Stockholm",
     "lead": "Regelbunden städning som håller hemmet rent. Du väljer hur ofta, vi sköter resten.",
     "cardTitle": "Få ett förslag på tid och pris",
@@ -392,6 +393,7 @@
   },
   "ui": {
     "skipLink": "Hoppa till innehållet",
-    "menu": "Meny"
+    "menu": "Meny",
+    "breadcrumb": "Brödsmulor"
   }
 }

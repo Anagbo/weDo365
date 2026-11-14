@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import { PagePlaceholder } from "@/components/PagePlaceholder";
+import {
+  ServicePage,
+  getServicePageMetadata,
+} from "@/components/service-page/ServicePage";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("homeCleaning");
-  return { title: t("title") };
+export function generateMetadata() {
+  return getServicePageMetadata("homeCleaning");
 }
 
-export default async function HomeCleaningPage() {
-  const t = await getTranslations("homeCleaning");
-  return <PagePlaceholder title={t("h1")} lead={t("lead")} />;
+export default function HomeCleaningPage() {
+  return <ServicePage pageKey="homeCleaning" />;
 }

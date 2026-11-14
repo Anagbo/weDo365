@@ -138,6 +138,7 @@
     "title": "Home cleaning in Stockholm – WeDo365",
     "breadcrumbHome": "Home",
     "breadcrumbHomes": "For homes",
+    "breadcrumbCurrent": "Home cleaning",
     "h1": "Home cleaning in Stockholm",
     "lead": "Regular cleaning that keeps your home clean. You choose how often, we take care of the rest.",
     "cardTitle": "Get a suggested time and price",
@@ -392,6 +393,7 @@
   },
   "ui": {
     "skipLink": "Skip to content",
-    "menu": "Menu"
+    "menu": "Menu",
+    "breadcrumb": "Breadcrumb"
   }
 }

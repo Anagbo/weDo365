@@ -22,6 +22,8 @@
   /* Type scale (mobile first: use the -sm size, then the full one from md/lg). */
   --text-h1: 3.625rem; /* 58px */
   --text-h1--line-height: 1.05;
+  --text-h1-page: 3.375rem; /* 54px, H1 on inner pages */
+  --text-h1-page--line-height: 1.05;
   --text-h1-sm: 2.25rem; /* 36px */
   --text-h1-sm--line-height: 1.1;
   --text-h2: 2.5rem; /* 40px */
