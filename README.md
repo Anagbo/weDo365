@@ -27,11 +27,25 @@ All text is in `src/messages/sv.json` and `src/messages/en.json`. Both files mus
 
 These functional strings were not in the approved copy and were added by the developer. Please check the Swedish (and English) wording.
 
-| Key             | Swedish               | English         | Where                                                |
-| --------------- | --------------------- | --------------- | ---------------------------------------------------- |
-| `ui.skipLink`   | Hoppa till innehållet | Skip to content | Skip link, visible on keyboard focus                 |
-| `ui.menu`       | Meny                  | Menu            | Menu button in the header on mobile                  |
-| `ui.breadcrumb` | Brödsmulor            | Breadcrumb      | Screen-reader name of the breadcrumb (service pages) |
+| Key                   | Swedish                                                                  | English                                                                          | Where                                                |
+| --------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| `ui.skipLink`         | Hoppa till innehållet                                                    | Skip to content                                                                  | Skip link, visible on keyboard focus                 |
+| `ui.menu`             | Meny                                                                     | Menu                                                                             | Menu button in the header on mobile                  |
+| `ui.breadcrumb`       | Brödsmulor                                                               | Breadcrumb                                                                       | Screen-reader name of the breadcrumb (service pages) |
+| `ui.sending`          | Skickar …                                                                | Sending …                                                                        | Submit button while sending                          |
+| `errors.required`     | Fyll i det här fältet.                                                   | Please fill in this field.                                                       | Inline form error                                    |
+| `errors.choose`       | Välj ett alternativ.                                                     | Please choose an option.                                                         | Inline form error                                    |
+| `errors.email`        | Ange en giltig e-postadress.                                             | Enter a valid email address.                                                     | Inline form error                                    |
+| `errors.phone`        | Ange ett giltigt telefonnummer.                                          | Enter a valid phone number.                                                      | Inline form error                                    |
+| `errors.range`        | Ange ett heltal mellan {min} och {max}.                                  | Enter a whole number between {min} and {max}.                                    | Inline form error                                    |
+| `errors.zip`          | Ange fem siffror, t.ex. 123 45.                                          | Enter five digits, e.g. 123 45.                                                  | Inline form error                                    |
+| `errors.date`         | Ange ett giltigt datum.                                                  | Enter a valid date.                                                              | Inline form error                                    |
+| `errors.datePast`     | Välj dagens datum eller ett senare.                                      | Choose today or a later date.                                                    | Inline form error                                    |
+| `errors.orgNr`        | Ange tio siffror, t.ex. 556677-8899.                                     | Enter ten digits, e.g. 556677-8899.                                              | Inline form error                                    |
+| `errors.tooLong`      | Texten är för lång.                                                      | The text is too long.                                                            | Inline form error                                    |
+| `errors.submitFailed` | Det gick inte att skicka just nu. Försök igen eller ring oss på {phone}. | We could not send your request just now. Please try again or call us on {phone}. | Form alert when sending fails                        |
+
+`{min}`, `{max}` and `{phone}` are filled in by the site; keep them as they are.
 
 ### Taken from the prototype
 

@@ -394,6 +394,20 @@
   "ui": {
     "skipLink": "Skip to content",
     "menu": "Menu",
-    "breadcrumb": "Breadcrumb"
+    "breadcrumb": "Breadcrumb",
+    "sending": "Sending …"
+  },
+  "errors": {
+    "required": "Please fill in this field.",
+    "choose": "Please choose an option.",
+    "email": "Enter a valid email address.",
+    "phone": "Enter a valid phone number.",
+    "range": "Enter a whole number between {min} and {max}.",
+    "zip": "Enter five digits, e.g. 123 45.",
+    "date": "Enter a valid date.",
+    "datePast": "Choose today or a later date.",
+    "orgNr": "Enter ten digits, e.g. 556677-8899.",
+    "tooLong": "The text is too long.",
+    "submitFailed": "We could not send your request just now. Please try again or call us on {phone}."
   }
 }
