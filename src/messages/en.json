@@ -437,11 +437,15 @@
         },
         {
           "title": "What is stored on the website",
-          "text": "Nothing. The website has no database and does not store your details. What you send goes to us as an email, and you get a copy."
+          "text": "The website has no database and does not store what you send. It goes to us as an email, and you get a copy."
         },
         {
-          "title": "Email service",
-          "text": "We send email with the service Resend (EU region). Your details pass through Resend on their way to us and to you."
+          "title": "Hosting: Vercel",
+          "text": "The website is run by Vercel, which is a data processor for us. Vercel keeps standard hosting logs of visits to the website."
+        },
+        {
+          "title": "Email service: Resend",
+          "text": "We send email with the service Resend (EU region), which is a data processor for us. What you send goes through Resend on its way to us and to you."
         },
         {
           "title": "How long we keep the details",

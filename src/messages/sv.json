@@ -437,11 +437,15 @@
         },
         {
           "title": "Vad som sparas på webbplatsen",
-          "text": "Ingenting. Webbplatsen har ingen databas och sparar inte dina uppgifter. Det du skickar går som e-post till oss, och du får en kopia."
+          "text": "Webbplatsen har ingen databas och sparar inte det du skickar. Det går som e-post till oss, och du får en kopia."
         },
         {
-          "title": "E-posttjänst",
-          "text": "Vi skickar e-post med tjänsten Resend (EU-region). Uppgifterna går via Resend på väg till oss och till dig."
+          "title": "Webbhotell: Vercel",
+          "text": "Webbplatsen drivs hos Vercel, som är personuppgiftsbiträde åt oss. Vercel sparar vanliga driftloggar över besök på webbplatsen."
+        },
+        {
+          "title": "E-posttjänst: Resend",
+          "text": "Vi skickar e-post med tjänsten Resend (EU-region), som är personuppgiftsbiträde åt oss. Det du skickar går via Resend på väg till oss och till dig."
         },
         {
           "title": "Hur länge vi sparar uppgifterna",

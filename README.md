@@ -123,7 +123,7 @@ These strings were not in the approved copy and were added by the developer. Ple
 | `notFound.text`       | Länken kan vara felaktig, eller så har sidan flyttats.                   | The link may be wrong, or the page may have moved.                               | 404 page: explanation                                |
 | `notFound.home`       | Till startsidan                                                          | Back to home page                                                                | 404 page: button to the start page                   |
 
-**Privacy policy and terms (`legal.*`).** All of this text was written by the developer, so please review it. The first four privacy sections (what we receive, why, what is stored, email service) describe how the site works today and should be checked for accuracy. Retention, rights, the data controller and all of the terms are `[TEXT FRÅN WEDO365]` placeholders. The policy does not yet cover hosting logs (Vercel), the delivery log Resend keeps of sent emails, or cookies (the site sets none). **Have a lawyer review both pages before launch.**
+**Privacy policy and terms (`legal.*`): must be reviewed before launch.** All of this text was written by the developer. The first five privacy sections (what we receive, why, what is stored, Vercel as host, Resend as email service) describe how the site works today and should be checked for accuracy. They name Vercel and Resend as data processors and say that Vercel keeps standard hosting logs. Retention, rights and the data controller are `[TEXT FRÅN WEDO365]` placeholders, and so is most of the terms. The policy does not yet cover the delivery log Resend keeps of sent emails, or cookies (the site sets none). **Have a lawyer review both pages (`/integritetspolicy` and `/villkor`) before launch.**
 
 ### Taken from the prototype
 
@@ -167,12 +167,14 @@ All accounts (GitHub, Vercel, Resend, the domain registrar) should belong to WeD
 
 ## Before launch
 
-- [ ] All placeholders filled in (see above), and the claims in the copy confirmed
-- [ ] Swedish review of the strings in the table above
-- [ ] Lawyer review of the privacy policy and terms, and the policy updated for hosting logs and Resend's delivery log
-- [ ] Real photos in place of the grey boxes; real logo; share image (`[OG-BILD]`)
-- [ ] Production test of both forms in both languages (step 6 above)
-- [ ] Performance check: run Lighthouse or PageSpeed Insights on the live home page on mobile. The target is 95 or more for Performance, Accessibility, Best Practices and SEO. (This has not been measured yet; it needs the live site.)
+- [ ] **Fill in every placeholder** (see the list above), and confirm the claims in the copy are true
+- [ ] **Native Swedish proofread** of all Swedish text, including the strings in the review table
+- [ ] **Lawyer review of the privacy policy and terms** (`/integritetspolicy`, `/villkor`), with the policy updated for anything missing (see the note above)
+- [ ] **Real Resend key test** on the live site: send one request through each form, in both languages. Both emails must arrive (also check spam). The owner email must have the customer as Reply-To, and the customer copy must have the owner as Reply-To.
+- [ ] **Vercel Pro** on the WeDo 365 AB account (the free Hobby plan is for non-commercial use only)
+- [ ] **Domain records added without touching MX:** the site records for `wedo365ab.se` in Vercel, and the SPF/DKIM records for `send.wedo365ab.se` in Resend. Normal email on the main domain must keep working.
+- [ ] **Lighthouse check on mobile** for the live home page. The target is 95 or more for Performance, Accessibility, Best Practices and SEO. (Not measured yet; it needs the live site.)
+- [ ] Real photos instead of the grey boxes, the real logo, and a share image (`[OG-BILD]`)
 
 ## Tests
 
@@ -190,7 +192,7 @@ The pages and forms themselves are not covered by automated browser tests. Durin
 - **This is a recent Next.js with breaking changes.** `AGENTS.md` tells coding agents to read `node_modules/next/dist/docs/` first; do the same before changing framework-level things.
 - **Every page is static**, and the build fails if one stops being static (`ensureStatic` in `src/app/[locale]/layout.tsx`). Cache Components are on. Because of that, `/api/request` must not export a `runtime` setting (it already runs on Node.js).
 - **No language detection and no cookies.** `/` is always Swedish, `/en` is English, and the language switch is a plain link.
-- **The 404 page is bilingual** (one page showing both languages), using Next's `global-not-found`, which is still marked experimental. A `notFound()` from a page would give only a client-rendered shell under Cache Components, and a static page can't know the visitor's language. A rewrite in `next.config.ts` sends unknown URLs containing a dot (like `/index.html`) to the same page.
+- **The 404 page is bilingual** (one page showing both languages). **Uses Next's experimental global-not-found. Re-check after every Next.js upgrade.** A `notFound()` from a page would give only a client-rendered shell under Cache Components, and a static page can't know the visitor's language. A rewrite in `next.config.ts` sends unknown URLs containing a dot (like `/index.html`) to the same page.
 - **Spam protection** is a hidden honeypot field plus a minimum fill time of 3 seconds. There is no rate limiting. If spam gets through after launch, add rules in Vercel's firewall; no code change is needed.
 - **The thank-you page** always says a copy was sent to the customer. If only that copy fails (the owner email went through), the request still counts as received.
 - **The org.nr is deliberately not collected** in the quote form. The owner asks for it when writing the contract.
