@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* Only the brand palette. Tailwind's default colours are removed on purpose. */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-ink: #1e2a24;
+  --color-muted: #4f5d55;
+  --color-ground: #fafaf7;
+  --color-tint: #e8eee3;
+  --color-green: #2f5d4a;
+  --color-accent: #b4532a;
+  --color-line: #dde2d8;
+  --color-field: #7d8a82;
+
+  /* Set by next/font in the root layout. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 20px;
+  --radius-field: 10px;
+
+  /* 1200px content + 24px padding on each side. */
+  --container-site: 1248px;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ground font-sans text-base/[1.6] text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading font-extrabold tracking-[-0.02em] text-balance;
+  }
+
+  a {
+    @apply text-green;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-green);
+    outline-offset: 2px;
+  }
+
+  /* Leave room above in-page anchor targets such as #hur. */
+  [id] {
+    scroll-margin-top: 1.5rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility container-site {
+  @apply mx-auto w-full max-w-site px-6;
+}

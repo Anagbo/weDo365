@@ -1,0 +1,396 @@
+{
+  "meta": {
+    "siteName": "WeDo365",
+    "phone": "076-178 09 02",
+    "phoneHref": "tel:+46761780902"
+  },
+  "nav": {
+    "homes": "För hemmet",
+    "business": "För företag",
+    "howItWorks": "Så går det till",
+    "about": "Om oss",
+    "contact": "Kontakt",
+    "menuLabel": "Huvudmeny",
+    "homeAria": "WeDo365, till startsidan",
+    "switchLabel": "EN",
+    "switchAria": "Read this page in English",
+    "cta": "Boka städning",
+    "call": "Ring"
+  },
+  "footer": {
+    "about": "WeDo 365 AB · Städfirma i Stockholm, 365 dagar om året.",
+    "org": "Org.nr [ORG.NR] · Godkänd för F-skatt",
+    "services": "Tjänster",
+    "contact": "Kontakt",
+    "legal": "Juridiskt",
+    "serviceLinks": [
+      "Hemstädning",
+      "Flyttstädning",
+      "Storstädning",
+      "Fönsterputs",
+      "Företag"
+    ],
+    "email": "[E-POST]@wedo365ab.se",
+    "area": "Stockholm med omnejd",
+    "privacy": "Integritetspolicy",
+    "terms": "Allmänna villkor",
+    "copyright": "© 2026 WeDo 365 AB"
+  },
+  "home": {
+    "title": "WeDo365 – Städfirma i Stockholm",
+    "eyebrow": "Städfirma i Stockholm · 365 dagar om året",
+    "h1": "Rent hemma och på jobbet. Vi tar hand om resten.",
+    "lead": "Berätta vad du behöver, så kontaktar vi dig med ett förslag på tid och pris.",
+    "heroPhotoAlt": "Foto: WeDo365-teamet på jobb i ett hem (egen bild, inte stockfoto)",
+    "doorHomes": {
+      "title": "För hemmet",
+      "text": "Hemstädning, flyttstädning, storstädning och fönsterputs.",
+      "note": "Vi återkommer med pris och tid",
+      "cta": "Skicka förfrågan"
+    },
+    "doorBusiness": {
+      "title": "För företag",
+      "text": "Kontor, trappuppgångar, gym, skolor, diskservice och golvvård.",
+      "note": "Kostnadsfri offert",
+      "cta": "Begär offert"
+    },
+    "trust": [
+      "Ansvarsförsäkring hos [FÖRSÄKRINGSBOLAG]",
+      "Godkänd för F-skatt",
+      "Personlig kontakt innan något bokas",
+      "[BETYG] av 5 på Reco.se"
+    ],
+    "servicesTitle": "Våra tjänster för hemmet",
+    "services": [
+      {
+        "name": "Hemstädning",
+        "text": "Regelbunden städning varje, varannan eller var fjärde vecka.",
+        "link": "Läs mer",
+        "target": "homeCleaning"
+      },
+      {
+        "name": "Flyttstädning",
+        "text": "Grundlig städning inför besiktningen när du flyttar.",
+        "link": "Skicka förfrågan",
+        "target": "book"
+      },
+      {
+        "name": "Storstädning",
+        "text": "En extra grundlig städning av hela hemmet.",
+        "link": "Skicka förfrågan",
+        "target": "book"
+      },
+      {
+        "name": "Fönsterputs",
+        "text": "Rena fönster, in- och utvändigt.",
+        "link": "Skicka förfrågan",
+        "target": "book"
+      }
+    ],
+    "howTitle": "Så enkelt bokar du",
+    "how": [
+      {
+        "title": "Berätta vad du behöver",
+        "text": "Välj tjänst och fyll i några uppgifter om ditt hem."
+      },
+      {
+        "title": "Föreslå dag och tid",
+        "text": "Välj en dag och tid som passar dig."
+      },
+      {
+        "title": "Vi kontaktar dig",
+        "text": "Vi ringer eller mejlar med pris och bekräftar tiden innan något är bokat."
+      }
+    ],
+    "businessTitle": "Städning för företag och fastigheter",
+    "businessText": "Kontor, trappuppgångar, gym och skolor. Vi lägger upp ett schema som passar er verksamhet.",
+    "businessCta": "Begär offert",
+    "businessCta2": "Läs mer",
+    "reviewsTitle": "Vad våra kunder säger",
+    "reviewsSub": "[BETYG] av 5 baserat på [ANTAL] omdömen på Reco.se",
+    "reviewPlaceholder": "[Kundomdöme hämtat från Reco eller Google]",
+    "reviewName": "[Förnamn], [Område]",
+    "faqTitle": "Vanliga frågor",
+    "faq": [
+      {
+        "q": "Hur får jag veta priset?",
+        "a": "Vi går igenom dina önskemål och ger dig ett pris via telefon eller e-post innan något bokas."
+      },
+      {
+        "q": "Behöver jag vara hemma när ni städar?",
+        "a": "[Svar från WeDo365, t.ex. hur nyckelhantering fungerar]"
+      },
+      {
+        "q": "Vad ingår i en flyttstädning?",
+        "a": "[Checklista för flyttstädning och eventuell besiktningsgaranti]"
+      },
+      {
+        "q": "Hur avbokar jag?",
+        "a": "[Avbokningsregler enligt villkoren]"
+      }
+    ],
+    "endTitle": "Redo för ett renare hem?",
+    "endText": "Det tar två minuter att skicka en förfrågan. Hellre ringa? 076-178 09 02",
+    "endCta": "Skicka förfrågan"
+  },
+  "homeCleaning": {
+    "title": "Hemstädning i Stockholm – WeDo365",
+    "breadcrumbHome": "Start",
+    "breadcrumbHomes": "För hemmet",
+    "h1": "Hemstädning i Stockholm",
+    "lead": "Regelbunden städning som håller hemmet rent. Du väljer hur ofta, vi sköter resten.",
+    "cardTitle": "Få ett förslag på tid och pris",
+    "cardText": "Vi återkommer via telefon eller e-post.",
+    "cta": "Skicka förfrågan",
+    "checks": [
+      "Varje vecka, varannan eller var fjärde vecka",
+      "Personlig kontakt innan något bokas"
+    ],
+    "photoAlt": "Foto: hemstädning i kök (egen bild)",
+    "includedTitle": "Det här ingår",
+    "includedNote": "Checklistan anpassas efter WeDo365:s egen tjänstebeskrivning.",
+    "included": [
+      {
+        "title": "Alla rum",
+        "items": [
+          "Dammsuga och våttorka golv",
+          "Damma fria ytor",
+          "Tömma papperskorgar"
+        ]
+      },
+      {
+        "title": "Kök",
+        "items": [
+          "Rengöra diskbänk och kranar",
+          "Torka av spis, bänkar och luckor",
+          "Rengöra mikron invändigt"
+        ]
+      },
+      {
+        "title": "Badrum",
+        "items": [
+          "Rengöra toalett, handfat och dusch",
+          "Putsa speglar",
+          "Torka av kakel"
+        ]
+      }
+    ],
+    "faqTitle": "Frågor om hemstädning",
+    "faq": [
+      {
+        "q": "Får jag samma städare varje gång?",
+        "a": "[Svar från WeDo365]"
+      },
+      {
+        "q": "Vad behöver jag ha hemma?",
+        "a": "[Svar från WeDo365, t.ex. om ni tar med städmaterial]"
+      },
+      {
+        "q": "Finns det bindningstid?",
+        "a": "[Svar från WeDo365]"
+      }
+    ],
+    "endTitle": "Vill du ha hjälp med hemstädning?",
+    "endText": "Skicka en förfrågan, så hör vi av oss med förslag på tid och pris.",
+    "endCta": "Skicka förfrågan"
+  },
+  "business": {
+    "title": "Företagsstädning i Stockholm – WeDo365",
+    "eyebrow": "För företag och fastigheter",
+    "h1": "Städning för företag och fastigheter",
+    "lead": "En ren arbetsmiljö utan att ni behöver tänka på det. Vi lägger upp schemat efter er verksamhet.",
+    "cta": "Begär kostnadsfri offert",
+    "callCta": "Ring 076-178 09 02",
+    "photoAlt": "Foto: WeDo365 städar ett kontor (egen bild)",
+    "sectorsTitle": "Det här hjälper vi till med",
+    "sectors": [
+      {
+        "name": "Kontorsstädning",
+        "text": "Dagligen, veckovis eller efter behov."
+      },
+      {
+        "name": "Trappstädning",
+        "text": "För bostadsrättsföreningar och fastighetsägare."
+      },
+      {
+        "name": "Gym och träningsanläggningar",
+        "text": "Omklädningsrum, träningsytor och redskap."
+      },
+      {
+        "name": "Skolor och utbildningslokaler",
+        "text": "Klassrum, korridorer och gemensamma utrymmen."
+      },
+      {
+        "name": "Diskservice",
+        "text": "Disk och köksstädning på arbetsplatsen."
+      },
+      {
+        "name": "Golvvård",
+        "text": "Skurning, polering och underhåll av golv."
+      }
+    ],
+    "howTitle": "Så går det till",
+    "how": [
+      {
+        "title": "Berätta om lokalen",
+        "text": "Fyll i formuläret. Det tar två minuter."
+      },
+      {
+        "title": "Vi ger ett förslag",
+        "text": "Vi återkommer med upplägg och pris."
+      },
+      {
+        "title": "Vi sätter igång",
+        "text": "Städningen startar på ett datum som passar er."
+      }
+    ],
+    "trust": [
+      "Ansvarsförsäkring hos [FÖRSÄKRINGSBOLAG]",
+      "Godkänd för F-skatt",
+      "[Kollektivavtal: bekräftas]"
+    ],
+    "endTitle": "Få ett förslag för er lokal",
+    "endText": "Kostnadsfritt och utan förpliktelser.",
+    "endCta": "Begär offert"
+  },
+  "quote": {
+    "title": "Begär offert – WeDo365",
+    "h1": "Begär offert",
+    "lead": "Berätta om er lokal, så återkommer vi med ett förslag och pris.",
+    "typeLabel": "Typ av lokal",
+    "types": [
+      "Kontor",
+      "Trappuppgång",
+      "Gym",
+      "Skola",
+      "Restaurang eller kök",
+      "Annat"
+    ],
+    "sizeLabel": "Ungefärlig yta (m²)",
+    "freqLabel": "Hur ofta?",
+    "freqs": [
+      "Dagligen",
+      "Flera gånger i veckan",
+      "Varje vecka",
+      "Varannan vecka",
+      "En gång"
+    ],
+    "companyLabel": "Företag eller förening",
+    "orgLabel": "Org.nr",
+    "personLabel": "Kontaktperson",
+    "emailLabel": "E-post",
+    "phoneLabel": "Telefon",
+    "messageLabel": "Meddelande (valfritt)",
+    "consent": "När du skickar behandlar vi dina uppgifter enligt vår integritetspolicy.",
+    "submit": "Skicka förfrågan",
+    "sideTitle": "Vad händer sen?",
+    "side": [
+      "Vi läser er förfrågan.",
+      "Vi kontaktar er för att boka ett besök eller ge ett pris.",
+      "Ni får en skriftlig offert."
+    ],
+    "sideCall": "Hellre ringa?"
+  },
+  "book": {
+    "title": "Boka städning – WeDo365",
+    "h1": "Boka städning",
+    "lead": "Berätta vad du behöver. Vi kontaktar dig med pris och bekräftar tiden innan något är bokat.",
+    "steps": ["Tjänst", "Detaljer", "Tid och plats", "Kontakt"],
+    "stepLabel": "Steg",
+    "serviceQuestion": "Vad vill du ha hjälp med?",
+    "services": [
+      {
+        "id": "hem",
+        "name": "Hemstädning",
+        "sub": "Regelbunden städning"
+      },
+      {
+        "id": "flytt",
+        "name": "Flyttstädning",
+        "sub": "Inför besiktningen"
+      },
+      {
+        "id": "stor",
+        "name": "Storstädning",
+        "sub": "Extra grundligt"
+      },
+      {
+        "id": "fonster",
+        "name": "Fönsterputs",
+        "sub": "In- och utvändigt"
+      }
+    ],
+    "sizeLabel": "Bostadens storlek (m²)",
+    "windowsLabel": "Antal fönster",
+    "freqLabel": "Hur ofta?",
+    "freqs": [
+      {
+        "id": "w1",
+        "label": "Varje vecka"
+      },
+      {
+        "id": "w2",
+        "label": "Varannan vecka"
+      },
+      {
+        "id": "w4",
+        "label": "Var fjärde vecka"
+      },
+      {
+        "id": "once",
+        "label": "En gång"
+      }
+    ],
+    "dateLabel": "Önskat datum",
+    "slotLabel": "Önskad tid",
+    "slots": [
+      {
+        "id": "am",
+        "label": "Förmiddag",
+        "time": "08–12"
+      },
+      {
+        "id": "pm",
+        "label": "Eftermiddag",
+        "time": "12–17"
+      }
+    ],
+    "streetLabel": "Gatuadress",
+    "zipLabel": "Postnummer",
+    "cityLabel": "Ort",
+    "notesLabel": "Portkod och annat vi bör veta (valfritt)",
+    "nameLabel": "För- och efternamn",
+    "emailLabel": "E-post",
+    "phoneLabel": "Mobilnummer",
+    "consent": "När du skickar behandlar vi dina uppgifter enligt vår integritetspolicy.",
+    "back": "Tillbaka",
+    "next": "Nästa",
+    "submit": "Skicka förfrågan",
+    "summaryTitle": "Din förfrågan",
+    "summaryService": "Tjänst",
+    "summarySize": "Storlek",
+    "summaryWindows": "Fönster",
+    "summaryFreq": "Frekvens",
+    "summarySlot": "Önskad tid",
+    "summaryNote": "Vi går igenom din förfrågan och kontaktar dig via telefon eller e-post med pris och förslag på tid.",
+    "unitM2": "m²",
+    "unitPcs": "st"
+  },
+  "thanks": {
+    "title": "Tack – WeDo365",
+    "h1": "Tack! Vi har fått din förfrågan.",
+    "text": "Vi kontaktar dig för att bekräfta tid och pris. En kopia av din förfrågan har skickats till din e-post.",
+    "nextTitle": "Det här händer nu",
+    "next": [
+      "Vi går igenom din förfrågan.",
+      "Vi kontaktar dig via telefon eller e-post.",
+      "När du har bekräftat är tiden bokad."
+    ],
+    "questions": "Frågor under tiden? Ring",
+    "home": "Till startsidan"
+  },
+  "ui": {
+    "skipLink": "Hoppa till innehållet",
+    "menu": "Meny"
+  }
+}

@@ -1,0 +1,397 @@
+{
+  "meta": {
+    "siteName": "WeDo365",
+    "phone": "076-178 09 02",
+    "phoneHref": "tel:+46761780902"
+  },
+  "nav": {
+    "homes": "For homes",
+    "business": "For businesses",
+    "howItWorks": "How it works",
+    "about": "About",
+    "contact": "Contact",
+    "menuLabel": "Main menu",
+    "homeAria": "WeDo365, go to home page",
+    "switchLabel": "SV",
+    "switchAria": "Läs sidan på svenska",
+    "cta": "Book cleaning",
+    "call": "Call"
+  },
+  "footer": {
+    "about": "WeDo 365 AB · Cleaning company in Stockholm, 365 days a year.",
+    "org": "Org. no. [ORG.NR] · Approved for F-tax",
+    "services": "Services",
+    "contact": "Contact",
+    "legal": "Legal",
+    "serviceLinks": [
+      "Home cleaning",
+      "Move-out cleaning",
+      "Deep cleaning",
+      "Window cleaning",
+      "Business"
+    ],
+    "email": "[EMAIL]@wedo365ab.se",
+    "area": "Stockholm and surroundings",
+    "privacy": "Privacy policy",
+    "terms": "Terms and conditions",
+    "copyright": "© 2026 WeDo 365 AB"
+  },
+  "home": {
+    "title": "WeDo365 – Cleaning company in Stockholm",
+    "eyebrow": "Cleaning company in Stockholm · 365 days a year",
+    "h1": "Clean at home and at work. We take care of the rest.",
+    "lead": "Tell us what you need and we will contact you with a suggested time and price.",
+    "heroPhotoAlt": "Photo: the WeDo365 team at work in a home (own photo, not stock)",
+    "doorHomes": {
+      "title": "For homes",
+      "text": "Home cleaning, move-out cleaning, deep cleaning and window cleaning.",
+      "note": "We get back to you with price and time",
+      "cta": "Send a request"
+    },
+    "doorBusiness": {
+      "title": "For businesses",
+      "text": "Offices, stairwells, gyms, schools, dishwashing service and floor care.",
+      "note": "Free quote",
+      "cta": "Request a quote"
+    },
+    "trust": [
+      "Liability insurance with [INSURER]",
+      "Approved for F-tax",
+      "Personal contact before anything is booked",
+      "[RATING] out of 5 on Reco.se"
+    ],
+    "servicesTitle": "Our services for homes",
+    "services": [
+      {
+        "name": "Home cleaning",
+        "text": "Regular cleaning every week, every other week or every four weeks.",
+        "link": "Read more",
+        "target": "homeCleaning"
+      },
+      {
+        "name": "Move-out cleaning",
+        "text": "Thorough cleaning before the inspection when you move.",
+        "link": "Send a request",
+        "target": "book"
+      },
+      {
+        "name": "Deep cleaning",
+        "text": "An extra thorough clean of the whole home.",
+        "link": "Send a request",
+        "target": "book"
+      },
+      {
+        "name": "Window cleaning",
+        "text": "Clean windows, inside and out.",
+        "link": "Send a request",
+        "target": "book"
+      }
+    ],
+    "howTitle": "Booking is simple",
+    "how": [
+      {
+        "title": "Tell us what you need",
+        "text": "Choose a service and add a few details about your home."
+      },
+      {
+        "title": "Suggest a day and time",
+        "text": "Pick a day and time that suits you."
+      },
+      {
+        "title": "We contact you",
+        "text": "We call or email with a price and confirm the time before anything is booked."
+      }
+    ],
+    "businessTitle": "Cleaning for businesses and properties",
+    "businessText": "Offices, stairwells, gyms and schools. We set up a schedule that fits how you work.",
+    "businessCta": "Request a quote",
+    "businessCta2": "Read more",
+    "reviewsTitle": "What our customers say",
+    "reviewsSub": "[RATING] out of 5 from [COUNT] reviews on Reco.se",
+    "reviewPlaceholder": "[Customer review taken from Reco or Google]",
+    "reviewName": "[First name], [Area]",
+    "faqTitle": "Frequently asked questions",
+    "faq": [
+      {
+        "q": "How do I find out the price?",
+        "a": "We go through what you need and give you a price by phone or email before anything is booked."
+      },
+      {
+        "q": "Do I need to be home while you clean?",
+        "a": "[Answer from WeDo365, e.g. how key handling works]"
+      },
+      {
+        "q": "What does move-out cleaning include?",
+        "a": "[Move-out checklist and any inspection guarantee]"
+      },
+      {
+        "q": "How do I cancel?",
+        "a": "[Cancellation rules from the terms]"
+      }
+    ],
+    "endTitle": "Ready for a cleaner home?",
+    "endText": "It takes two minutes to send a request. Prefer to call? 076-178 09 02",
+    "endCta": "Send a request"
+  },
+  "homeCleaning": {
+    "title": "Home cleaning in Stockholm – WeDo365",
+    "breadcrumbHome": "Home",
+    "breadcrumbHomes": "For homes",
+    "h1": "Home cleaning in Stockholm",
+    "lead": "Regular cleaning that keeps your home clean. You choose how often, we take care of the rest.",
+    "cardTitle": "Get a suggested time and price",
+    "cardText": "We get back to you by phone or email.",
+    "cta": "Send a request",
+    "checks": [
+      "Every week, every other week or every four weeks",
+      "Personal contact before anything is booked"
+    ],
+    "photoAlt": "Photo: home cleaning in a kitchen (own photo)",
+    "includedTitle": "What's included",
+    "includedNote": "The checklist will follow WeDo365's own service description.",
+    "included": [
+      {
+        "title": "All rooms",
+        "items": [
+          "Vacuum and mop floors",
+          "Dust open surfaces",
+          "Empty waste bins"
+        ]
+      },
+      {
+        "title": "Kitchen",
+        "items": [
+          "Clean sink and taps",
+          "Wipe hob, worktops and cabinet doors",
+          "Clean the microwave inside"
+        ]
+      },
+      {
+        "title": "Bathroom",
+        "items": [
+          "Clean toilet, washbasin and shower",
+          "Polish mirrors",
+          "Wipe tiles"
+        ]
+      }
+    ],
+    "faqTitle": "Questions about home cleaning",
+    "faq": [
+      {
+        "q": "Do I get the same cleaner every time?",
+        "a": "[Answer from WeDo365]"
+      },
+      {
+        "q": "What do I need to have at home?",
+        "a": "[Answer from WeDo365, e.g. whether you bring cleaning supplies]"
+      },
+      {
+        "q": "Is there a binding period?",
+        "a": "[Answer from WeDo365]"
+      }
+    ],
+    "endTitle": "Want help with home cleaning?",
+    "endText": "Send a request and we will get back to you with a suggested time and price.",
+    "endCta": "Send a request"
+  },
+  "business": {
+    "title": "Business cleaning in Stockholm – WeDo365",
+    "eyebrow": "For businesses and properties",
+    "h1": "Cleaning for businesses and properties",
+    "lead": "A clean workplace without you having to think about it. We set the schedule around how you work.",
+    "cta": "Request a free quote",
+    "callCta": "Call 076-178 09 02",
+    "photoAlt": "Photo: WeDo365 cleaning an office (own photo)",
+    "sectorsTitle": "What we help with",
+    "sectors": [
+      {
+        "name": "Office cleaning",
+        "text": "Daily, weekly or as needed."
+      },
+      {
+        "name": "Stairwell cleaning",
+        "text": "For housing associations and property owners."
+      },
+      {
+        "name": "Gyms and fitness centres",
+        "text": "Changing rooms, training areas and equipment."
+      },
+      {
+        "name": "Schools and education",
+        "text": "Classrooms, corridors and shared spaces."
+      },
+      {
+        "name": "Dishwashing service",
+        "text": "Dishes and kitchen cleaning at the workplace."
+      },
+      {
+        "name": "Floor care",
+        "text": "Scrubbing, polishing and floor maintenance."
+      }
+    ],
+    "howTitle": "How it works",
+    "how": [
+      {
+        "title": "Tell us about the premises",
+        "text": "Fill in the form. It takes two minutes."
+      },
+      {
+        "title": "We send a proposal",
+        "text": "We get back to you with a plan and a price."
+      },
+      {
+        "title": "We get started",
+        "text": "Cleaning starts on a date that suits you."
+      }
+    ],
+    "trust": [
+      "Liability insurance with [INSURER]",
+      "Approved for F-tax",
+      "[Collective agreement: to confirm]"
+    ],
+    "endTitle": "Get a proposal for your premises",
+    "endText": "Free and without obligation.",
+    "endCta": "Request a quote"
+  },
+  "quote": {
+    "title": "Request a quote – WeDo365",
+    "h1": "Request a quote",
+    "lead": "Tell us about your premises and we will get back to you with a proposal and a price.",
+    "typeLabel": "Type of premises",
+    "types": [
+      "Office",
+      "Stairwell",
+      "Gym",
+      "School",
+      "Restaurant or kitchen",
+      "Other"
+    ],
+    "sizeLabel": "Approximate area (m²)",
+    "freqLabel": "How often?",
+    "freqs": [
+      "Daily",
+      "Several times a week",
+      "Every week",
+      "Every other week",
+      "One-off"
+    ],
+    "companyLabel": "Company or association",
+    "orgLabel": "Org. no.",
+    "personLabel": "Contact person",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "messageLabel": "Message (optional)",
+    "consent": "When you send this, we handle your details according to our privacy policy.",
+    "submit": "Send request",
+    "sideTitle": "What happens next?",
+    "side": [
+      "We read your request.",
+      "We contact you to book a visit or give a price.",
+      "You receive a written quote."
+    ],
+    "sideCall": "Prefer to call?"
+  },
+  "book": {
+    "title": "Book cleaning – WeDo365",
+    "h1": "Book cleaning",
+    "lead": "Tell us what you need. We contact you with a price and confirm the time before anything is booked.",
+    "steps": [
+      "Service",
+      "Details",
+      "Time and place",
+      "Contact"
+    ],
+    "stepLabel": "Step",
+    "serviceQuestion": "What do you need help with?",
+    "services": [
+      {
+        "id": "hem",
+        "name": "Home cleaning",
+        "sub": "Regular cleaning"
+      },
+      {
+        "id": "flytt",
+        "name": "Move-out cleaning",
+        "sub": "Before the inspection"
+      },
+      {
+        "id": "stor",
+        "name": "Deep cleaning",
+        "sub": "Extra thorough"
+      },
+      {
+        "id": "fonster",
+        "name": "Window cleaning",
+        "sub": "Inside and out"
+      }
+    ],
+    "sizeLabel": "Size of your home (m²)",
+    "windowsLabel": "Number of windows",
+    "freqLabel": "How often?",
+    "freqs": [
+      {
+        "id": "w1",
+        "label": "Every week"
+      },
+      {
+        "id": "w2",
+        "label": "Every other week"
+      },
+      {
+        "id": "w4",
+        "label": "Every four weeks"
+      },
+      {
+        "id": "once",
+        "label": "One-off"
+      }
+    ],
+    "dateLabel": "Preferred date",
+    "slotLabel": "Preferred time",
+    "slots": [
+      {
+        "id": "am",
+        "label": "Morning",
+        "time": "08–12"
+      },
+      {
+        "id": "pm",
+        "label": "Afternoon",
+        "time": "12–17"
+      }
+    ],
+    "streetLabel": "Street address",
+    "zipLabel": "Postcode",
+    "cityLabel": "City",
+    "notesLabel": "Door code and anything else we should know (optional)",
+    "nameLabel": "Full name",
+    "emailLabel": "Email",
+    "phoneLabel": "Mobile number",
+    "consent": "When you send this, we handle your details according to our privacy policy.",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Send request",
+    "summaryTitle": "Your request",
+    "summaryService": "Service",
+    "summarySize": "Size",
+    "summaryWindows": "Windows",
+    "summaryFreq": "Frequency",
+    "summarySlot": "Preferred time",
+    "summaryNote": "We go through your request and contact you by phone or email with a price and a suggested time.",
+    "unitM2": "m²",
+    "unitPcs": "pcs"
+  },
+  "thanks": {
+    "title": "Thank you – WeDo365",
+    "h1": "Thank you! We have received your request.",
+    "text": "We will contact you to confirm the time and price. A copy of your request has been sent to your email.",
+    "nextTitle": "What happens now",
+    "next": [
+      "We go through your request.",
+      "We contact you by phone or email.",
+      "Once you confirm, the time is booked."
+    ],
+    "questions": "Questions in the meantime? Call",
+    "home": "Back to home page"
+  }
+}
