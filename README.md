@@ -49,8 +49,13 @@ These functional strings were not in the approved copy and were added by the dev
 | `email.summaryTitle`  | Det här skickade du                                                      | What you sent us                                                                 | Customer email: heading above the summary            |
 | `email.signoff`       | Vänliga hälsningar,                                                      | Kind regards,                                                                    | Customer email: sign-off                             |
 | `email.why`           | Du får det här mejlet eftersom du skickade en förfrågan på {site}.       | You are receiving this email because you sent a request on {site}.               | Customer email: why you got this email               |
+| `notFound.h1`         | Sidan hittades inte                                                      | Page not found                                                                   | 404 page: heading                                    |
+| `notFound.text`       | Länken kan vara felaktig, eller så har sidan flyttats.                   | The link may be wrong, or the page may have moved.                               | 404 page: explanation                                |
+| `notFound.home`       | Till startsidan                                                          | Back to home page                                                                | 404 page: button to the start page                   |
 
 `{min}`, `{max}`, `{phone}`, `{name}` and `{site}` are filled in by the site; keep them as they are.
+
+**Privacy policy and terms (`legal.*`).** All of this text was written by the developer, so please review it. The first four privacy sections (what we receive, why, what is stored, email service) describe how the site works today and should be checked for accuracy. Retention, rights, the data controller and all of the terms are `[TEXT FRÅN WEDO365]` placeholders. The policy does not yet cover hosting logs (Vercel) or cookies (the site sets none). Have a lawyer review both pages before launch. Sections are a list of `{ title, text }` in `src/messages/*.json`, so you can add or remove them without touching code.
 
 The owner email is internal and always in Swedish; its few extra labels ("Typ av förfrågan", "Språk på webbplatsen", "Mottagen" …) are in `src/lib/email/templates.ts`.
 
@@ -69,7 +74,8 @@ Text in square brackets is a placeholder for the owner. Used so far:
 
 - `[ORG.NR]` – organisation number (footer)
 - `[E-POST]` / `[EMAIL]` – the part before `@wedo365ab.se` (footer)
-- `[TEXT FRÅN WEDO365]` – privacy policy and terms pages
+- `[TEXT FRÅN WEDO365]` – privacy policy and terms pages (retention, rights, data controller, all terms)
+- `[OG-BILD]` – share image for social media; see the TODO in `src/lib/seo.ts`
 - `[FÖRSÄKRINGSBOLAG]` / `[INSURER]` – insurance company (home trust bar)
 - `[BETYG]` / `[RATING]` and `[ANTAL]` / `[COUNT]` – Reco.se rating and number of reviews (home trust bar, reviews)
 - `[Kundomdöme …]`, `[Förnamn]`, `[Område]` – the three review cards (home)

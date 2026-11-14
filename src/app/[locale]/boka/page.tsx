@@ -2,13 +2,18 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import { BookingWizard } from "@/components/forms/BookingWizard";
 import { BookingWizardFromQuery } from "@/components/forms/BookingWizardFromQuery";
 import { ConsentText } from "@/components/forms/ConsentText";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("book");
-  return { title: t("title") };
+  return pageMetadata({
+    path: "/boka",
+    title: t("title"),
+    description: t("lead"),
+  });
 }
 
 export default async function BookPage() {

@@ -9,6 +9,9 @@ export const routing = defineRouting({
   // locale cookie, so "/" is always Swedish and every page can be cached.
   localeDetection: false,
   localeCookie: false,
+  // The hreflang alternates come from each page's metadata (canonical host =
+  // SITE_URL). The default Link headers would use the request host instead.
+  alternateLinks: false,
   // Keys are the internal paths (folder names under src/app/[locale]).
   pathnames: {
     "/": "/",

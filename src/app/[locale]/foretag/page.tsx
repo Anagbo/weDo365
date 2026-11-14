@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import { Link } from "@/i18n/navigation";
 import { buttonClasses } from "@/components/ui/button";
 import { cardClasses } from "@/components/ui/card";
@@ -13,7 +14,11 @@ type Sector = { name: string; text: string };
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("business");
-  return { title: t("title") };
+  return pageMetadata({
+    path: "/foretag",
+    title: t("title"),
+    description: t("lead"),
+  });
 }
 
 export default async function BusinessPage() {

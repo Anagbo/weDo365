@@ -2,7 +2,9 @@ import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { bookHref, SERVICE_IDS } from "@/config/site";
+import { bookHref, COMPANY_NAME, SERVICE_IDS, SITE_URL } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { buttonClasses } from "@/components/ui/button";
 import { cardClasses, cardFeaturedClasses } from "@/components/ui/card";
 import { CheckIcon } from "@/components/ui/CheckIcon";
@@ -23,7 +25,11 @@ type ServiceCard = {
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("home");
-  return { title: t("title") };
+  return pageMetadata({
+    path: "/",
+    title: t("title"),
+    description: t("lead"),
+  });
 }
 
 function Arrow() {
@@ -48,6 +54,7 @@ function Stars() {
 export default async function HomePage() {
   const locale = await getLocale();
   const t = await getTranslations("home");
+  const meta = await getTranslations("meta");
 
   const trust = t.raw("trust") as string[];
   const services = t.raw("services") as ServiceCard[];
@@ -79,6 +86,17 @@ export default async function HomePage() {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: COMPANY_NAME,
+          telephone: meta("phoneHref").replace("tel:", ""),
+          areaServed: "Stockholm",
+          url: SITE_URL,
+        }}
+      />
+
       {/* 1. Hero */}
       <section className="container-site grid items-center gap-12 pt-12 pb-10 md:pt-18 md:pb-14 lg:grid-cols-2">
         <div className="flex flex-col gap-5">

@@ -22,3 +22,6 @@ export function bookHref(locale: Locale, service: ServiceId) {
     query: { [SERVICE_QUERY_KEY[locale]]: service },
   };
 }
+
+/** Legal name, used in structured data. */
+export const COMPANY_NAME = "WeDo 365 AB";

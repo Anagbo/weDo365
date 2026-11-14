@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import { QuoteForm } from "@/components/forms/QuoteForm";
 import { ConsentText } from "@/components/forms/ConsentText";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("quote");
-  return { title: t("title") };
+  return pageMetadata({
+    path: "/offert",
+    title: t("title"),
+    description: t("lead"),
+  });
 }
 
 export default async function QuotePage() {

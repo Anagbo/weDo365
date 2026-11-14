@@ -1,3 +1,4 @@
+import type { AppPathname } from "@/i18n/routing";
 import type { ServiceId } from "./site";
 
 /**
@@ -12,7 +13,7 @@ import type { ServiceId } from "./site";
  *    footer) at the new page.
  */
 export const SERVICE_PAGES = {
-  homeCleaning: { service: "hem" },
-} as const satisfies Record<string, { service: ServiceId }>;
+  homeCleaning: { service: "hem", path: "/hemstadning" },
+} as const satisfies Record<string, { service: ServiceId; path: AppPathname }>;
 
 export type ServicePageKey = keyof typeof SERVICE_PAGES;

@@ -415,5 +415,73 @@
     "summaryTitle": "What you sent us",
     "signoff": "Kind regards,",
     "why": "You are receiving this email because you sent a request on {site}."
+  },
+  "notFound": {
+    "h1": "Page not found",
+    "text": "The link may be wrong, or the page may have moved.",
+    "home": "Back to home page"
+  },
+  "legal": {
+    "contactText": "Questions about this page or your details? Get in touch:",
+    "privacy": {
+      "h1": "Privacy policy",
+      "lead": "Here we explain what details you give us when you send a request, and what we do with them.",
+      "sections": [
+        {
+          "title": "What details we receive",
+          "text": "What you fill in when you send a request. For home cleaning, move-out cleaning, deep cleaning and window cleaning: service, size of your home or number of windows, how often, preferred date and time, address, notes, name, email address and mobile number. For business quotes: type of premises, area, how often, company or association, contact person, email address, phone number and message."
+        },
+        {
+          "title": "Why we use the details",
+          "text": "We use the details to answer your request, for example with a suggested time and price."
+        },
+        {
+          "title": "What is stored on the website",
+          "text": "Nothing. The website has no database and does not store your details. What you send goes to us as an email, and you get a copy."
+        },
+        {
+          "title": "Email service",
+          "text": "We send email with the service Resend (EU region). Your details pass through Resend on their way to us and to you."
+        },
+        {
+          "title": "How long we keep the details",
+          "text": "[TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Your rights",
+          "text": "[TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Data controller",
+          "text": "WeDo 365 AB, org. no. [ORG.NR]. [TEXT FRÅN WEDO365]"
+        }
+      ]
+    },
+    "terms": {
+      "h1": "Terms and conditions",
+      "lead": "Terms for services from WeDo 365 AB.",
+      "sections": [
+        {
+          "title": "About these terms",
+          "text": "[TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Requests and booking",
+          "text": "A request on the website is not a booking. We contact you with a price and confirm the time before anything is booked. [TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Cancellation",
+          "text": "[TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Complaints",
+          "text": "[TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Liability and insurance",
+          "text": "[TEXT FRÅN WEDO365]"
+        }
+      ]
+    }
   }
 }

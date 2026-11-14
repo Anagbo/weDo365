@@ -3,6 +3,7 @@ import type { Messages } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { bookHref } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 import { SERVICE_PAGES, type ServicePageKey } from "@/config/service-pages";
 import { buttonClasses } from "@/components/ui/button";
 import { cardClasses, cardFeaturedClasses } from "@/components/ui/card";
@@ -27,7 +28,11 @@ export async function getServicePageMetadata(
   key: ServicePageKey,
 ): Promise<Metadata> {
   const content = await getContent(key);
-  return { title: content.title };
+  return pageMetadata({
+    path: SERVICE_PAGES[key].path,
+    title: content.title,
+    description: content.lead,
+  });
 }
 
 /** Template for a single home service (Hemstädning today, more later). */

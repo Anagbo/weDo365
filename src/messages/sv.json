@@ -415,5 +415,73 @@
     "summaryTitle": "Det här skickade du",
     "signoff": "Vänliga hälsningar,",
     "why": "Du får det här mejlet eftersom du skickade en förfrågan på {site}."
+  },
+  "notFound": {
+    "h1": "Sidan hittades inte",
+    "text": "Länken kan vara felaktig, eller så har sidan flyttats.",
+    "home": "Till startsidan"
+  },
+  "legal": {
+    "contactText": "Frågor om den här sidan eller om dina uppgifter? Hör av dig:",
+    "privacy": {
+      "h1": "Integritetspolicy",
+      "lead": "Här förklarar vi vilka uppgifter du lämnar när du skickar en förfrågan och vad vi gör med dem.",
+      "sections": [
+        {
+          "title": "Vilka uppgifter vi tar emot",
+          "text": "Det du fyller i när du skickar en förfrågan. För hemstädning, flyttstädning, storstädning och fönsterputs: tjänst, bostadens storlek eller antal fönster, önskad frekvens, önskat datum och tid, adress, anteckningar, namn, e-postadress och mobilnummer. För offerter till företag: typ av lokal, yta, frekvens, företag eller förening, kontaktperson, e-postadress, telefonnummer och meddelande."
+        },
+        {
+          "title": "Varför vi använder uppgifterna",
+          "text": "Vi använder uppgifterna för att svara på din förfrågan, till exempel med ett förslag på tid och pris."
+        },
+        {
+          "title": "Vad som sparas på webbplatsen",
+          "text": "Ingenting. Webbplatsen har ingen databas och sparar inte dina uppgifter. Det du skickar går som e-post till oss, och du får en kopia."
+        },
+        {
+          "title": "E-posttjänst",
+          "text": "Vi skickar e-post med tjänsten Resend (EU-region). Uppgifterna går via Resend på väg till oss och till dig."
+        },
+        {
+          "title": "Hur länge vi sparar uppgifterna",
+          "text": "[TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Dina rättigheter",
+          "text": "[TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Personuppgiftsansvarig",
+          "text": "WeDo 365 AB, org.nr [ORG.NR]. [TEXT FRÅN WEDO365]"
+        }
+      ]
+    },
+    "terms": {
+      "h1": "Allmänna villkor",
+      "lead": "Villkor för tjänster från WeDo 365 AB.",
+      "sections": [
+        {
+          "title": "Om villkoren",
+          "text": "[TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Förfrågan och bokning",
+          "text": "En förfrågan på webbplatsen är inte en bokning. Vi kontaktar dig med pris och bekräftar tiden innan något är bokat. [TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Avbokning",
+          "text": "[TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Reklamation",
+          "text": "[TEXT FRÅN WEDO365]"
+        },
+        {
+          "title": "Ansvar och försäkring",
+          "text": "[TEXT FRÅN WEDO365]"
+        }
+      ]
+    }
   }
 }
