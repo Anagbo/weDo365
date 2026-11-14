@@ -1,31 +1,101 @@
 # WeDo365 – wedo365ab.se
 
-Website for WeDo 365 AB, a cleaning company in Stockholm. Next.js (App Router) + Tailwind CSS v4 + next-intl. Swedish at `/`, English at `/en`.
+The website for WeDo 365 AB, a cleaning company in Stockholm. Swedish at `/`, English at `/en`. Customers send **requests** (never bookings) for home cleaning or a business quote; the site emails them to the owner and sends the customer a copy. Nothing is stored on the site.
 
-> A full handover README (env vars, deploy steps, editing guide) comes in phase 7. This file grows with each phase.
+Built with Next.js 16 (App Router), Tailwind CSS v4, next-intl, zod and Resend. Hosted on Vercel.
 
-## Run locally
+**Hard rules for the site:** no prices, no RUT and no personnummer anywhere, on the site or in the forms. Every customer action is a request. The company talks price and RUT through with each customer by phone or email after a request arrives.
+
+**Contents:** [Quick start](#quick-start) · [Environment variables](#environment-variables) · [How the project is organised](#how-the-project-is-organised) · [Editing text](#editing-text) · [Text to review by a native Swedish speaker](#text-to-review-by-a-native-swedish-speaker) · [Placeholders to fill in](#placeholders-to-fill-in) · [Deploying](#deploying-vercel-and-resend) · [Before launch](#before-launch) · [Tests](#tests) · [Good to know](#good-to-know)
+
+---
+
+## Quick start
+
+You need Node.js 22.12 or newer in the 22 line, or Node.js 24 (recommended), and npm.
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000
+cp .env.example .env.local     # then fill it in, see below
+npm run dev                    # http://localhost:3000
 ```
 
-| Script                 | What it does                               |
-| ---------------------- | ------------------------------------------ |
-| `npm run lint`         | ESLint                                     |
-| `npm run typecheck`    | Generates route types, then `tsc --noEmit` |
-| `npm run build`        | Production build (every page is static)    |
-| `npm run format`       | Prettier (with Tailwind class sorting)     |
-| `npm run format:check` | Prettier check only                        |
+The site runs without the email settings, but the forms then show their error message (with the phone number), because nothing can be sent.
+
+| Script                 | What it does                                                |
+| ---------------------- | ----------------------------------------------------------- |
+| `npm run dev`          | Development server                                          |
+| `npm run build`        | Production build (every page is built as static HTML)       |
+| `npm start`            | Serves the production build                                 |
+| `npm run lint`         | ESLint                                                      |
+| `npm run typecheck`    | Generates route types, then `tsc --noEmit`                  |
+| `npm test`             | Unit tests (Vitest). `npm run test:watch` re-runs on change |
+| `npm run format`       | Prettier, with Tailwind class sorting                       |
+| `npm run format:check` | Prettier check only                                         |
+
+Before every commit, `npm run lint`, `npm run typecheck`, `npm test` and `npm run build` should all pass.
+
+## Environment variables
+
+Copy `.env.example` to `.env.local` for local work. On Vercel, set the same variables under _Project Settings → Environment Variables_.
+
+| Variable               | Needed | What it is                                                                                                                                                                                                                       |
+| ---------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `RESEND_API_KEY`       | yes    | API key from Resend ("sending access" is enough).                                                                                                                                                                                |
+| `MAIL_FROM`            | yes    | Sender of both emails, e.g. `WeDo365 <noreply@send.wedo365ab.se>`. The domain must be verified in Resend.                                                                                                                        |
+| `MAIL_TO_OWNER`        | yes    | The inbox where new requests arrive. Customers' replies to their confirmation also go here.                                                                                                                                      |
+| `NEXT_PUBLIC_SITE_URL` | yes    | The public address, no trailing slash. Used for canonical links, the sitemap, robots.txt and structured data. **Read at build time**, so set it before deploying and redeploy if it changes. Defaults to `https://wedo365ab.se`. |
+
+If any of the three email variables is missing, the API answers with an error and writes `[request] Email is not configured …` to the server log (never any form contents).
+
+## How the project is organised
+
+```
+src/
+  app/
+    [locale]/            Every page. One folder per route, named with the internal
+                         Swedish path (boka, offert, foretag …). layout.tsx is the root layout.
+    api/request/         POST /api/request: validates, then sends the two emails
+    global-not-found.tsx The 404 page
+    sitemap.ts, robots.ts
+  components/            layout (header, footer), sections (reusable page blocks),
+                         forms (wizard, quote form), service-page, legal, ui
+  config/                site.ts (domain, service ids), service-pages.ts
+  i18n/                  routing.ts: languages and the translated URLs
+  lib/
+    forms/               zod schemas shared by the browser and the server
+    email/               email templates and the Resend call
+    seo.ts               titles, canonical links, hreflang, Open Graph
+  messages/              sv.json, en.json: ALL text on the site
+docs/
+  BUILD_PROMPT.md        the original brief
+  messages/              the copy as approved in the prototype (reference only)
+  prototype/             static HTML export of the approved design (visual reference)
+```
+
+**URLs** are defined once in `src/i18n/routing.ts`. For example `/hemstadning` in Swedish is `/en/home-cleaning` in English, and the language switch always goes to the same page in the other language.
+
+**Adding another service page** (e.g. Flyttstädning): the steps are listed at the top of `src/config/service-pages.ts`. It reuses the same template as home cleaning, so it takes a new text block in both messages files plus a few lines of config.
 
 ## Editing text
 
-All text is in `src/messages/sv.json` and `src/messages/en.json`. Both files must keep the same keys. `docs/messages/` holds the copy as approved in the prototype, for reference.
+All text on the site is in `src/messages/sv.json` and `src/messages/en.json`.
+
+- **Both files must keep the same keys.** `npm test` fails if one language is missing a key, has an empty text, or uses different `{placeholders}`.
+- Lists such as the FAQ, the trust points and the privacy sections are arrays. You can add or remove items.
+- Some lists are matched to form options **by position** (`quote.types`, `quote.freqs`, `book.services` …). Don't reorder or remove items in those; the tests check it.
+- Text such as `{phone}` or `{name}` is filled in by the site. Keep it as it is.
+- **The phone number** is in `meta.phone` and `meta.phoneHref`, and also written out inside two sentences: `home.endText` and `business.callCta` (in both files). Change all of them.
+- **The privacy policy and terms** are the `legal` section: a list of `{ title, text }` per page.
+- **The owner email** is always Swedish. Its few extra labels ("Typ av förfrågan", "Mottagen" …) are in `src/lib/email/templates.ts`; everything else reuses the forms' own labels.
+- **Photos:** every grey box with a "Foto: …" caption is a placeholder. See the comment at the top of `src/components/sections/PhotoPlaceholder.tsx` for how to put in a real photo with `next/image`. No stock photos.
+- **Logo:** `src/components/Logo.tsx` is a placeholder (a green "W" and the wordmark). Replace it when the real logo exists.
+
+After editing, run `npm test` and `npm run build`.
 
 ## Text to review by a native Swedish speaker
 
-These functional strings were not in the approved copy and were added by the developer. Please check the Swedish (and English) wording.
+These strings were not in the approved copy and were added by the developer. Please check the Swedish (and English) wording.
 
 | Key                   | Swedish                                                                  | English                                                                          | Where                                                |
 | --------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | ---------------------------------------------------- |
@@ -53,11 +123,7 @@ These functional strings were not in the approved copy and were added by the dev
 | `notFound.text`       | Länken kan vara felaktig, eller så har sidan flyttats.                   | The link may be wrong, or the page may have moved.                               | 404 page: explanation                                |
 | `notFound.home`       | Till startsidan                                                          | Back to home page                                                                | 404 page: button to the start page                   |
 
-`{min}`, `{max}`, `{phone}`, `{name}` and `{site}` are filled in by the site; keep them as they are.
-
-**Privacy policy and terms (`legal.*`).** All of this text was written by the developer, so please review it. The first four privacy sections (what we receive, why, what is stored, email service) describe how the site works today and should be checked for accuracy. Retention, rights, the data controller and all of the terms are `[TEXT FRÅN WEDO365]` placeholders. The policy does not yet cover hosting logs (Vercel) or cookies (the site sets none). Have a lawyer review both pages before launch. Sections are a list of `{ title, text }` in `src/messages/*.json`, so you can add or remove them without touching code.
-
-The owner email is internal and always in Swedish; its few extra labels ("Typ av förfrågan", "Språk på webbplatsen", "Mottagen" …) are in `src/lib/email/templates.ts`.
+**Privacy policy and terms (`legal.*`).** All of this text was written by the developer, so please review it. The first four privacy sections (what we receive, why, what is stored, email service) describe how the site works today and should be checked for accuracy. Retention, rights, the data controller and all of the terms are `[TEXT FRÅN WEDO365]` placeholders. The policy does not yet cover hosting logs (Vercel), the delivery log Resend keeps of sent emails, or cookies (the site sets none). **Have a lawyer review both pages before launch.**
 
 ### Taken from the prototype
 
@@ -70,19 +136,61 @@ This text was in the approved prototype (`docs/prototype/`) but missing from the
 
 ## Placeholders to fill in
 
-Text in square brackets is a placeholder for the owner. Used so far:
+Text in square brackets is a placeholder for the owner. The brackets are kept exactly as written until the real text is in. This is the complete list (find them with a text search for `[`):
 
-- `[ORG.NR]` – organisation number (footer)
-- `[E-POST]` / `[EMAIL]` – the part before `@wedo365ab.se` (footer)
-- `[TEXT FRÅN WEDO365]` – privacy policy and terms pages (retention, rights, data controller, all terms)
-- `[OG-BILD]` – share image for social media; see the TODO in `src/lib/seo.ts`
-- `[FÖRSÄKRINGSBOLAG]` / `[INSURER]` – insurance company (home trust bar)
-- `[BETYG]` / `[RATING]` and `[ANTAL]` / `[COUNT]` – Reco.se rating and number of reviews (home trust bar, reviews)
-- `[Kundomdöme …]`, `[Förnamn]`, `[Område]` – the three review cards (home)
-- `[Svar från WeDo365 …]`, `[Checklista …]`, `[Avbokningsregler …]` – FAQ answers (home)
-- `[Kollektivavtal: bekräftas]` / `[Collective agreement: to confirm]` – business page trust list
-- `[Svar från WeDo365]` (and variants) – FAQ answers (home cleaning)
+| Placeholder (Swedish / English)                                                                                                     | Where it shows                      | What goes there                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --------------------------------------------------------- |
+| `[ORG.NR]`                                                                                                                          | Footer, privacy policy              | Organisation number                                       |
+| `[E-POST]` / `[EMAIL]`                                                                                                              | Footer, contact blocks              | The part before `@wedo365ab.se`                           |
+| `[FÖRSÄKRINGSBOLAG]` / `[INSURER]`                                                                                                  | Home and business trust lists       | Name of the liability insurer                             |
+| `[BETYG]` / `[RATING]`, `[ANTAL]` / `[COUNT]`                                                                                       | Home trust list, reviews heading    | Reco.se rating and number of reviews                      |
+| `[Kundomdöme hämtat från Reco eller Google]`, `[Förnamn]`, `[Område]` (and English)                                                 | Three review cards on the home page | Real reviews, with permission                             |
+| `[Svar från WeDo365, t.ex. hur nyckelhantering fungerar]`, `[Checklista för flyttstädning …]`, `[Avbokningsregler …]` (and English) | Home page FAQ                       | The answers                                               |
+| `[Svar från WeDo365]`, `[Svar från WeDo365, t.ex. om ni tar med städmaterial]` (and English)                                        | Home-cleaning page FAQ              | The answers                                               |
+| `[Kollektivavtal: bekräftas]` / `[Collective agreement: to confirm]`                                                                | Business page trust list            | Confirm and reword, or remove the line                    |
+| `[TEXT FRÅN WEDO365]`                                                                                                               | Privacy policy and terms            | Retention, rights, data controller; all terms             |
+| `[OG-BILD]`                                                                                                                         | A comment in `src/lib/seo.ts`       | A share image (1200×630) for links shared on social media |
 
-Photos: every grey box with a "Foto: …" caption is a placeholder for an own photo (no stock photos). See `src/components/sections/PhotoPlaceholder.tsx` for how to drop one in.
+**Claims in the approved copy to confirm are true before launch:** "Godkänd för F-skatt", the liability insurance, the Reco.se rating, "365 dagar om året", and that WeDo365 can offer the services on the site (including the checklist under "Det här ingår").
 
-The complete list follows in phase 7.
+## Deploying (Vercel and Resend)
+
+All accounts (GitHub, Vercel, Resend, the domain registrar) should belong to WeDo 365 AB, with the developer added as a member.
+
+1. **GitHub.** Push this repository to a repository owned by the company.
+2. **Vercel.** Import the repository. **Use a Pro plan:** the free Hobby plan is for non-commercial use only. The framework (Next.js) and build settings are detected automatically. `vercel.json` pins the server function (`/api/request`) to Stockholm (`arn1`); every page is static and is served from Vercel's network.
+3. **Environment variables.** Add the four variables above, for Production (and Preview if you want preview deployments to send email). Set `NEXT_PUBLIC_SITE_URL` to the final public address.
+4. **Domain.** Add `wedo365ab.se` in Vercel and set the DNS records it shows. Choose whether the main address is `wedo365ab.se` or `www.wedo365ab.se`, make the other one redirect to it (in Vercel's domain settings), and use the main one in `NEXT_PUBLIC_SITE_URL`.
+5. **Resend.** Add the sending domain as a **subdomain**, `send.wedo365ab.se`, and choose the **EU region** when adding it. Add the DNS records Resend lists (SPF, DKIM) **without touching the MX records of the main domain**, so normal email keeps working. Wait until Resend shows the domain as verified, then create an API key and set `MAIL_FROM`.
+6. **First test in production.** Send one request through each form (`/boka` and `/offert`, and the English versions). Check that the owner inbox gets the email in Swedish, that the customer copy arrives (also look in spam), and that replying to each email goes to the other party.
+7. **Google Search Console.** Add the property and submit `https://wedo365ab.se/sitemap.xml`. (Vercel marks preview deployments as `noindex` by default.)
+
+## Before launch
+
+- [ ] All placeholders filled in (see above), and the claims in the copy confirmed
+- [ ] Swedish review of the strings in the table above
+- [ ] Lawyer review of the privacy policy and terms, and the policy updated for hosting logs and Resend's delivery log
+- [ ] Real photos in place of the grey boxes; real logo; share image (`[OG-BILD]`)
+- [ ] Production test of both forms in both languages (step 6 above)
+- [ ] Performance check: run Lighthouse or PageSpeed Insights on the live home page on mobile. The target is 95 or more for Performance, Accessibility, Best Practices and SEO. (This has not been measured yet; it needs the live site.)
+
+## Tests
+
+`npm test` runs the unit tests (a few seconds):
+
+- **Form schemas** (valid and invalid home and business requests, date rules in Stockholm time, the spam guard)
+- **Email builders** (the owner email has every field and is in Swedish; the customer email is in the customer's language; HTML in input is escaped; no price, RUT or personnummer words)
+- **Sending** with the Resend SDK replaced by a stand-in (recipients, reply-to, what happens when each email fails, no form contents in the log)
+- **The messages files** (same keys in both languages, no empty text, lists that line up with the form options)
+
+The pages and forms themselves are not covered by automated browser tests. During development they were checked by hand and with scripts in a real browser at 375 px and 1440 px wide, in both languages.
+
+## Good to know
+
+- **This is a recent Next.js with breaking changes.** `AGENTS.md` tells coding agents to read `node_modules/next/dist/docs/` first; do the same before changing framework-level things.
+- **Every page is static**, and the build fails if one stops being static (`ensureStatic` in `src/app/[locale]/layout.tsx`). Cache Components are on. Because of that, `/api/request` must not export a `runtime` setting (it already runs on Node.js).
+- **No language detection and no cookies.** `/` is always Swedish, `/en` is English, and the language switch is a plain link.
+- **The 404 page is bilingual** (one page showing both languages), using Next's `global-not-found`, which is still marked experimental. A `notFound()` from a page would give only a client-rendered shell under Cache Components, and a static page can't know the visitor's language. A rewrite in `next.config.ts` sends unknown URLs containing a dot (like `/index.html`) to the same page.
+- **Spam protection** is a hidden honeypot field plus a minimum fill time of 3 seconds. There is no rate limiting. If spam gets through after launch, add rules in Vercel's firewall; no code change is needed.
+- **The thank-you page** always says a copy was sent to the customer. If only that copy fails (the owner email went through), the request still counts as received.
+- **The org.nr is deliberately not collected** in the quote form. The owner asks for it when writing the contract.

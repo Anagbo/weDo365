@@ -48,7 +48,7 @@ export default async function LocaleLayout({
       <body className="flex min-h-dvh flex-col">
         <a
           href="#main"
-          className="sr-only rounded-full bg-ink px-5 py-3 font-semibold text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
+          className="sr-only rounded-full bg-ink font-semibold text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:inline-flex focus:min-h-12 focus:items-center focus:px-5"
         >
           {ui("skipLink")}
         </a>

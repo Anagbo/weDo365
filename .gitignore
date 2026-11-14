@@ -43,3 +43,6 @@ next-env.d.ts
 # editors
 .idea/
 .claude/settings.local.json
+
+# but keep the example file
+!.env.example
