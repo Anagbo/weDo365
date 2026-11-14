@@ -44,8 +44,15 @@ These functional strings were not in the approved copy and were added by the dev
 | `errors.datePast`     | Välj dagens datum eller ett senare.                                      | Choose today or a later date.                                                    | Inline form error                                    |
 | `errors.tooLong`      | Texten är för lång.                                                      | The text is too long.                                                            | Inline form error                                    |
 | `errors.submitFailed` | Det gick inte att skicka just nu. Försök igen eller ring oss på {phone}. | We could not send your request just now. Please try again or call us on {phone}. | Form alert when sending fails                        |
+| `email.subject`       | Vi har fått din förfrågan – WeDo365                                      | We have received your request – WeDo365                                          | Customer email: subject                              |
+| `email.greeting`      | Hej {name}!                                                              | Hi {name},                                                                       | Customer email: greeting                             |
+| `email.summaryTitle`  | Det här skickade du                                                      | What you sent us                                                                 | Customer email: heading above the summary            |
+| `email.signoff`       | Vänliga hälsningar,                                                      | Kind regards,                                                                    | Customer email: sign-off                             |
+| `email.why`           | Du får det här mejlet eftersom du skickade en förfrågan på {site}.       | You are receiving this email because you sent a request on {site}.               | Customer email: why you got this email               |
 
-`{min}`, `{max}` and `{phone}` are filled in by the site; keep them as they are.
+`{min}`, `{max}`, `{phone}`, `{name}` and `{site}` are filled in by the site; keep them as they are.
+
+The owner email is internal and always in Swedish; its few extra labels ("Typ av förfrågan", "Språk på webbplatsen", "Mottagen" …) are in `src/lib/email/templates.ts`.
 
 ### Taken from the prototype
 

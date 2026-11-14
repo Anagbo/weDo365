@@ -1,12 +1,18 @@
-import type { RequestPayload } from "./schemas";
+import type { RequestPayload, SpamGuard } from "./schemas";
 
-/** Posts a request to /api/request. Resolves to true only on { ok: true }. */
-export async function postRequest(payload: RequestPayload): Promise<boolean> {
+/**
+ * Posts a request to /api/request together with the spam-guard fields.
+ * Resolves to true only on { ok: true }.
+ */
+export async function postRequest(
+  payload: RequestPayload,
+  guard: SpamGuard,
+): Promise<boolean> {
   try {
     const res = await fetch("/api/request", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({ ...payload, ...guard }),
     });
     if (!res.ok) return false;
     const body: unknown = await res.json();

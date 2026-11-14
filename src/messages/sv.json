@@ -408,5 +408,12 @@
     "datePast": "Välj dagens datum eller ett senare.",
     "tooLong": "Texten är för lång.",
     "submitFailed": "Det gick inte att skicka just nu. Försök igen eller ring oss på {phone}."
+  },
+  "email": {
+    "subject": "Vi har fått din förfrågan – WeDo365",
+    "greeting": "Hej {name}!",
+    "summaryTitle": "Det här skickade du",
+    "signoff": "Vänliga hälsningar,",
+    "why": "Du får det här mejlet eftersom du skickade en förfrågan på {site}."
   }
 }

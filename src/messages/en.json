@@ -408,5 +408,12 @@
     "datePast": "Choose today or a later date.",
     "tooLong": "The text is too long.",
     "submitFailed": "We could not send your request just now. Please try again or call us on {phone}."
+  },
+  "email": {
+    "subject": "We have received your request – WeDo365",
+    "greeting": "Hi {name},",
+    "summaryTitle": "What you sent us",
+    "signoff": "Kind regards,",
+    "why": "You are receiving this email because you sent a request on {site}."
   }
 }

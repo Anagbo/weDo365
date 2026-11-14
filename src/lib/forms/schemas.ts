@@ -30,12 +30,12 @@ export type ErrorKey =
 
 const err = (key: ErrorKey) => ({ error: key });
 
+/** Single-line text: line breaks and repeated spaces become one space. */
 const text = (max: number) =>
   z
     .string(err("required"))
-    .trim()
-    .min(1, err("required"))
-    .max(max, err("tooLong"));
+    .transform((v) => v.replace(/\s+/g, " ").trim())
+    .pipe(z.string().min(1, err("required")).max(max, err("tooLong")));
 
 const optionalText = (max: number) =>
   z.string().trim().max(max, err("tooLong")).optional().default("");
@@ -154,6 +154,27 @@ export const requestSchema = z.union([
 ]);
 
 export type RequestPayload = z.infer<typeof requestSchema>;
+
+/* ---------- Spam protection (sent alongside the form fields) ---------- */
+
+/** Reject requests sent faster than this after the form appeared. */
+export const MIN_FILL_MS = 3000;
+
+/** Name of the hidden honeypot field. People leave it empty; bots fill it. */
+export const HONEYPOT_FIELD = "website";
+
+export const spamGuardSchema = z.object({
+  [HONEYPOT_FIELD]: z.string().max(500).optional().default(""),
+  /** Milliseconds between the form appearing and the request being sent. */
+  fillMs: z.number().int().nonnegative(),
+});
+
+export type SpamGuard = z.infer<typeof spamGuardSchema>;
+
+/** True if the request looks automated. */
+export function looksLikeSpam(guard: z.infer<typeof spamGuardSchema>) {
+  return guard[HONEYPOT_FIELD] !== "" || guard.fillMs < MIN_FILL_MS;
+}
 
 /** Field name → first error key, for showing inline errors. */
 export function fieldErrors(error: z.ZodError): Record<string, ErrorKey> {

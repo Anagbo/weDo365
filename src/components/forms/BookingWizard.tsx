@@ -33,6 +33,7 @@ import { linkText } from "@/lib/link-text";
 import { buttonClasses } from "@/components/ui/button";
 import { cardClasses } from "@/components/ui/card";
 import { CheckIcon } from "@/components/ui/CheckIcon";
+import { useSpamGuard } from "./useSpamGuard";
 import {
   focusFirstError,
   FormAlert,
@@ -118,6 +119,7 @@ export function BookingWizard({ initialService, consent }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const stepChanged = useRef(false);
   const submitted = useRef(false);
+  const { honeypot, read: readGuard, restart: restartGuard } = useSpamGuard();
 
   // Move focus to the new step's heading, but not on first render.
   useEffect(() => {
@@ -132,6 +134,7 @@ export function BookingWizard({ initialService, consent }: Props) {
     return () => {
       if (!submitted.current) return;
       submitted.current = false;
+      restartGuard();
       stepChanged.current = false;
       setStep(0);
       setValues(emptyValues(initialService));
@@ -139,7 +142,7 @@ export function BookingWizard({ initialService, consent }: Props) {
       setSending(false);
       setFailed(false);
     };
-  }, [initialService]);
+  }, [initialService, restartGuard]);
 
   const steps = t.raw("steps") as string[];
   const services = t.raw("services") as {
@@ -209,7 +212,7 @@ export function BookingWizard({ initialService, consent }: Props) {
 
     setSending(true);
     setFailed(false);
-    const ok = await postRequest(parsed.data);
+    const ok = await postRequest(parsed.data, readGuard());
     if (ok) {
       submitted.current = true;
       router.push("/tack");
@@ -464,6 +467,8 @@ export function BookingWizard({ initialService, consent }: Props) {
               </>
             ) : null}
           </div>
+
+          {honeypot}
 
           {failed ? (
             <FormAlert>

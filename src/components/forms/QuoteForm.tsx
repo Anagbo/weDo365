@@ -26,6 +26,7 @@ import { postRequest } from "@/lib/forms/submit";
 import { linkText } from "@/lib/link-text";
 import { buttonClasses } from "@/components/ui/button";
 import { cardClasses } from "@/components/ui/card";
+import { useSpamGuard } from "./useSpamGuard";
 import {
   focusFirstError,
   FormAlert,
@@ -86,6 +87,7 @@ export function QuoteForm({ consent }: { consent: ReactNode }) {
   const [sending, setSending] = useState(false);
   const [failed, setFailed] = useState(false);
   const submitted = useRef(false);
+  const { honeypot, read: readGuard, restart: restartGuard } = useSpamGuard();
 
   // After a successful send this page is kept alive but hidden (<Activity>),
   // which runs effect cleanups: start over, so coming back shows an empty form.
@@ -93,12 +95,13 @@ export function QuoteForm({ consent }: { consent: ReactNode }) {
     return () => {
       if (!submitted.current) return;
       submitted.current = false;
+      restartGuard();
       setValues(emptyValues());
       setErrors({});
       setSending(false);
       setFailed(false);
     };
-  }, []);
+  }, [restartGuard]);
 
   // Labels come from the messages files in the same order as the ids.
   const typeLabels = t.raw("types") as string[];
@@ -134,7 +137,7 @@ export function QuoteForm({ consent }: { consent: ReactNode }) {
     setErrors({});
     setSending(true);
     setFailed(false);
-    const ok = await postRequest(parsed.data);
+    const ok = await postRequest(parsed.data, readGuard());
     if (ok) {
       submitted.current = true;
       router.push("/tack");
@@ -239,6 +242,8 @@ export function QuoteForm({ consent }: { consent: ReactNode }) {
       />
 
       <p className="text-sm text-muted">{consent}</p>
+
+      {honeypot}
 
       {failed ? (
         <FormAlert>
