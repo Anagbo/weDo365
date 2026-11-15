@@ -1,9 +1,7 @@
-import sv from "@/messages/sv.json";
-import en from "@/messages/en.json";
-import type { Locale } from "@/i18n/routing";
+import { MESSAGES } from "@/messages";
 
-/** The messages files, for building emails outside React. */
-export const MESSAGES = { sv, en } as const satisfies Record<Locale, unknown>;
+/** The messages files (company details filled in), for emails outside React. */
+export { MESSAGES };
 export type Messages = (typeof MESSAGES)["sv"];
 
 /** Escapes text for use in HTML (element content and attribute values). */

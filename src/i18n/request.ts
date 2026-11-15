@@ -1,6 +1,7 @@
 import { hasLocale } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
 import { locale as rootLocale } from "next/root-params";
+import { MESSAGES } from "@/messages";
 import { routing } from "./routing";
 
 // The locale comes from the [locale] root segment via next/root-params, so
@@ -14,6 +15,7 @@ export default getRequestConfig(async () => {
   return {
     locale,
     timeZone: "Europe/Stockholm",
-    messages: (await import(`../messages/${locale}.json`)).default,
+    // Company details ({orgNr}, {insurer} …) come from src/config/company.ts.
+    messages: MESSAGES[locale],
   };
 });

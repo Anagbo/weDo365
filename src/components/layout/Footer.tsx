@@ -2,6 +2,7 @@ import type { ComponentProps } from "react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { bookHref, type ServiceId } from "@/config/site";
+import { PostalAddress } from "@/components/PostalAddress";
 
 type Href = ComponentProps<typeof Link>["href"];
 
@@ -84,6 +85,10 @@ export async function Footer() {
               {t("area")}
             </li>
           </ul>
+          <PostalAddress
+            label={t("postalAddress")}
+            className="mt-2 text-sm text-white/85"
+          />
         </Column>
 
         <Column title={t("legal")}>

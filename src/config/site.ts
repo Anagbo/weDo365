@@ -1,8 +1,9 @@
 import type { Locale } from "@/i18n/routing";
+import { COMPANY } from "./company";
 
 /** Public site URL. Change the domain here (or via NEXT_PUBLIC_SITE_URL). */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://wedo365ab.se"
+  process.env.NEXT_PUBLIC_SITE_URL ?? `https://${COMPANY.domain}`
 ).replace(/\/$/, "");
 
 /** Service ids used by the wizard and its ?tjanst= / ?service= preselect. */
@@ -22,6 +23,3 @@ export function bookHref(locale: Locale, service: ServiceId) {
     query: { [SERVICE_QUERY_KEY[locale]]: service },
   };
 }
-
-/** Legal name, used in structured data. */
-export const COMPANY_NAME = "WeDo 365 AB";

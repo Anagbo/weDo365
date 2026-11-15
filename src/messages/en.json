@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": "WeDo365",
-    "phone": "076-178 09 02",
-    "phoneHref": "tel:+46761780902"
+    "phone": "{phone}",
+    "phoneHref": "{phoneHref}"
   },
   "nav": {
     "homes": "For homes",
@@ -18,8 +18,8 @@
     "call": "Call"
   },
   "footer": {
-    "about": "WeDo 365 AB · Cleaning company in Stockholm, 365 days a year.",
-    "org": "Org. no. [ORG.NR] · Approved for F-tax",
+    "about": "{company} · Cleaning company in Stockholm, 365 days a year · {employees} employees.",
+    "org": "Org. no. {orgNr} · Approved for F-tax",
     "services": "Services",
     "contact": "Contact",
     "legal": "Legal",
@@ -30,11 +30,12 @@
       "Window cleaning",
       "Business"
     ],
-    "email": "[EMAIL]@wedo365ab.se",
+    "email": "{email}",
+    "postalAddress": "Postal address",
     "area": "Stockholm and surroundings",
     "privacy": "Privacy policy",
     "terms": "Terms and conditions",
-    "copyright": "© 2026 WeDo 365 AB"
+    "copyright": "© 2026 {company}"
   },
   "home": {
     "title": "WeDo365 – Cleaning company in Stockholm",
@@ -55,7 +56,7 @@
       "cta": "Request a quote"
     },
     "trust": [
-      "Liability insurance with [INSURER]",
+      "Liability insurance with {insurer}",
       "Approved for F-tax",
       "Personal contact before anything is booked",
       "[RATING] out of 5 on Reco.se"
@@ -131,7 +132,7 @@
       }
     ],
     "endTitle": "Ready for a cleaner home?",
-    "endText": "It takes two minutes to send a request. Prefer to call? 076-178 09 02",
+    "endText": "It takes two minutes to send a request. Prefer to call? {phone}",
     "endCta": "Send a request"
   },
   "homeCleaning": {
@@ -202,7 +203,7 @@
     "h1": "Cleaning for businesses and properties",
     "lead": "A clean workplace without you having to think about it. We set the schedule around how you work.",
     "cta": "Request a free quote",
-    "callCta": "Call 076-178 09 02",
+    "callCta": "Call {phone}",
     "photoAlt": "Photo: WeDo365 cleaning an office (own photo)",
     "sectorsTitle": "What we help with",
     "sectors": [
@@ -246,11 +247,7 @@
         "text": "Cleaning starts on a date that suits you."
       }
     ],
-    "trust": [
-      "Liability insurance with [INSURER]",
-      "Approved for F-tax",
-      "[Collective agreement: to confirm]"
-    ],
+    "trust": ["Liability insurance with {insurer}", "Approved for F-tax"],
     "endTitle": "Get a proposal for your premises",
     "endText": "Free and without obligation.",
     "endCta": "Request a quote"
@@ -423,6 +420,7 @@
   },
   "legal": {
     "contactText": "Questions about this page or your details? Get in touch:",
+    "company": "{company}, org. no. {orgNr}",
     "privacy": {
       "h1": "Privacy policy",
       "lead": "Here we explain what details you give us when you send a request, and what we do with them.",
@@ -457,13 +455,13 @@
         },
         {
           "title": "Data controller",
-          "text": "WeDo 365 AB, org. no. [ORG.NR]. [TEXT FRÅN WEDO365]"
+          "text": "{company}, org. no. {orgNr}. Postal address: {postalAddress}. Email: {email}."
         }
       ]
     },
     "terms": {
       "h1": "Terms and conditions",
-      "lead": "Terms for services from WeDo 365 AB.",
+      "lead": "Terms for services from {company}.",
       "sections": [
         {
           "title": "About these terms",

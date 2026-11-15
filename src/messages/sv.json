@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": "WeDo365",
-    "phone": "076-178 09 02",
-    "phoneHref": "tel:+46761780902"
+    "phone": "{phone}",
+    "phoneHref": "{phoneHref}"
   },
   "nav": {
     "homes": "För hemmet",
@@ -18,8 +18,8 @@
     "call": "Ring"
   },
   "footer": {
-    "about": "WeDo 365 AB · Städfirma i Stockholm, 365 dagar om året.",
-    "org": "Org.nr [ORG.NR] · Godkänd för F-skatt",
+    "about": "{company} · Städfirma i Stockholm, 365 dagar om året · {employees} anställda.",
+    "org": "Org.nr {orgNr} · Godkänd för F-skatt",
     "services": "Tjänster",
     "contact": "Kontakt",
     "legal": "Juridiskt",
@@ -30,11 +30,12 @@
       "Fönsterputs",
       "Företag"
     ],
-    "email": "[E-POST]@wedo365ab.se",
+    "email": "{email}",
+    "postalAddress": "Postadress",
     "area": "Stockholm med omnejd",
     "privacy": "Integritetspolicy",
     "terms": "Allmänna villkor",
-    "copyright": "© 2026 WeDo 365 AB"
+    "copyright": "© 2026 {company}"
   },
   "home": {
     "title": "WeDo365 – Städfirma i Stockholm",
@@ -55,7 +56,7 @@
       "cta": "Begär offert"
     },
     "trust": [
-      "Ansvarsförsäkring hos [FÖRSÄKRINGSBOLAG]",
+      "Ansvarsförsäkring hos {insurer}",
       "Godkänd för F-skatt",
       "Personlig kontakt innan något bokas",
       "[BETYG] av 5 på Reco.se"
@@ -131,7 +132,7 @@
       }
     ],
     "endTitle": "Redo för ett renare hem?",
-    "endText": "Det tar två minuter att skicka en förfrågan. Hellre ringa? 076-178 09 02",
+    "endText": "Det tar två minuter att skicka en förfrågan. Hellre ringa? {phone}",
     "endCta": "Skicka förfrågan"
   },
   "homeCleaning": {
@@ -202,7 +203,7 @@
     "h1": "Städning för företag och fastigheter",
     "lead": "En ren arbetsmiljö utan att ni behöver tänka på det. Vi lägger upp schemat efter er verksamhet.",
     "cta": "Begär kostnadsfri offert",
-    "callCta": "Ring 076-178 09 02",
+    "callCta": "Ring {phone}",
     "photoAlt": "Foto: WeDo365 städar ett kontor (egen bild)",
     "sectorsTitle": "Det här hjälper vi till med",
     "sectors": [
@@ -246,11 +247,7 @@
         "text": "Städningen startar på ett datum som passar er."
       }
     ],
-    "trust": [
-      "Ansvarsförsäkring hos [FÖRSÄKRINGSBOLAG]",
-      "Godkänd för F-skatt",
-      "[Kollektivavtal: bekräftas]"
-    ],
+    "trust": ["Ansvarsförsäkring hos {insurer}", "Godkänd för F-skatt"],
     "endTitle": "Få ett förslag för er lokal",
     "endText": "Kostnadsfritt och utan förpliktelser.",
     "endCta": "Begär offert"
@@ -423,6 +420,7 @@
   },
   "legal": {
     "contactText": "Frågor om den här sidan eller om dina uppgifter? Hör av dig:",
+    "company": "{company}, org.nr {orgNr}",
     "privacy": {
       "h1": "Integritetspolicy",
       "lead": "Här förklarar vi vilka uppgifter du lämnar när du skickar en förfrågan och vad vi gör med dem.",
@@ -457,13 +455,13 @@
         },
         {
           "title": "Personuppgiftsansvarig",
-          "text": "WeDo 365 AB, org.nr [ORG.NR]. [TEXT FRÅN WEDO365]"
+          "text": "{company}, org.nr {orgNr}. Postadress: {postalAddress}. E-post: {email}."
         }
       ]
     },
     "terms": {
       "h1": "Allmänna villkor",
-      "lead": "Villkor för tjänster från WeDo 365 AB.",
+      "lead": "Villkor för tjänster från {company}.",
       "sections": [
         {
           "title": "Om villkoren",

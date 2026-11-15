@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter, Manrope } from "next/font/google";
-import sv from "@/messages/sv.json";
-import en from "@/messages/en.json";
+import { MESSAGES } from "@/messages";
 import { buttonClasses } from "@/components/ui/button";
 import "./globals.css";
 
@@ -26,6 +25,8 @@ const manrope = Manrope({
   variable: "--font-manrope",
   display: "swap",
 });
+
+const { sv, en } = MESSAGES;
 
 export const metadata: Metadata = {
   title: `${sv.notFound.h1} / ${en.notFound.h1} – ${sv.meta.siteName}`,

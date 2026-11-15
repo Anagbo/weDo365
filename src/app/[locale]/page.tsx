@@ -2,7 +2,8 @@ import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { bookHref, COMPANY_NAME, SERVICE_IDS, SITE_URL } from "@/config/site";
+import { bookHref, SERVICE_IDS, SITE_URL } from "@/config/site";
+import { companyJsonLd } from "@/config/company";
 import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { buttonClasses } from "@/components/ui/button";
@@ -54,7 +55,6 @@ function Stars() {
 export default async function HomePage() {
   const locale = await getLocale();
   const t = await getTranslations("home");
-  const meta = await getTranslations("meta");
 
   const trust = t.raw("trust") as string[];
   const services = t.raw("services") as ServiceCard[];
@@ -86,16 +86,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: COMPANY_NAME,
-          telephone: meta("phoneHref").replace("tel:", ""),
-          areaServed: "Stockholm",
-          url: SITE_URL,
-        }}
-      />
+      <JsonLd data={companyJsonLd(SITE_URL)} />
 
       {/* 1. Hero */}
       <section className="container-site grid items-center gap-12 pt-12 pb-10 md:pt-18 md:pb-14 lg:grid-cols-2">

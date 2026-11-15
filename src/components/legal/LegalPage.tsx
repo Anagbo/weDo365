@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getMessages, getTranslations } from "next-intl/server";
 import type { AppPathname } from "@/i18n/routing";
 import { pageMetadata } from "@/lib/seo";
+import { PostalAddress } from "@/components/PostalAddress";
 
 type LegalKey = "privacy" | "terms";
 
@@ -23,7 +24,8 @@ export async function getLegalMetadata(key: LegalKey): Promise<Metadata> {
 /**
  * Privacy policy and terms. The text lives in the `legal` namespace of the
  * messages files as a list of { title, text } sections, so the owner can add,
- * remove or reword sections there. Text in [BRACKETS] is a placeholder.
+ * remove or reword sections there. Text in [BRACKETS] is a placeholder;
+ * tokens like {orgNr} are filled from src/config/company.ts.
  */
 export async function LegalPage({ pageKey }: { pageKey: LegalKey }) {
   const { legal } = await getMessages();
@@ -49,6 +51,7 @@ export async function LegalPage({ pageKey }: { pageKey: LegalKey }) {
         <section className="flex flex-col gap-2">
           <h2 className="text-2xl leading-tight">{footer("contact")}</h2>
           <p className="leading-[1.6]">{legal.contactText}</p>
+          <p className="leading-[1.6] font-semibold">{legal.company}</p>
           <ul>
             <li>
               <a
@@ -67,6 +70,10 @@ export async function LegalPage({ pageKey }: { pageKey: LegalKey }) {
               </a>
             </li>
           </ul>
+          <PostalAddress
+            label={footer("postalAddress")}
+            className="leading-[1.6]"
+          />
         </section>
       </div>
     </article>
