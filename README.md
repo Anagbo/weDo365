@@ -88,7 +88,7 @@ The messages files refer to these values with tokens, e.g. `"Org.nr {orgNr} · G
 - **Postal address** is shown only in the footer and on the legal pages, labelled "Postadress" / "Postal address". It is not a visiting address.
 - **VAT number** is used only in the structured data.
 - **Bankgiro** is kept in the config but not shown anywhere, because the site has no text about payment yet.
-- **Email domain:** the contact address is `info@wedo365.se`, while the website is `wedo365ab.se`. That is as given by the owner; confirm it is intended.
+- **Email domain:** the contact address is `info@wedo365.se`, while the website is `wedo365ab.se`. This is intended (confirmed by the owner).
 
 ## Editing text
 
