@@ -464,7 +464,7 @@
         },
         {
           "title": "Vår e-postlåda: Loopia",
-          "text": "Förfrågningar kommer till vår e-postlåda, som drivs av Loopia i Sverige [ÄGARE BEKRÄFTAR: bekräfta e-postleverantör]. Loopia är personuppgiftsbiträde åt oss."
+          "text": "Förfrågningar kommer till vår e-postlåda, som drivs av Loopia i Sverige. Loopia är personuppgiftsbiträde åt oss."
         },
         {
           "title": "Webbhotell: Vercel",
@@ -476,11 +476,11 @@
         },
         {
           "title": "Överföring utanför EU/EES",
-          "text": "Vercel och Resend är amerikanska företag, så uppgifter kan hanteras utanför EU/EES. Enligt vad leverantörerna anger i sina personuppgiftsbiträdesavtal sker sådan överföring med stöd av EU-kommissionens standardavtalsklausuler. [ÄGARE BEKRÄFTAR: bekräfta att avtalen med Vercel och Resend är accepterade i respektive kontopanel]"
+          "text": "Vercel och Resend är amerikanska företag, så uppgifter kan hanteras utanför EU/EES. Enligt vad leverantörerna anger i sina personuppgiftsbiträdesavtal sker sådan överföring med stöd av EU-kommissionens standardavtalsklausuler."
         },
         {
           "title": "Hur länge vi sparar uppgifterna",
-          "text": "Vi sparar din förfrågan bara så länge det behövs för att besvara den. Förfrågningar som inte leder till ett uppdrag raderas från vår inkorg inom [ÄGARE BEKRÄFTAR: tid, förslag 12 månader].\nBlir du kund sparar vi uppgifterna så länge uppdraget pågår och därefter så länge bokföringslagen kräver det.\nWebbplatsen sparar ingenting själv. Vercel och Resend kan spara tekniska loggar en begränsad tid enligt sina egna villkor."
+          "text": "Vi sparar din förfrågan bara så länge det behövs för att besvara den.\nBlir du kund sparar vi uppgifterna så länge uppdraget pågår och därefter så länge bokföringslagen kräver det.\nWebbplatsen sparar ingenting själv. Vercel och Resend kan spara tekniska loggar en begränsad tid enligt sina egna villkor."
         },
         {
           "title": "Dina rättigheter",
@@ -488,7 +488,7 @@
         },
         {
           "title": "Länkar och kakor",
-          "text": "Vi länkar till vår Facebook- och Instagramsida (i sidhuvudet och sidfoten). Vi bäddar inte in något från dem. Webbplatsen sätter inga spårningskakor och använder ingen analys med kakor [ÄGARE BEKRÄFTAR: uppdatera om analys läggs till]. När du klickar på en länk lämnar du webbplatsen, och den andra tjänstens egen policy gäller."
+          "text": "Vi länkar till vår Facebook- och Instagramsida (i sidhuvudet och sidfoten). Vi bäddar inte in något från dem. Webbplatsen sätter inga spårningskakor och använder ingen analys med kakor. När du klickar på en länk lämnar du webbplatsen, och den andra tjänstens egen policy gäller."
         },
         {
           "title": "Personuppgiftsansvarig",
@@ -502,7 +502,7 @@
       "sections": [
         {
           "title": "Om villkoren",
-          "text": "Villkoren gäller för städtjänster från {company} (org.nr {orgNr}). Företagskunder får en skriftlig offert, och om den avviker från villkoren gäller offerten. [ÄGARE BEKRÄFTAR: bekräfta att villkoren ska gälla även företagskunder]"
+          "text": "Villkoren gäller för städtjänster från {company} (org.nr {orgNr}). Företagskunder får en skriftlig offert, och om den avviker från villkoren gäller offerten."
         },
         {
           "title": "Förfrågan och bokning",
@@ -510,19 +510,19 @@
         },
         {
           "title": "Avbokning",
-          "text": "Du kan avboka kostnadsfritt fram till [ÄGARE BEKRÄFTAR: tid före utförandet, t.ex. 24 eller 48 timmar]. Avbokar du senare kan vi ta ut [ÄGARE BEKRÄFTAR: avgift]. Avbokning görs via telefon eller e-post."
+          "text": "Avbokning görs via telefon eller e-post."
         },
         {
           "title": "Reklamation",
-          "text": "Är du inte nöjd ska du kontakta oss så snart som möjligt, och senast inom [ÄGARE BEKRÄFTAR: reklamationstid] efter utfört arbete, så att vi kan rätta till det. [ÄGARE BEKRÄFTAR: bekräfta hur brister åtgärdas, t.ex. omstädning]\nSom konsument har du rättigheter enligt konsumenttjänstlagen som de här villkoren inte begränsar."
+          "text": "Är du inte nöjd ska du kontakta oss så snart som möjligt, så att vi kan rätta till det.\nSom konsument har du rättigheter enligt konsumenttjänstlagen som de här villkoren inte begränsar."
         },
         {
           "title": "Ansvar och försäkring",
-          "text": "Vi har ansvarsförsäkring hos {insurer}. Skadar vi något under uppdraget ska du meddela oss så snart som möjligt. [ÄGARE BEKRÄFTAR: vad försäkringen omfattar och eventuell självrisk]\nFörsäkringsnumret publiceras inte här. [ÄGARE BEKRÄFTAR: bekräfta om försäkringsbevis kan lämnas ut på begäran]"
+          "text": "Vi har ansvarsförsäkring hos {insurer}. Skadar vi något under uppdraget ska du meddela oss så snart som möjligt.\nFörsäkringsnumret publiceras inte här."
         },
         {
           "title": "Betalning",
-          "text": "Du betalar mot faktura efter utfört uppdrag. [ÄGARE BEKRÄFTAR: betalningsvillkor, t.ex. 10 eller 14 dagar, och om Bankgiro 5253-4021 ska anges här]"
+          "text": "Du betalar mot faktura efter utfört uppdrag."
         },
         {
           "title": "Ångerrätt",
@@ -530,7 +530,7 @@
         },
         {
           "title": "Tvist",
-          "text": "Vi försöker alltid lösa en tvist direkt med dig. Som konsument kan du också vända dig till Allmänna reklamationsnämnden (arn.se). [ÄGARE BEKRÄFTAR: bekräfta att bolaget går med på att få tvister prövade av ARN]"
+          "text": "Vi försöker alltid lösa en tvist direkt med dig. Som konsument kan du också vända dig till Allmänna reklamationsnämnden (arn.se)."
         }
       ]
     }

@@ -464,7 +464,7 @@
         },
         {
           "title": "Our mailbox: Loopia",
-          "text": "Requests arrive in our mailbox, which is hosted by Loopia in Sweden [ÄGARE BEKRÄFTAR: confirm mail provider]. Loopia is a data processor for us."
+          "text": "Requests arrive in our mailbox, which is hosted by Loopia in Sweden. Loopia is a data processor for us."
         },
         {
           "title": "Hosting: Vercel",
@@ -476,11 +476,11 @@
         },
         {
           "title": "Transfers outside the EU/EEA",
-          "text": "Vercel and Resend are US companies, so information may be handled outside the EU/EEA. According to what the providers state in their data processing agreements, such transfers rely on the European Commission's standard contractual clauses. [ÄGARE BEKRÄFTAR: confirm that the agreements with Vercel and Resend are accepted in each account panel]"
+          "text": "Vercel and Resend are US companies, so information may be handled outside the EU/EEA. According to what the providers state in their data processing agreements, such transfers rely on the European Commission's standard contractual clauses."
         },
         {
           "title": "How long we keep the information",
-          "text": "We keep your request only as long as needed to answer it. Requests that do not lead to a job are deleted from our inbox within [ÄGARE BEKRÄFTAR: time, suggestion 12 months].\nIf you become a customer, we keep the information while the job is ongoing and afterwards for as long as the Accounting Act requires.\nThe website stores nothing itself. Vercel and Resend may keep technical logs for a limited time under their own terms."
+          "text": "We keep your request only as long as needed to answer it.\nIf you become a customer, we keep the information while the job is ongoing and afterwards for as long as the Accounting Act requires.\nThe website stores nothing itself. Vercel and Resend may keep technical logs for a limited time under their own terms."
         },
         {
           "title": "Your rights",
@@ -488,7 +488,7 @@
         },
         {
           "title": "Links and cookies",
-          "text": "We link to our Facebook and Instagram pages (in the header and the footer). We embed nothing from them. The website sets no tracking cookies and uses no analytics with cookies [ÄGARE BEKRÄFTAR: update if analytics is added]. When you click a link you leave the website, and the other service's own policy applies."
+          "text": "We link to our Facebook and Instagram pages (in the header and the footer). We embed nothing from them. The website sets no tracking cookies and uses no analytics with cookies. When you click a link you leave the website, and the other service's own policy applies."
         },
         {
           "title": "Data controller",
@@ -502,7 +502,7 @@
       "sections": [
         {
           "title": "About the terms",
-          "text": "These terms apply to cleaning services from {company} (org. no. {orgNr}). Business customers receive a written quote, and if it differs from these terms, the quote applies. [ÄGARE BEKRÄFTAR: confirm that the terms should also apply to business customers]"
+          "text": "These terms apply to cleaning services from {company} (org. no. {orgNr}). Business customers receive a written quote, and if it differs from these terms, the quote applies."
         },
         {
           "title": "Requests and booking",
@@ -510,19 +510,19 @@
         },
         {
           "title": "Cancellation",
-          "text": "You can cancel free of charge up to [ÄGARE BEKRÄFTAR: time before the job, e.g. 24 or 48 hours]. If you cancel later, we may charge [ÄGARE BEKRÄFTAR: fee]. Cancel by phone or email."
+          "text": "Cancel by phone or email."
         },
         {
           "title": "Complaints",
-          "text": "If you are not satisfied, contact us as soon as possible, and no later than [ÄGARE BEKRÄFTAR: complaint period] after the work, so that we can put it right. [ÄGARE BEKRÄFTAR: confirm how defects are remedied, e.g. a re-clean]\nAs a consumer you have rights under the Swedish Consumer Services Act that these terms do not limit."
+          "text": "If you are not satisfied, contact us as soon as possible, so that we can put it right.\nAs a consumer you have rights under the Swedish Consumer Services Act that these terms do not limit."
         },
         {
           "title": "Liability and insurance",
-          "text": "We have liability insurance with {insurer}. If we damage something during a job, tell us as soon as possible. [ÄGARE BEKRÄFTAR: what the insurance covers and any excess]\nThe policy number is not published here. [ÄGARE BEKRÄFTAR: confirm whether a certificate of insurance can be provided on request]"
+          "text": "We have liability insurance with {insurer}. If we damage something during a job, tell us as soon as possible.\nThe policy number is not published here."
         },
         {
           "title": "Payment",
-          "text": "You pay by invoice after the job is done. [ÄGARE BEKRÄFTAR: payment terms, e.g. 10 or 14 days, and whether Bankgiro 5253-4021 should be stated here]"
+          "text": "You pay by invoice after the job is done."
         },
         {
           "title": "Right of withdrawal",
@@ -530,7 +530,7 @@
         },
         {
           "title": "Disputes",
-          "text": "We always try to resolve a dispute directly with you. As a consumer you can also turn to the National Board for Consumer Disputes (Allmänna reklamationsnämnden, arn.se). [ÄGARE BEKRÄFTAR: confirm that the company agrees to have disputes reviewed by ARN]"
+          "text": "We always try to resolve a dispute directly with you. As a consumer you can also turn to the National Board for Consumer Disputes (Allmänna reklamationsnämnden, arn.se)."
         }
       ]
     }

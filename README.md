@@ -159,7 +159,7 @@ These strings were not in the approved copy and were added by the developer. Ple
 | `home.heroPhotoAlt`, `home.businessPhotoAlt` (changed), `home.aboutPhotoAlt`, `business.photoAlt` (changed) | Descriptions of what the four photos show                                                                                                                   | The same in English                                                                                                                                                       | Alt text of the photos                                                                      |
 | `footer.about` (end)                                                                                        | · {employees} anställda.                                                                                                                                    | · {employees} employees.                                                                                                                                                  | Footer "Om oss" line; added to the approved text                                            |
 
-**Privacy policy and terms (`legal.*`): drafted by the developer, must be reviewed by a lawyer before launch.** The text is plain-language and states only what the site does today; every statement that depends on an owner decision is a `[ÄGARE BEKRÄFTAR: …]` placeholder (full list under "Owner decisions still open"). Points for the lawyer: the legal bases (GDPR art. 6.1.b, 6.1.c and 6.1.f); the transfer statement (Vercel and Resend are US companies; the text says transfers rely on standard contractual clauses "as the providers state in their DPAs", which has **not** been checked against the actual agreements); the retention wording; the withdrawal-right text (14 days, early start at the customer's request); and the complaints wording, which must not limit consumer rights under konsumenttjänstlagen. The policy still does not cover the delivery log Resend keeps of sent emails.
+**Privacy policy and terms (`legal.*`): drafted by the developer, must be reviewed by a lawyer before launch.** The text is plain-language and states only what the site does today; statements that depend on an owner decision are left out until the owner answers (the open questions are listed in `src/config/owner-todo.ts` and under "Owner decisions still open"). Points for the lawyer: the legal bases (GDPR art. 6.1.b, 6.1.c and 6.1.f); the transfer statement (Vercel and Resend are US companies; the text says transfers rely on standard contractual clauses "as the providers state in their DPAs", which has **not** been checked against the actual agreements); the retention wording; the withdrawal-right text (14 days, early start at the customer's request); and the complaints wording, which must not limit consumer rights under konsumenttjänstlagen. The policy still does not cover the delivery log Resend keeps of sent emails.
 
 ### Taken from the prototype
 
@@ -172,7 +172,7 @@ This text was in the approved prototype (`docs/prototype/`) but missing from the
 
 ## Placeholders to fill in
 
-Text in square brackets is a placeholder for the owner. The brackets are kept exactly as written until the real text is in. **`npm run check:placeholders` lists them** (see "Before launch"). Only the privacy policy and terms show them on the live site today; the rest are hidden until the owner fills them in. This is the complete list:
+Text in square brackets is a placeholder for the owner. The brackets are kept exactly as written until the real text is in. **`npm run check:placeholders` lists them** (see "Before launch"). None of them is shown on the live site: unanswered texts are hidden, and `npm run build` fails if an owner placeholder is left in the messages or source. This is the complete list:
 
 | Placeholder (Swedish / English)                                                                                                     | Where it shows                | What goes there                                           |
 | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | --------------------------------------------------------- |
@@ -180,14 +180,13 @@ Text in square brackets is a placeholder for the owner. The brackets are kept ex
 | `[Kundomdöme hämtat från Reco eller Google]`, `[Förnamn]`, `[Område]` (and English)                                                 | Hidden (SHOW_REVIEWS off)     | Real reviews, with permission                             |
 | `[Svar från WeDo365, t.ex. hur nyckelhantering fungerar]`, `[Checklista för flyttstädning …]`, `[Avbokningsregler …]` (and English) | Hidden until answered         | The answers                                               |
 | `[Svar från WeDo365]`, `[Svar från WeDo365, t.ex. om ni tar med städmaterial]` (and English)                                        | Hidden until answered         | The answers                                               |
-| `[ÄGARE BEKRÄFTAR: …]`                                                                                                              | Privacy policy and terms      | The owner's decisions; see "Owner decisions still open"   |
 | `[OG-BILD]`                                                                                                                         | A comment in `src/lib/seo.ts` | A share image (1200×630) for links shared on social media |
 
 **Claims in the approved copy to confirm are true before launch:** "Godkänd för F-skatt" (see the checklist), the liability insurance with If, the Reco.se rating, "365 dagar om året", and that WeDo365 can offer the services on the site (including the checklist under "Det här ingår").
 
-### Owner decisions still open (`[ÄGARE BEKRÄFTAR: …]`)
+### Owner decisions still open (`src/config/owner-todo.ts`)
 
-Each of these is a placeholder in the privacy policy or terms (both languages). Replace the whole bracket with the final text.
+Each of these was a placeholder in the privacy policy or terms. The sentence has been left out of the text (both languages) until the owner answers; add it back to `legal.*` and delete the entry in `src/config/owner-todo.ts`.
 
 **Privacy policy (`legal.privacy`)**
 
@@ -224,8 +223,8 @@ All accounts (GitHub, Vercel, Resend, the domain registrar) should belong to WeD
 - [ ] **Owner to confirm F-skatt status (check at skatteverket.se).** "Godkänd för F-skatt" / "Approved for F-tax" is on the site (footer, home and business trust lists) but has not been verified.
 - [ ] **Kollektivavtal (collective agreement): owner to confirm.** The "[Kollektivavtal: bekräftas]" line was taken off the business page. If there is one, add a trust point for it in `business.trust` (both files).
 - [ ] **Native Swedish proofread** of all Swedish text, including the strings in the review table
-- [ ] **Lawyer review of the privacy policy and terms before launch** (`/integritetspolicy`, `/villkor`, both languages), after the owner has answered every `[ÄGARE BEKRÄFTAR: …]` item (see "Owner decisions still open")
-- [ ] **Owner decisions:** answer the remaining `[ÄGARE BEKRÄFTAR: …]` items (see "Owner decisions still open")
+- [ ] **Lawyer review of the privacy policy and terms before launch** (`/integritetspolicy`, `/villkor`, both languages), after the owner has answered every open item (see "Owner decisions still open")
+- [ ] **Owner decisions:** answer the open items in `src/config/owner-todo.ts` (see "Owner decisions still open")
 - [ ] **Real Resend key test** on the live site: send one request through each form, in both languages. Both emails must arrive (also check spam). The owner email must have the customer as Reply-To, and the customer copy must have `MAIL_REPLY_TO` (`info@wedo365.se`) as Reply-To.
 - [ ] **Vercel Pro** on the WeDo 365 AB account (the free Hobby plan is for non-commercial use only)
 - [ ] **DNS switch at Loopia** (do these in order; the owner or the designer with Loopia access does it)

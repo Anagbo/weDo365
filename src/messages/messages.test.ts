@@ -152,3 +152,13 @@ describe("the hard rules for the copy", () => {
     }
   });
 });
+
+describe("owner placeholders", () => {
+  it("never reach the messages (open questions live in src/config/owner-todo.ts)", () => {
+    for (const all of [svLeaves, enLeaves]) {
+      for (const [path, text] of Object.entries(all)) {
+        expect(text, path).not.toMatch(/\[ÄGARE|\[TEXT FRÅN/);
+      }
+    }
+  });
+});
