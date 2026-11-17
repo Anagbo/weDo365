@@ -73,3 +73,10 @@ export const LOGO = {
   width: 439,
   height: 262,
 } as const;
+
+/** Header emblem, transparent PNG (338×140). Never shown larger than 2x of 116×48. */
+export const EMBLEM = {
+  src: "/images/wedo365-emblem.png",
+  width: 338,
+  height: 140,
+} as const;

@@ -106,7 +106,7 @@ export function SiteNav({
 
   return (
     <div className="container-site">
-      <div className="flex min-h-19 items-center gap-4">
+      <div className="flex min-h-14 items-center gap-2 sm:gap-4 md:min-h-17">
         {logo}
 
         <nav aria-label={navLabel} className="ml-4 hidden shrink-0 xl:block">
@@ -128,7 +128,7 @@ export function SiteNav({
           </ul>
         </nav>
 
-        <div className="ml-auto flex items-center gap-3">
+        <div className="ml-auto flex items-center gap-2 sm:gap-3">
           {social.length > 0 ? (
             <ul className="flex items-center max-[1099px]:hidden">
               {social.map((item) => (
