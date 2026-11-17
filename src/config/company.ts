@@ -10,7 +10,7 @@ export const COMPANY = {
   /** Legal name. */
   name: "WeDo 365 AB",
   /** Main domain of the website (the default for NEXT_PUBLIC_SITE_URL). */
-  domain: "wedo365ab.se",
+  domain: "wedo365.se",
   orgNr: "559564-8022",
   /** Momsregistreringsnummer. */
   vatId: "SE559564802201",

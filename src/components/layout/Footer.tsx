@@ -60,15 +60,17 @@ export async function Footer() {
           </p>
           <p className="text-base text-white/85">{t("about")}</p>
           <p className="text-sm text-white/85">{t("org")}</p>
-          {/* Small raster logo: shown at about half its size, on its own light tile. */}
-          <Image
-            src={LOGO.src}
-            width={LOGO.width}
-            height={LOGO.height}
-            alt={about("logoAlt")}
-            unoptimized
-            className="mt-2 h-auto w-[200px] rounded-logo"
-          />
+          {/* Small raster logo with a cream background: on a white card, never enlarged. */}
+          <div className="mt-2 w-fit rounded-card bg-white p-3">
+            <Image
+              src={LOGO.src}
+              width={LOGO.width}
+              height={LOGO.height}
+              alt={about("logoAlt")}
+              unoptimized
+              className="h-auto w-[176px]"
+            />
+          </div>
         </section>
 
         <Column title={t("services")}>

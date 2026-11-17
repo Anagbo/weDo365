@@ -14,7 +14,7 @@ export const INDEXED_PATHS = (
 
 const OG_LOCALE: Record<Locale, string> = { sv: "sv_SE", en: "en_GB" };
 
-/** Absolute URL of a page in one language, e.g. https://wedo365ab.se/en/book */
+/** Absolute URL of a page in one language, e.g. https://wedo365.se/en/book */
 export function pageUrl(path: AppPathname, locale: Locale): string {
   return SITE_URL + getPathname({ href: path, locale });
 }

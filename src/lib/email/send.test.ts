@@ -36,8 +36,9 @@ afterAll(() => vi.useRealTimers());
 
 beforeEach(() => {
   vi.stubEnv("RESEND_API_KEY", "re_test_key");
-  vi.stubEnv("MAIL_FROM", "WeDo365 <noreply@send.wedo365ab.se>");
-  vi.stubEnv("MAIL_TO_OWNER", "owner@wedo365ab.se");
+  vi.stubEnv("MAIL_FROM", "WeDo365 <noreply@send.wedo365.se>");
+  vi.stubEnv("MAIL_TO_OWNER", "info@wedo365.se");
+  vi.stubEnv("MAIL_REPLY_TO", "info@wedo365.se");
   sendMock.mockReset();
   errorLog = vi.spyOn(console, "error").mockImplementation(() => {});
 });
@@ -57,7 +58,7 @@ describe("sendRequestEmails", () => {
 
     expect(result).toEqual({ ok: true, customerSent: true });
     expect(sendMock).toHaveBeenCalledTimes(2);
-    expect(sendMock.mock.calls[0][0].to).toBe("owner@wedo365ab.se");
+    expect(sendMock.mock.calls[0][0].to).toBe("info@wedo365.se");
     expect(sendMock.mock.calls[1][0].to).toBe("anna@example.se");
   });
 
@@ -66,10 +67,24 @@ describe("sendRequestEmails", () => {
     await sendRequestEmails(parseRequest(rawHome));
     const [owner, customer] = sendMock.mock.calls.map(([payload]) => payload);
 
-    expect(owner.from).toBe("WeDo365 <noreply@send.wedo365ab.se>");
-    expect(customer.from).toBe("WeDo365 <noreply@send.wedo365ab.se>");
+    expect(owner.from).toBe("WeDo365 <noreply@send.wedo365.se>");
+    expect(customer.from).toBe("WeDo365 <noreply@send.wedo365.se>");
     expect(owner.replyTo).toBe("anna@example.se");
-    expect(customer.replyTo).toBe("owner@wedo365ab.se");
+    expect(customer.replyTo).toBe("info@wedo365.se");
+  });
+
+  it("uses MAIL_REPLY_TO for the customer copy, and the owner inbox if it is not set", async () => {
+    sendMock.mockResolvedValue(OK);
+    vi.stubEnv("MAIL_REPLY_TO", "svar@wedo365.se");
+    await sendRequestEmails(parseRequest(rawHome));
+    expect(sendMock.mock.calls[1][0].replyTo).toBe("svar@wedo365.se");
+    // The owner email always replies to the customer.
+    expect(sendMock.mock.calls[0][0].replyTo).toBe("anna@example.se");
+
+    sendMock.mockClear();
+    vi.stubEnv("MAIL_REPLY_TO", "");
+    await sendRequestEmails(parseRequest(rawHome));
+    expect(sendMock.mock.calls[1][0].replyTo).toBe("info@wedo365.se");
   });
 
   it("sends the owner email in Swedish and the customer copy in the customer's language", async () => {

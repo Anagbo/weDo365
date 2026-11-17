@@ -3,14 +3,21 @@ import { SITE_URL } from "@/config/site";
 import type { RequestPayload } from "@/lib/forms/schemas";
 import { buildCustomerEmail, buildOwnerEmail } from "./templates";
 
-type Config = { apiKey: string; from: string; owner: string };
+type Config = {
+  apiKey: string;
+  from: string;
+  owner: string;
+  /** Reply-To of the customer copy. Defaults to the owner inbox. */
+  replyTo: string;
+};
 
 function readConfig(): Config | null {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.MAIL_FROM;
   const owner = process.env.MAIL_TO_OWNER;
   if (!apiKey || !from || !owner) return null;
-  return { apiKey, from, owner };
+  const replyTo = process.env.MAIL_REPLY_TO?.trim() || owner;
+  return { apiKey, from, owner, replyTo };
 }
 
 export type SendResult =
@@ -65,7 +72,7 @@ export async function sendRequestEmails(
     const { error } = await resend.emails.send({
       from: config.from,
       to: customerEmail,
-      replyTo: config.owner,
+      replyTo: config.replyTo,
       subject: customer.subject,
       html: customer.html,
       text: customer.text,

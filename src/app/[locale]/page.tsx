@@ -245,15 +245,17 @@ export default async function HomePage() {
               <li key={fact}>{fact}</li>
             ))}
           </ul>
-          {/* Small raster logo: never shown larger than 300px wide. */}
-          <Image
-            src={LOGO.src}
-            width={LOGO.width}
-            height={LOGO.height}
-            alt={about("logoAlt")}
-            unoptimized
-            className="mt-2 h-auto w-[240px] rounded-logo border border-line"
-          />
+          {/* Small raster logo with a cream background: on a white card, never enlarged. */}
+          <div className="mt-2 w-fit rounded-card border border-line bg-white p-3">
+            <Image
+              src={LOGO.src}
+              width={LOGO.width}
+              height={LOGO.height}
+              alt={about("logoAlt")}
+              unoptimized
+              className="h-auto w-[216px]"
+            />
+          </div>
         </div>
       </section>
 

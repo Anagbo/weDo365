@@ -8,6 +8,7 @@
     "homes": "For homes",
     "business": "For businesses",
     "howItWorks": "How it works",
+    "about": "About us",
     "contact": "Contact",
     "menuLabel": "Main menu",
     "homeAria": "WeDo365, go to home page",
@@ -65,7 +66,7 @@
     },
     "trust": [
       "Liability insurance with {insurer}",
-      "Approved for F-tax",
+      "Approved for F‑tax",
       "Personal contact before anything is booked"
     ],
     "servicesTitle": "Our services for homes",
@@ -255,7 +256,7 @@
         "text": "Cleaning starts on a date that suits you."
       }
     ],
-    "trust": ["Liability insurance with {insurer}", "Approved for F-tax"],
+    "trust": ["Liability insurance with {insurer}", "Approved for F‑tax"],
     "endTitle": "Get a proposal for your premises",
     "endText": "Free and without obligation.",
     "endCta": "Request a quote"
@@ -471,7 +472,7 @@
         },
         {
           "title": "Links and cookies",
-          "text": "We link to our Facebook and Instagram pages [ÄGARE BEKRÄFTAR: the links are not on the website yet; add them or remove this sentence]. We embed nothing from them. The website sets no tracking cookies and uses no analytics with cookies [ÄGARE BEKRÄFTAR: update if analytics is added]. When you click a link you leave the website, and the other service's own policy applies."
+          "text": "We link to our Facebook and Instagram pages (in the header and the footer). We embed nothing from them. The website sets no tracking cookies and uses no analytics with cookies [ÄGARE BEKRÄFTAR: update if analytics is added]. When you click a link you leave the website, and the other service's own policy applies."
         },
         {
           "title": "Data controller",

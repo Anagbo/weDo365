@@ -1,4 +1,4 @@
-# WeDo365 – wedo365ab.se
+# WeDo365 – wedo365.se
 
 The website for WeDo 365 AB, a cleaning company in Stockholm. Swedish at `/`, English at `/en`. Customers send **requests** (never bookings) for home cleaning or a business quote; the site emails them to the owner and sends the customer a copy. Nothing is stored on the site.
 
@@ -39,16 +39,17 @@ Before every commit, `npm run lint`, `npm run typecheck`, `npm test` and `npm ru
 
 Copy `.env.example` to `.env.local` for local work. On Vercel, set the same variables under _Project Settings → Environment Variables_.
 
-| Variable               | Needed | What it is                                                                                                                                                                                                                       |
-| ---------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `RESEND_API_KEY`       | yes    | API key from Resend ("sending access" is enough).                                                                                                                                                                                |
-| `MAIL_FROM`            | yes    | Sender of both emails, e.g. `WeDo365 <noreply@send.wedo365ab.se>`. The domain must be verified in Resend.                                                                                                                        |
-| `MAIL_TO_OWNER`        | yes    | The inbox where new requests arrive. Customers' replies to their confirmation also go here.                                                                                                                                      |
-| `NEXT_PUBLIC_SITE_URL` | yes    | The public address, no trailing slash. Used for canonical links, the sitemap, robots.txt and structured data. **Read at build time**, so set it before deploying and redeploy if it changes. Defaults to `https://wedo365ab.se`. |
+| Variable               | Needed | What it is                                                                                                                                                                                                                     |
+| ---------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `RESEND_API_KEY`       | yes    | API key from Resend ("sending access" is enough).                                                                                                                                                                              |
+| `MAIL_FROM`            | yes    | Sender of both emails, e.g. `WeDo365 <noreply@send.wedo365.se>`. The domain must be verified in Resend.                                                                                                                        |
+| `MAIL_TO_OWNER`        | yes    | The inbox where new requests arrive (`info@wedo365.se`, a Loopia mailbox). The owner email has the customer as Reply-To.                                                                                                       |
+| `MAIL_REPLY_TO`        | no     | Reply-To of the customer's confirmation email (`info@wedo365.se`), so a reply lands in the owner's inbox. Falls back to `MAIL_TO_OWNER` if left out.                                                                           |
+| `NEXT_PUBLIC_SITE_URL` | yes    | The public address, no trailing slash. Used for canonical links, the sitemap, robots.txt and structured data. **Read at build time**, so set it before deploying and redeploy if it changes. Defaults to `https://wedo365.se`. |
 
 `SHOW_REVIEWS` is optional (`true` shows the reviews section and the Reco.se rating; leave it out until there are real reviews). Also read at build time.
 
-If any of the three email variables is missing, the API answers with an error and writes `[request] Email is not configured …` to the server log (never any form contents).
+If any of `RESEND_API_KEY`, `MAIL_FROM` or `MAIL_TO_OWNER` is missing, the API answers with an error and writes `[request] Email is not configured …` to the server log (never any form contents).
 
 ## How the project is organised
 
@@ -90,7 +91,7 @@ The messages files refer to these values with tokens, e.g. `"Org.nr {orgNr} · G
 - **Postal address** is shown only in the footer and on the legal pages, labelled "Postadress" / "Postal address". It is not a visiting address.
 - **VAT number** is used only in the structured data.
 - **Bankgiro** is kept in the config but not shown anywhere, because the site has no text about payment yet.
-- **Email domain:** the contact address is `info@wedo365.se`, while the website is `wedo365ab.se`. This is intended (confirmed by the owner).
+- **Domain:** the website and the contact mailbox share one domain, `wedo365.se` (not `wedo365ab.se`). The mailbox `info@wedo365.se` is hosted at Loopia; mail is sent through Resend from the subdomain `send.wedo365.se` (`noreply@send.wedo365.se`).
 
 ## Editing text
 
@@ -139,6 +140,7 @@ These strings were not in the approved copy and were added by the developer. Ple
 | `notFound.h1`                                                                                               | Sidan hittades inte                                                                                                                                         | Page not found                                                                                                                                                            | 404 page: heading                                                                           |
 | `notFound.text`                                                                                             | Länken kan vara felaktig, eller så har sidan flyttats.                                                                                                      | The link may be wrong, or the page may have moved.                                                                                                                        | 404 page: explanation                                                                       |
 | `notFound.home`                                                                                             | Till startsidan                                                                                                                                             | Back to home page                                                                                                                                                         | 404 page: button to the start page                                                          |
+| `nav.about`                                                                                                 | Om oss                                                                                                                                                      | About us                                                                                                                                                                  | Header link to the "Om oss" section (`#om`)                                                 |
 | `footer.postalAddress`                                                                                      | Postadress                                                                                                                                                  | Postal address                                                                                                                                                            | Label above the postal address (footer, legal pages)                                        |
 | `legal.company`                                                                                             | {company}, org.nr {orgNr}                                                                                                                                   | {company}, org. no. {orgNr}                                                                                                                                               | Contact block on the legal pages                                                            |
 | `nav.cta` (changed)                                                                                         | Skicka förfrågan                                                                                                                                            | Send request                                                                                                                                                              | Header button and mobile bottom bar (was "Boka städning"); the form page is titled the same |
@@ -184,7 +186,7 @@ Each of these is a placeholder in the privacy policy or terms (both languages). 
 1. **Mail provider:** the policy says requests arrive in a mailbox hosted by Loopia (Sweden). Confirm that Loopia is the provider.
 2. **Transfers outside the EU/EEA:** confirm that the data processing agreements with Vercel and Resend are accepted in each account, and that they rely on standard contractual clauses.
 3. **Retention:** how long requests that do not lead to a job stay in the inbox (suggested 12 months).
-4. **Facebook and Instagram:** the policy says we link to them, but **the site has no such links yet**. Add the links (footer) or remove the sentence.
+4. ~~Facebook and Instagram links~~ are now on the site (header and footer), so that sentence is settled.
 5. **Analytics:** the policy says there is none. Update the policy if analytics is ever added.
 
 **Terms (`legal.terms`)**
@@ -202,11 +204,11 @@ All accounts (GitHub, Vercel, Resend, the domain registrar) should belong to WeD
 
 1. **GitHub.** Push this repository to a repository owned by the company.
 2. **Vercel.** Import the repository. **Use a Pro plan:** the free Hobby plan is for non-commercial use only. The framework (Next.js) and build settings are detected automatically. `vercel.json` pins the server function (`/api/request`) to Stockholm (`arn1`); every page is static and is served from Vercel's network.
-3. **Environment variables.** Add the four variables above, for Production (and Preview if you want preview deployments to send email). Set `NEXT_PUBLIC_SITE_URL` to the final public address.
-4. **Domain.** Add `wedo365ab.se` in Vercel and set the DNS records it shows. Choose whether the main address is `wedo365ab.se` or `www.wedo365ab.se`, make the other one redirect to it (in Vercel's domain settings), and use the main one in `NEXT_PUBLIC_SITE_URL`.
-5. **Resend.** Add the sending domain as a **subdomain**, `send.wedo365ab.se`, and choose the **EU region** when adding it. Add the DNS records Resend lists (SPF, DKIM) **without touching the MX records of the main domain**, so normal email keeps working. Wait until Resend shows the domain as verified, then create an API key and set `MAIL_FROM`.
-6. **First test in production.** Send one request through each form (`/boka` and `/offert`, and the English versions). Check that the owner inbox gets the email in Swedish, that the customer copy arrives (also look in spam), and that replying to each email goes to the other party.
-7. **Google Search Console.** Add the property and submit `https://wedo365ab.se/sitemap.xml`. (Vercel marks preview deployments as `noindex` by default.)
+3. **Environment variables.** Add the variables above (`RESEND_API_KEY`, `MAIL_FROM`, `MAIL_TO_OWNER`, `MAIL_REPLY_TO`, `NEXT_PUBLIC_SITE_URL`), for Production (and Preview if you want preview deployments to send email). Set `NEXT_PUBLIC_SITE_URL` to the final public address.
+4. **Domain.** Add `wedo365.se` in Vercel and set the DNS records it shows. Choose whether the main address is `wedo365.se` or `www.wedo365.se`, make the other one redirect to it (in Vercel's domain settings), and use the main one in `NEXT_PUBLIC_SITE_URL`.
+5. **Resend.** Add the sending domain as a **subdomain**, `send.wedo365.se`, and choose the **EU region** when adding it. Add the DNS records Resend lists (SPF, DKIM) **without touching the MX records of the main domain**, so normal email keeps working. Wait until Resend shows the domain as verified, then create an API key and set `MAIL_FROM`.
+6. **First test in production.** Send one request through each form (`/boka` and `/offert`, and the English versions). Check that the owner inbox gets the email in Swedish, that the customer copy arrives (also look in spam), and that replying to each email goes to the other party (the owner for the customer copy, the customer for the owner email).
+7. **Google Search Console.** Add the property and submit `https://wedo365.se/sitemap.xml`. (Vercel marks preview deployments as `noindex` by default.)
 
 ## Before launch
 
@@ -215,10 +217,17 @@ All accounts (GitHub, Vercel, Resend, the domain registrar) should belong to WeD
 - [ ] **Kollektivavtal (collective agreement): owner to confirm.** The "[Kollektivavtal: bekräftas]" line was taken off the business page. If there is one, add a trust point for it in `business.trust` (both files).
 - [ ] **Native Swedish proofread** of all Swedish text, including the strings in the review table
 - [ ] **Lawyer review of the privacy policy and terms before launch** (`/integritetspolicy`, `/villkor`, both languages), after the owner has answered every `[ÄGARE BEKRÄFTAR: …]` item (see "Owner decisions still open")
-- [ ] **Owner decisions:** answer the 11 `[ÄGARE BEKRÄFTAR: …]` items and add the Facebook/Instagram links or remove that sentence
-- [ ] **Real Resend key test** on the live site: send one request through each form, in both languages. Both emails must arrive (also check spam). The owner email must have the customer as Reply-To, and the customer copy must have the owner as Reply-To.
+- [ ] **Owner decisions:** answer the remaining `[ÄGARE BEKRÄFTAR: …]` items (see "Owner decisions still open")
+- [ ] **Real Resend key test** on the live site: send one request through each form, in both languages. Both emails must arrive (also check spam). The owner email must have the customer as Reply-To, and the customer copy must have `MAIL_REPLY_TO` (`info@wedo365.se`) as Reply-To.
 - [ ] **Vercel Pro** on the WeDo 365 AB account (the free Hobby plan is for non-commercial use only)
-- [ ] **Domain records added without touching MX:** the site records for `wedo365ab.se` in Vercel, and the SPF/DKIM records for `send.wedo365ab.se` in Resend. Normal email on the main domain must keep working.
+- [ ] **DNS switch at Loopia** (do these in order; the owner or the designer with Loopia access does it)
+  - [ ] First **take a screenshot of every existing DNS record** (so anything can be put back).
+  - [ ] Today the root (`@`) and `www` **A records point to Canva (103.169.142.0)**. Replace **only those two** with the values Vercel shows for `wedo365.se` and `www.wedo365.se`.
+  - [ ] **Delete the Canva TXT record `_canva-domain-verify`** if it is there.
+  - [ ] Add the Resend records on the **send subdomain only**: TXT `resend._domainkey.send` (DKIM, the value Resend shows); CNAME `rsend.send` → `rsend-euw1.forge.rmta.net`; CNAME `send.send` → `send.forge.rmta.net`. (Resend's own page is the final word if its values differ.) Wait until Resend shows the domain as verified (EU region).
+  - [ ] **Never edit the MX records** (`mailcluster.loopia.se`, `mail2.loopia.se`) **or the root SPF record.** Normal email on `info@wedo365.se` must keep working: send and receive a test mail afterwards. TTL is already 3600, so a change can take up to an hour to show.
+  - [ ] After the switch, **ask the designer (owner of the Canva account) to unpublish the Canva site.**
+- [ ] **Handover:** the Resend account, the Vercel Pro team, the Loopia login and the GitHub repository are owned by WeDo 365 AB. The Resend API key is **rotated after handover** (and `RESEND_API_KEY` updated in Vercel). The designer's Loopia access is removed.
 - [ ] **Lighthouse check on mobile** for the live home page. The target is 95 or more for Performance, Accessibility, Best Practices and SEO. (Not measured yet; it needs the live site.)
 - [ ] **Logo:** ask the owner for the original/vector logo (SVG/PNG ≥ 1000px). The current file is a 439×262 raster.
 - [ ] A share image (`[OG-BILD]`)

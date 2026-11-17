@@ -8,6 +8,7 @@
     "homes": "För hemmet",
     "business": "För företag",
     "howItWorks": "Så går det till",
+    "about": "Om oss",
     "contact": "Kontakt",
     "menuLabel": "Huvudmeny",
     "homeAria": "WeDo365, till startsidan",
@@ -65,7 +66,7 @@
     },
     "trust": [
       "Ansvarsförsäkring hos {insurer}",
-      "Godkänd för F-skatt",
+      "Godkänd för F‑skatt",
       "Personlig kontakt innan något bokas"
     ],
     "servicesTitle": "Våra tjänster för hemmet",
@@ -255,7 +256,7 @@
         "text": "Städningen startar på ett datum som passar er."
       }
     ],
-    "trust": ["Ansvarsförsäkring hos {insurer}", "Godkänd för F-skatt"],
+    "trust": ["Ansvarsförsäkring hos {insurer}", "Godkänd för F‑skatt"],
     "endTitle": "Få ett förslag för er lokal",
     "endText": "Kostnadsfritt och utan förpliktelser.",
     "endCta": "Begär offert"
@@ -471,7 +472,7 @@
         },
         {
           "title": "Länkar och kakor",
-          "text": "Vi länkar till vår Facebook- och Instagramsida [ÄGARE BEKRÄFTAR: länkarna finns inte på webbplatsen ännu; lägg till dem eller ta bort meningen]. Vi bäddar inte in något från dem. Webbplatsen sätter inga spårningskakor och använder ingen analys med kakor [ÄGARE BEKRÄFTAR: uppdatera om analys läggs till]. När du klickar på en länk lämnar du webbplatsen, och den andra tjänstens egen policy gäller."
+          "text": "Vi länkar till vår Facebook- och Instagramsida (i sidhuvudet och sidfoten). Vi bäddar inte in något från dem. Webbplatsen sätter inga spårningskakor och använder ingen analys med kakor [ÄGARE BEKRÄFTAR: uppdatera om analys läggs till]. När du klickar på en länk lämnar du webbplatsen, och den andra tjänstens egen policy gäller."
         },
         {
           "title": "Personuppgiftsansvarig",

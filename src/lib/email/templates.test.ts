@@ -14,7 +14,7 @@ beforeAll(() => {
 afterAll(() => vi.useRealTimers());
 
 const RECEIVED = new Date("2026-11-14T20:05:00Z"); // 21:05 in Stockholm
-const HOST = "wedo365ab.se";
+const HOST = "wedo365.se";
 
 /** Asserts that every value appears in both the HTML and the text version. */
 function expectAll(email: { html: string; text: string }, values: string[]) {
@@ -254,7 +254,7 @@ describe("customer email", () => {
     });
 
     it("names the website it was sent from", () => {
-      expect(email.text).toContain("wedo365ab.se");
+      expect(email.text).toContain("wedo365.se");
     });
   });
 
