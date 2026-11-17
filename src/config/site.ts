@@ -23,3 +23,10 @@ export function bookHref(locale: Locale, service: ServiceId) {
     query: { [SERVICE_QUERY_KEY[locale]]: service },
   };
 }
+
+/**
+ * Reviews section and the Reco.se rating line on the home page. Off until
+ * there are real reviews: set SHOW_REVIEWS=true when building. The texts stay
+ * in the messages files (`home.reviews*`, `home.trustReviews`).
+ */
+export const SHOW_REVIEWS = process.env.SHOW_REVIEWS === "true";

@@ -22,7 +22,7 @@ export function CheckList({
           key={item}
           className={`flex gap-2.5 ${
             inline
-              ? "items-center text-[15px] font-medium"
+              ? "items-center text-base font-medium"
               : "items-start leading-normal"
           }`}
         >

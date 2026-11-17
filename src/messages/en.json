@@ -8,18 +8,17 @@
     "homes": "For homes",
     "business": "For businesses",
     "howItWorks": "How it works",
-    "about": "About",
     "contact": "Contact",
     "menuLabel": "Main menu",
     "homeAria": "WeDo365, go to home page",
     "switchLabel": "SV",
     "switchAria": "Läs sidan på svenska",
-    "cta": "Book cleaning",
+    "cta": "Send request",
     "call": "Call"
   },
   "footer": {
     "about": "{company} · Cleaning company in Stockholm, 365 days a year · {employees} employees.",
-    "org": "Org. no. {orgNr} · Approved for F-tax",
+    "org": "Org. no. {orgNr} · Approved for F‑tax",
     "services": "Services",
     "contact": "Contact",
     "legal": "Legal",
@@ -42,12 +41,12 @@
     "eyebrow": "Cleaning company in Stockholm · 365 days a year",
     "h1": "Clean at home and at work. We take care of the rest.",
     "lead": "Tell us what you need and we will contact you with a suggested time and price.",
-    "heroPhotoAlt": "Photo: the WeDo365 team at work in a home (own photo, not stock)",
+    "heroPhotoAlt": "the WeDo365 team at work in a home",
     "doorHomes": {
       "title": "For homes",
       "text": "Home cleaning, move-out cleaning, deep cleaning and window cleaning.",
       "note": "We get back to you with price and time",
-      "cta": "Send a request"
+      "cta": "Send request"
     },
     "doorBusiness": {
       "title": "For businesses",
@@ -58,8 +57,7 @@
     "trust": [
       "Liability insurance with {insurer}",
       "Approved for F-tax",
-      "Personal contact before anything is booked",
-      "[RATING] out of 5 on Reco.se"
+      "Personal contact before anything is booked"
     ],
     "servicesTitle": "Our services for homes",
     "services": [
@@ -72,23 +70,23 @@
       {
         "name": "Move-out cleaning",
         "text": "Thorough cleaning before the inspection when you move.",
-        "link": "Send a request",
+        "link": "Send request",
         "target": "book"
       },
       {
         "name": "Deep cleaning",
         "text": "An extra thorough clean of the whole home.",
-        "link": "Send a request",
+        "link": "Send request",
         "target": "book"
       },
       {
         "name": "Window cleaning",
         "text": "Clean windows, inside and out.",
-        "link": "Send a request",
+        "link": "Send request",
         "target": "book"
       }
     ],
-    "howTitle": "Booking is simple",
+    "howTitle": "Sending a request is simple",
     "how": [
       {
         "title": "Tell us what you need",
@@ -107,7 +105,7 @@
     "businessText": "Offices, stairwells, gyms and schools. We set up a schedule that fits how you work.",
     "businessCta": "Request a quote",
     "businessCta2": "Read more",
-    "businessPhotoAlt": "Photo: office cleaning (own photo)",
+    "businessPhotoAlt": "office cleaning",
     "reviewsTitle": "What our customers say",
     "reviewsSub": "[RATING] out of 5 from [COUNT] reviews on Reco.se",
     "reviewPlaceholder": "[Customer review taken from Reco or Google]",
@@ -133,7 +131,8 @@
     ],
     "endTitle": "Ready for a cleaner home?",
     "endText": "It takes two minutes to send a request. Prefer to call? {phone}",
-    "endCta": "Send a request"
+    "endCta": "Send request",
+    "trustReviews": "[RATING] out of 5 on Reco.se"
   },
   "homeCleaning": {
     "title": "Home cleaning in Stockholm – WeDo365",
@@ -144,14 +143,13 @@
     "lead": "Regular cleaning that keeps your home clean. You choose how often, we take care of the rest.",
     "cardTitle": "Get a suggested time and price",
     "cardText": "We get back to you by phone or email.",
-    "cta": "Send a request",
+    "cta": "Send request",
     "checks": [
       "Every week, every other week or every four weeks",
       "Personal contact before anything is booked"
     ],
-    "photoAlt": "Photo: home cleaning in a kitchen (own photo)",
+    "photoAlt": "home cleaning in a kitchen",
     "includedTitle": "What's included",
-    "includedNote": "The checklist will follow WeDo365's own service description.",
     "included": [
       {
         "title": "All rooms",
@@ -195,7 +193,7 @@
     ],
     "endTitle": "Want help with home cleaning?",
     "endText": "Send a request and we will get back to you with a suggested time and price.",
-    "endCta": "Send a request"
+    "endCta": "Send request"
   },
   "business": {
     "title": "Business cleaning in Stockholm – WeDo365",
@@ -204,7 +202,7 @@
     "lead": "A clean workplace without you having to think about it. We set the schedule around how you work.",
     "cta": "Request a free quote",
     "callCta": "Call {phone}",
-    "photoAlt": "Photo: WeDo365 cleaning an office (own photo)",
+    "photoAlt": "WeDo365 cleaning an office",
     "sectorsTitle": "What we help with",
     "sectors": [
       {
@@ -290,8 +288,8 @@
     "sideCall": "Prefer to call?"
   },
   "book": {
-    "title": "Book cleaning – WeDo365",
-    "h1": "Book cleaning",
+    "title": "Send request – WeDo365",
+    "h1": "Send request",
     "lead": "Tell us what you need. We contact you with a price and confirm the time before anything is booked.",
     "steps": ["Service", "Details", "Time and place", "Contact"],
     "stepLabel": "Step",

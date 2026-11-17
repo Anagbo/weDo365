@@ -46,6 +46,8 @@ Copy `.env.example` to `.env.local` for local work. On Vercel, set the same vari
 | `MAIL_TO_OWNER`        | yes    | The inbox where new requests arrive. Customers' replies to their confirmation also go here.                                                                                                                                      |
 | `NEXT_PUBLIC_SITE_URL` | yes    | The public address, no trailing slash. Used for canonical links, the sitemap, robots.txt and structured data. **Read at build time**, so set it before deploying and redeploy if it changes. Defaults to `https://wedo365ab.se`. |
 
+`SHOW_REVIEWS` is optional (`true` shows the reviews section and the Reco.se rating; leave it out until there are real reviews). Also read at build time.
+
 If any of the three email variables is missing, the API answers with an error and writes `[request] Email is not configured …` to the server log (never any form contents).
 
 ## How the project is organised
@@ -101,7 +103,9 @@ All text on the site is in `src/messages/sv.json` and `src/messages/en.json`.
 - **The phone number, email and other company details** are not written in the messages files; change them in `src/config/company.ts` (see above).
 - **The privacy policy and terms** are the `legal` section: a list of `{ title, text }` per page.
 - **The owner email** is always Swedish. Its few extra labels ("Typ av förfrågan", "Mottagen" …) are in `src/lib/email/templates.ts`; everything else reuses the forms' own labels.
-- **Photos:** every grey box with a "Foto: …" caption is a placeholder. See the comment at the top of `src/components/sections/PhotoPlaceholder.tsx` for how to put in a real photo with `next/image`. No stock photos.
+- **Photos:** none are shown until a real one exists (no grey boxes, no captions). To add one, put the file in `public/images/` and fill in its slot in `src/config/images.ts` (`hero`, `businessBand`, `homeCleaning`, `business`); the page then lays out around it. The alt text is `home.heroPhotoAlt`, `home.businessPhotoAlt`, `homeCleaning.photoAlt` and `business.photoAlt` in the messages files. No stock photos.
+- **Reviews:** the reviews section and the "[BETYG] av 5 på Reco.se" trust point are hidden. The texts stay in the messages (`home.reviews*`, `home.trustReviews`). Build with `SHOW_REVIEWS=true` once there are real reviews and the `[...]` texts are replaced.
+- **FAQ answers** that are still `[bracketed]` are left out automatically, and a FAQ with no ready answer is not shown at all. Write the answer (without brackets) and the question appears.
 - **Logo:** `src/components/Logo.tsx` is a placeholder (a green "W" and the wordmark). Replace it when the real logo exists.
 
 After editing, run `npm test` and `npm run build`.
@@ -110,34 +114,36 @@ After editing, run `npm test` and `npm run build`.
 
 These strings were not in the approved copy and were added by the developer. Please check the Swedish (and English) wording.
 
-| Key                    | Swedish                                                                  | English                                                                          | Where                                                |
-| ---------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| `ui.skipLink`          | Hoppa till innehållet                                                    | Skip to content                                                                  | Skip link, visible on keyboard focus                 |
-| `ui.menu`              | Meny                                                                     | Menu                                                                             | Menu button in the header on mobile                  |
-| `ui.breadcrumb`        | Brödsmulor                                                               | Breadcrumb                                                                       | Screen-reader name of the breadcrumb (service pages) |
-| `ui.sending`           | Skickar …                                                                | Sending …                                                                        | Submit button while sending                          |
-| `ui.choose`            | Välj …                                                                   | Choose …                                                                         | Empty first option of the quote form's selects       |
-| `errors.required`      | Fyll i det här fältet.                                                   | Please fill in this field.                                                       | Inline form error                                    |
-| `errors.choose`        | Välj ett alternativ.                                                     | Please choose an option.                                                         | Inline form error                                    |
-| `errors.email`         | Ange en giltig e-postadress.                                             | Enter a valid email address.                                                     | Inline form error                                    |
-| `errors.phone`         | Ange ett giltigt telefonnummer.                                          | Enter a valid phone number.                                                      | Inline form error                                    |
-| `errors.range`         | Ange ett heltal mellan {min} och {max}.                                  | Enter a whole number between {min} and {max}.                                    | Inline form error                                    |
-| `errors.zip`           | Ange fem siffror, t.ex. 123 45.                                          | Enter five digits, e.g. 123 45.                                                  | Inline form error                                    |
-| `errors.date`          | Ange ett giltigt datum.                                                  | Enter a valid date.                                                              | Inline form error                                    |
-| `errors.datePast`      | Välj dagens datum eller ett senare.                                      | Choose today or a later date.                                                    | Inline form error                                    |
-| `errors.tooLong`       | Texten är för lång.                                                      | The text is too long.                                                            | Inline form error                                    |
-| `errors.submitFailed`  | Det gick inte att skicka just nu. Försök igen eller ring oss på {phone}. | We could not send your request just now. Please try again or call us on {phone}. | Form alert when sending fails                        |
-| `email.subject`        | Vi har fått din förfrågan – WeDo365                                      | We have received your request – WeDo365                                          | Customer email: subject                              |
-| `email.greeting`       | Hej {name}!                                                              | Hi {name},                                                                       | Customer email: greeting                             |
-| `email.summaryTitle`   | Det här skickade du                                                      | What you sent us                                                                 | Customer email: heading above the summary            |
-| `email.signoff`        | Vänliga hälsningar,                                                      | Kind regards,                                                                    | Customer email: sign-off                             |
-| `email.why`            | Du får det här mejlet eftersom du skickade en förfrågan på {site}.       | You are receiving this email because you sent a request on {site}.               | Customer email: why you got this email               |
-| `notFound.h1`          | Sidan hittades inte                                                      | Page not found                                                                   | 404 page: heading                                    |
-| `notFound.text`        | Länken kan vara felaktig, eller så har sidan flyttats.                   | The link may be wrong, or the page may have moved.                               | 404 page: explanation                                |
-| `notFound.home`        | Till startsidan                                                          | Back to home page                                                                | 404 page: button to the start page                   |
-| `footer.postalAddress` | Postadress                                                               | Postal address                                                                   | Label above the postal address (footer, legal pages) |
-| `legal.company`        | {company}, org.nr {orgNr}                                                | {company}, org. no. {orgNr}                                                      | Contact block on the legal pages                     |
-| `footer.about` (end)   | · {employees} anställda.                                                 | · {employees} employees.                                                         | Footer "Om oss" line; added to the approved text     |
+| Key                       | Swedish                                                                  | English                                                                          | Where                                                                                       |
+| ------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `ui.skipLink`             | Hoppa till innehållet                                                    | Skip to content                                                                  | Skip link, visible on keyboard focus                                                        |
+| `ui.menu`                 | Meny                                                                     | Menu                                                                             | Menu button in the header on mobile                                                         |
+| `ui.breadcrumb`           | Brödsmulor                                                               | Breadcrumb                                                                       | Screen-reader name of the breadcrumb (service pages)                                        |
+| `ui.sending`              | Skickar …                                                                | Sending …                                                                        | Submit button while sending                                                                 |
+| `ui.choose`               | Välj …                                                                   | Choose …                                                                         | Empty first option of the quote form's selects                                              |
+| `errors.required`         | Fyll i det här fältet.                                                   | Please fill in this field.                                                       | Inline form error                                                                           |
+| `errors.choose`           | Välj ett alternativ.                                                     | Please choose an option.                                                         | Inline form error                                                                           |
+| `errors.email`            | Ange en giltig e-postadress.                                             | Enter a valid email address.                                                     | Inline form error                                                                           |
+| `errors.phone`            | Ange ett giltigt telefonnummer.                                          | Enter a valid phone number.                                                      | Inline form error                                                                           |
+| `errors.range`            | Ange ett heltal mellan {min} och {max}.                                  | Enter a whole number between {min} and {max}.                                    | Inline form error                                                                           |
+| `errors.zip`              | Ange fem siffror, t.ex. 123 45.                                          | Enter five digits, e.g. 123 45.                                                  | Inline form error                                                                           |
+| `errors.date`             | Ange ett giltigt datum.                                                  | Enter a valid date.                                                              | Inline form error                                                                           |
+| `errors.datePast`         | Välj dagens datum eller ett senare.                                      | Choose today or a later date.                                                    | Inline form error                                                                           |
+| `errors.tooLong`          | Texten är för lång.                                                      | The text is too long.                                                            | Inline form error                                                                           |
+| `errors.submitFailed`     | Det gick inte att skicka just nu. Försök igen eller ring oss på {phone}. | We could not send your request just now. Please try again or call us on {phone}. | Form alert when sending fails                                                               |
+| `email.subject`           | Vi har fått din förfrågan – WeDo365                                      | We have received your request – WeDo365                                          | Customer email: subject                                                                     |
+| `email.greeting`          | Hej {name}!                                                              | Hi {name},                                                                       | Customer email: greeting                                                                    |
+| `email.summaryTitle`      | Det här skickade du                                                      | What you sent us                                                                 | Customer email: heading above the summary                                                   |
+| `email.signoff`           | Vänliga hälsningar,                                                      | Kind regards,                                                                    | Customer email: sign-off                                                                    |
+| `email.why`               | Du får det här mejlet eftersom du skickade en förfrågan på {site}.       | You are receiving this email because you sent a request on {site}.               | Customer email: why you got this email                                                      |
+| `notFound.h1`             | Sidan hittades inte                                                      | Page not found                                                                   | 404 page: heading                                                                           |
+| `notFound.text`           | Länken kan vara felaktig, eller så har sidan flyttats.                   | The link may be wrong, or the page may have moved.                               | 404 page: explanation                                                                       |
+| `notFound.home`           | Till startsidan                                                          | Back to home page                                                                | 404 page: button to the start page                                                          |
+| `footer.postalAddress`    | Postadress                                                               | Postal address                                                                   | Label above the postal address (footer, legal pages)                                        |
+| `legal.company`           | {company}, org.nr {orgNr}                                                | {company}, org. no. {orgNr}                                                      | Contact block on the legal pages                                                            |
+| `nav.cta` (changed)       | Skicka förfrågan                                                         | Send request                                                                     | Header button and mobile bottom bar (was "Boka städning"); the form page is titled the same |
+| `home.howTitle` (changed) | Så enkelt skickar du en förfrågan                                        | Sending a request is simple                                                      | Home page, steps heading (was "Så enkelt bokar du")                                         |
+| `footer.about` (end)      | · {employees} anställda.                                                 | · {employees} employees.                                                         | Footer "Om oss" line; added to the approved text                                            |
 
 **Privacy policy and terms (`legal.*`): must be reviewed before launch.** All of this text was written by the developer. The first five privacy sections (what we receive, why, what is stored, Vercel as host, Resend as email service) describe how the site works today and should be checked for accuracy. They name Vercel and Resend as data processors and say that Vercel keeps standard hosting logs. The data controller section names the company, org.nr, postal address and email (from `src/config/company.ts`). Retention and rights are `[TEXT FRÅN WEDO365]` placeholders, and so is most of the terms. The policy does not yet cover the delivery log Resend keeps of sent emails, or cookies (the site sets none). **Have a lawyer review both pages (`/integritetspolicy` and `/villkor`) before launch.**
 
@@ -145,23 +151,23 @@ These strings were not in the approved copy and were added by the developer. Ple
 
 This text was in the approved prototype (`docs/prototype/`) but missing from the messages files, so it was copied over as is:
 
-| Key                              | Swedish                              | English                            | Where                                    |
-| -------------------------------- | ------------------------------------ | ---------------------------------- | ---------------------------------------- |
-| `home.businessPhotoAlt`          | Foto: städning av kontor (egen bild) | Photo: office cleaning (own photo) | Photo caption, business band             |
-| `homeCleaning.breadcrumbCurrent` | Hemstädning                          | Home cleaning                      | Last breadcrumb item, home-cleaning page |
+| Key                              | Swedish            | English         | Where                                                |
+| -------------------------------- | ------------------ | --------------- | ---------------------------------------------------- |
+| `home.businessPhotoAlt`          | städning av kontor | office cleaning | Alt text of the business-band photo (once it exists) |
+| `homeCleaning.breadcrumbCurrent` | Hemstädning        | Home cleaning   | Last breadcrumb item, home-cleaning page             |
 
 ## Placeholders to fill in
 
-Text in square brackets is a placeholder for the owner. The brackets are kept exactly as written until the real text is in. This is the complete list (find them with a text search for `[`):
+Text in square brackets is a placeholder for the owner. The brackets are kept exactly as written until the real text is in. **`npm run check:placeholders` lists them** (see "Before launch"). Only the privacy policy and terms show them on the live site today; the rest are hidden until the owner fills them in. This is the complete list:
 
-| Placeholder (Swedish / English)                                                                                                     | Where it shows                      | What goes there                                           |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --------------------------------------------------------- |
-| `[BETYG]` / `[RATING]`, `[ANTAL]` / `[COUNT]`                                                                                       | Home trust list, reviews heading    | Reco.se rating and number of reviews                      |
-| `[Kundomdöme hämtat från Reco eller Google]`, `[Förnamn]`, `[Område]` (and English)                                                 | Three review cards on the home page | Real reviews, with permission                             |
-| `[Svar från WeDo365, t.ex. hur nyckelhantering fungerar]`, `[Checklista för flyttstädning …]`, `[Avbokningsregler …]` (and English) | Home page FAQ                       | The answers                                               |
-| `[Svar från WeDo365]`, `[Svar från WeDo365, t.ex. om ni tar med städmaterial]` (and English)                                        | Home-cleaning page FAQ              | The answers                                               |
-| `[TEXT FRÅN WEDO365]`                                                                                                               | Privacy policy and terms            | Retention and rights; all terms                           |
-| `[OG-BILD]`                                                                                                                         | A comment in `src/lib/seo.ts`       | A share image (1200×630) for links shared on social media |
+| Placeholder (Swedish / English)                                                                                                     | Where it shows                | What goes there                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | --------------------------------------------------------- |
+| `[BETYG]` / `[RATING]`, `[ANTAL]` / `[COUNT]`                                                                                       | Hidden (SHOW_REVIEWS off)     | Reco.se rating and number of reviews                      |
+| `[Kundomdöme hämtat från Reco eller Google]`, `[Förnamn]`, `[Område]` (and English)                                                 | Hidden (SHOW_REVIEWS off)     | Real reviews, with permission                             |
+| `[Svar från WeDo365, t.ex. hur nyckelhantering fungerar]`, `[Checklista för flyttstädning …]`, `[Avbokningsregler …]` (and English) | Hidden until answered         | The answers                                               |
+| `[Svar från WeDo365]`, `[Svar från WeDo365, t.ex. om ni tar med städmaterial]` (and English)                                        | Hidden until answered         | The answers                                               |
+| `[TEXT FRÅN WEDO365]`                                                                                                               | Privacy policy and terms      | Retention and rights; all terms                           |
+| `[OG-BILD]`                                                                                                                         | A comment in `src/lib/seo.ts` | A share image (1200×630) for links shared on social media |
 
 **Claims in the approved copy to confirm are true before launch:** "Godkänd för F-skatt" (see the checklist), the liability insurance with If, the Reco.se rating, "365 dagar om året", and that WeDo365 can offer the services on the site (including the checklist under "Det här ingår").
 
@@ -188,7 +194,10 @@ All accounts (GitHub, Vercel, Resend, the domain registrar) should belong to WeD
 - [ ] **Vercel Pro** on the WeDo 365 AB account (the free Hobby plan is for non-commercial use only)
 - [ ] **Domain records added without touching MX:** the site records for `wedo365ab.se` in Vercel, and the SPF/DKIM records for `send.wedo365ab.se` in Resend. Normal email on the main domain must keep working.
 - [ ] **Lighthouse check on mobile** for the live home page. The target is 95 or more for Performance, Accessibility, Best Practices and SEO. (Not measured yet; it needs the live site.)
-- [ ] Real photos instead of the grey boxes, the real logo, and a share image (`[OG-BILD]`)
+- [ ] Real photos (none are shown until added, see "Editing text"), the real logo, and a share image (`[OG-BILD]`)
+- [ ] **Home-cleaning checklist ("Det här ingår"): owner to confirm what is included.** The three groups (all rooms, kitchen, bathroom) are a draft and must match WeDo365's own service description. The note on the page that said so was removed.
+- [ ] **Reviews:** when there are real reviews, replace the `[...]` texts in `home.reviews*` and `home.trustReviews`, then build with `SHOW_REVIEWS=true`
+- [ ] **Run `npm run build`, then `LAUNCH_CHECK=1 npm run check:placeholders`.** It must pass: no `[`, `Foto:`/`Photo:` or `TODO` on any rendered page. Without `LAUNCH_CHECK=1` it only warns. It also lists written-but-hidden text in the messages files; that does not fail the check.
 
 ## Tests
 
@@ -198,6 +207,7 @@ All accounts (GitHub, Vercel, Resend, the domain registrar) should belong to WeD
 - **Email builders** (the owner email has every field and is in Swedish; the customer email is in the customer's language; HTML in input is escaped; no price, RUT or personnummer words)
 - **Sending** with the Resend SDK replaced by a stand-in (recipients, reply-to, what happens when each email fails, no form contents in the log)
 - **The messages files** (same keys in both languages, no empty text, lists that line up with the form options)
+- **Spam guard end to end** (`/api/request`: a normal fill is accepted, a filled honeypot or a too-fast send is silently dropped) and the honeypot field's markup
 - **Company details** (`src/config/company.ts`: every token in the messages is filled in, the old placeholders are gone, the structured data has the legal ids and postal address)
 
 The pages and forms themselves are not covered by automated browser tests. During development they were checked by hand and with scripts in a real browser at 375 px and 1440 px wide, in both languages.
@@ -206,8 +216,9 @@ The pages and forms themselves are not covered by automated browser tests. Durin
 
 - **This is a recent Next.js with breaking changes.** `AGENTS.md` tells coding agents to read `node_modules/next/dist/docs/` first; do the same before changing framework-level things.
 - **Every page is static**, and the build fails if one stops being static (`ensureStatic` in `src/app/[locale]/layout.tsx`). Cache Components are on. Because of that, `/api/request` must not export a `runtime` setting (it already runs on Node.js).
+- **Mobile bar:** on small screens a sticky bar with "Ring" and the request button sits at the bottom (`MobileActionBar`). It is the last element of the page, so at the very bottom it sits below the footer, not over it. It is hidden on `/boka` and `/offert`.
 - **No language detection and no cookies.** `/` is always Swedish, `/en` is English, and the language switch is a plain link.
-- **The 404 page is bilingual** (one page showing both languages). **Uses Next's experimental global-not-found. Re-check after every Next.js upgrade.** A `notFound()` from a page would give only a client-rendered shell under Cache Components, and a static page can't know the visitor's language. A rewrite in `next.config.ts` sends unknown URLs containing a dot (like `/index.html`) to the same page.
-- **Spam protection** is a hidden honeypot field plus a minimum fill time of 3 seconds. There is no rate limiting. If spam gets through after launch, add rules in Vercel's firewall; no code change is needed.
+- **The 404 page has the full header and footer and shows only the language of the URL** (Swedish at the root, English under `/en`). **Uses Next's experimental global-not-found. Re-check after every Next.js upgrade.** A `notFound()` from a page would give only a client-rendered shell under Cache Components. The 404 page instead reads the language from the `x-next-intl-locale` header the proxy sets, so it is rendered per request (`export const instant = false`); this is why `src/i18n/request.ts` falls back to `requestLocale`. A rewrite in `next.config.ts` sends unknown URLs containing a dot (like `/index.html`) to the same page.
+- **Spam protection** is a hidden honeypot field (off-screen, `aria-hidden`, `inert`, not focusable, autofill switched off) plus a minimum fill time of 3 seconds. There is no rate limiting. If spam gets through after launch, add rules in Vercel's firewall; no code change is needed.
 - **The thank-you page** always says a copy was sent to the customer. If only that copy fails (the owner email went through), the request still counts as received.
 - **The org.nr is deliberately not collected** in the quote form. The owner asks for it when writing the contract.

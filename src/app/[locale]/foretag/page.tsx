@@ -6,7 +6,8 @@ import { buttonClasses } from "@/components/ui/button";
 import { cardClasses } from "@/components/ui/card";
 import { CheckList } from "@/components/ui/CheckList";
 import { Eyebrow } from "@/components/sections/Eyebrow";
-import { PhotoPlaceholder } from "@/components/sections/PhotoPlaceholder";
+import { SiteImage } from "@/components/sections/SiteImage";
+import { hasImage } from "@/config/images";
 import { Steps, type Step } from "@/components/sections/Steps";
 import { EndCta } from "@/components/sections/EndCta";
 
@@ -32,8 +33,12 @@ export default async function BusinessPage() {
   return (
     <>
       {/* Hero */}
-      <section className="container-site grid items-center gap-12 pt-12 pb-14 md:pt-18 md:pb-16 lg:grid-cols-2">
-        <div className="flex flex-col gap-5">
+      <section
+        className={`container-site grid items-center gap-12 pt-12 pb-14 md:pt-18 md:pb-16 ${
+          hasImage("business") ? "lg:grid-cols-2" : ""
+        }`}
+      >
+        <div className="flex max-w-[820px] flex-col gap-5">
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h1 className="text-h1-sm md:text-h1-page">{t("h1")}</h1>
           <p className="max-w-[620px] text-lead text-muted">{t("lead")}</p>
@@ -47,8 +52,10 @@ export default async function BusinessPage() {
           </div>
           <CheckList items={trust} inline className="mt-2" />
         </div>
-        <PhotoPlaceholder
-          caption={t("photoAlt")}
+        <SiteImage
+          name="business"
+          alt={t("photoAlt")}
+          priority
           className="h-[280px] sm:h-[360px] lg:h-[440px]"
         />
       </section>

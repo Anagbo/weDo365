@@ -7,7 +7,6 @@
 /** book.freqs[].id */
 export const FREQUENCY_IDS = ["w1", "w2", "w4", "once"] as const;
 export type FrequencyId = (typeof FREQUENCY_IDS)[number];
-export const DEFAULT_FREQUENCY: FrequencyId = "w2";
 
 /** book.slots[].id */
 export const SLOT_IDS = ["am", "pm"] as const;

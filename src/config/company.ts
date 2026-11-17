@@ -31,8 +31,8 @@ export const COMPANY = {
   },
   /** Liability insurer, as named on the site. */
   insurer: "If",
-  /** Number of employees, as shown on the site ("30-50 anställda"). */
-  employees: "30-50",
+  /** Number of employees, as shown on the site ("30–50 anställda"). */
+  employees: "30–50",
   /** Not shown on the site yet: the copy has no payment text. */
   bankgiro: "5253-4021",
 } as const;

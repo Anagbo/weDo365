@@ -12,7 +12,7 @@ import type {
 
 export const errorId = (id: string) => `${id}-error`;
 
-const labelClass = "flex flex-col gap-1.5 text-[15px] font-medium text-ink";
+const labelClass = "flex flex-col gap-1.5 text-base font-medium text-ink";
 
 const controlClass =
   "w-full min-h-12 rounded-field border-[1.5px] border-field bg-white px-3.5 py-3 text-base font-normal text-ink aria-invalid:border-error";
@@ -169,7 +169,7 @@ export function ToggleGroup({
       className="flex flex-col"
     >
       {legend ? (
-        <legend className="mb-2.5 text-[15px] font-medium">{legend}</legend>
+        <legend className="mb-2.5 text-base font-medium">{legend}</legend>
       ) : null}
       <div className={`grid gap-3 ${columns}`}>
         {options.map((o, i) => {

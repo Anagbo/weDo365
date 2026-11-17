@@ -16,7 +16,6 @@ export async function Header() {
     { label: t("homes"), href: "/hemstadning" },
     { label: t("business"), href: "/foretag" },
     { label: t("howItWorks"), href: { pathname: "/", hash: "hur" } },
-    { label: t("about"), href: { pathname: "/", hash: "om" } },
     { label: t("contact"), href: { pathname: "/", hash: "kontakt" } },
   ];
 

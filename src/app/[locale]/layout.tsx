@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { SITE_URL } from "@/config/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import "../globals.css";
 
 const inter = Inter({
@@ -42,6 +43,8 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
 
   const ui = await getTranslations("ui");
+  const nav = await getTranslations("nav");
+  const meta = await getTranslations("meta");
 
   return (
     <html lang={locale} className={`${inter.variable} ${manrope.variable}`}>
@@ -59,6 +62,14 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer />
+          <MobileActionBar
+            call={{
+              label: nav("call"),
+              aria: `${nav("call")} ${meta("phone")}`,
+              href: meta("phoneHref"),
+            }}
+            cta={nav("cta")}
+          />
         </NextIntlClientProvider>
       </body>
     </html>

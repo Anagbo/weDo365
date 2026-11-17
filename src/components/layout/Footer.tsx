@@ -7,7 +7,7 @@ import { PostalAddress } from "@/components/PostalAddress";
 type Href = ComponentProps<typeof Link>["href"];
 
 const linkClass =
-  "inline-flex min-h-11 items-center text-[15px] text-white/85 no-underline hover:text-white hover:underline";
+  "inline-flex min-h-11 items-center text-base text-white/85 no-underline hover:text-white hover:underline";
 
 function Column({
   id,
@@ -49,11 +49,11 @@ export async function Footer() {
   return (
     <footer className="mt-auto bg-ink text-white [&_:focus-visible]:outline-white">
       <div className="container-site grid gap-8 pt-14 pb-10 sm:grid-cols-2 lg:grid-cols-4">
-        <section id="om" className="flex flex-col gap-2.5">
+        <section className="flex flex-col gap-2.5">
           <p className="font-heading text-[22px] font-extrabold tracking-[-0.02em] text-white">
             {meta("siteName")}
           </p>
-          <p className="text-[15px] text-white/85">{t("about")}</p>
+          <p className="text-base text-white/85">{t("about")}</p>
           <p className="text-sm text-white/85">{t("org")}</p>
         </section>
 
@@ -81,7 +81,7 @@ export async function Footer() {
                 {t("email")}
               </a>
             </li>
-            <li className="flex min-h-11 items-center text-[15px] text-white/85">
+            <li className="flex min-h-11 items-center text-base text-white/85">
               {t("area")}
             </li>
           </ul>

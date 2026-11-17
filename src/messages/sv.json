@@ -8,18 +8,17 @@
     "homes": "För hemmet",
     "business": "För företag",
     "howItWorks": "Så går det till",
-    "about": "Om oss",
     "contact": "Kontakt",
     "menuLabel": "Huvudmeny",
     "homeAria": "WeDo365, till startsidan",
     "switchLabel": "EN",
     "switchAria": "Read this page in English",
-    "cta": "Boka städning",
+    "cta": "Skicka förfrågan",
     "call": "Ring"
   },
   "footer": {
     "about": "{company} · Städfirma i Stockholm, 365 dagar om året · {employees} anställda.",
-    "org": "Org.nr {orgNr} · Godkänd för F-skatt",
+    "org": "Org.nr {orgNr} · Godkänd för F‑skatt",
     "services": "Tjänster",
     "contact": "Kontakt",
     "legal": "Juridiskt",
@@ -42,7 +41,7 @@
     "eyebrow": "Städfirma i Stockholm · 365 dagar om året",
     "h1": "Rent hemma och på jobbet. Vi tar hand om resten.",
     "lead": "Berätta vad du behöver, så kontaktar vi dig med ett förslag på tid och pris.",
-    "heroPhotoAlt": "Foto: WeDo365-teamet på jobb i ett hem (egen bild, inte stockfoto)",
+    "heroPhotoAlt": "WeDo365-teamet på jobb i ett hem",
     "doorHomes": {
       "title": "För hemmet",
       "text": "Hemstädning, flyttstädning, storstädning och fönsterputs.",
@@ -58,14 +57,13 @@
     "trust": [
       "Ansvarsförsäkring hos {insurer}",
       "Godkänd för F-skatt",
-      "Personlig kontakt innan något bokas",
-      "[BETYG] av 5 på Reco.se"
+      "Personlig kontakt innan något bokas"
     ],
     "servicesTitle": "Våra tjänster för hemmet",
     "services": [
       {
         "name": "Hemstädning",
-        "text": "Regelbunden städning varje, varannan eller var fjärde vecka.",
+        "text": "Regelbunden städning varje vecka, varannan vecka eller var fjärde vecka.",
         "link": "Läs mer",
         "target": "homeCleaning"
       },
@@ -88,7 +86,7 @@
         "target": "book"
       }
     ],
-    "howTitle": "Så enkelt bokar du",
+    "howTitle": "Så enkelt skickar du en förfrågan",
     "how": [
       {
         "title": "Berätta vad du behöver",
@@ -107,7 +105,7 @@
     "businessText": "Kontor, trappuppgångar, gym och skolor. Vi lägger upp ett schema som passar er verksamhet.",
     "businessCta": "Begär offert",
     "businessCta2": "Läs mer",
-    "businessPhotoAlt": "Foto: städning av kontor (egen bild)",
+    "businessPhotoAlt": "städning av kontor",
     "reviewsTitle": "Vad våra kunder säger",
     "reviewsSub": "[BETYG] av 5 baserat på [ANTAL] omdömen på Reco.se",
     "reviewPlaceholder": "[Kundomdöme hämtat från Reco eller Google]",
@@ -133,7 +131,8 @@
     ],
     "endTitle": "Redo för ett renare hem?",
     "endText": "Det tar två minuter att skicka en förfrågan. Hellre ringa? {phone}",
-    "endCta": "Skicka förfrågan"
+    "endCta": "Skicka förfrågan",
+    "trustReviews": "[BETYG] av 5 på Reco.se"
   },
   "homeCleaning": {
     "title": "Hemstädning i Stockholm – WeDo365",
@@ -149,9 +148,8 @@
       "Varje vecka, varannan eller var fjärde vecka",
       "Personlig kontakt innan något bokas"
     ],
-    "photoAlt": "Foto: hemstädning i kök (egen bild)",
+    "photoAlt": "hemstädning i kök",
     "includedTitle": "Det här ingår",
-    "includedNote": "Checklistan anpassas efter WeDo365:s egen tjänstebeskrivning.",
     "included": [
       {
         "title": "Alla rum",
@@ -204,7 +202,7 @@
     "lead": "En ren arbetsmiljö utan att ni behöver tänka på det. Vi lägger upp schemat efter er verksamhet.",
     "cta": "Begär kostnadsfri offert",
     "callCta": "Ring {phone}",
-    "photoAlt": "Foto: WeDo365 städar ett kontor (egen bild)",
+    "photoAlt": "WeDo365 städar ett kontor",
     "sectorsTitle": "Det här hjälper vi till med",
     "sectors": [
       {
@@ -290,8 +288,8 @@
     "sideCall": "Hellre ringa?"
   },
   "book": {
-    "title": "Boka städning – WeDo365",
-    "h1": "Boka städning",
+    "title": "Skicka förfrågan – WeDo365",
+    "h1": "Skicka förfrågan",
     "lead": "Berätta vad du behöver. Vi kontaktar dig med pris och bekräftar tiden innan något är bokat.",
     "steps": ["Tjänst", "Detaljer", "Tid och plats", "Kontakt"],
     "stepLabel": "Steg",

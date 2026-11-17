@@ -9,8 +9,9 @@ import { buttonClasses } from "@/components/ui/button";
 import { cardClasses, cardFeaturedClasses } from "@/components/ui/card";
 import { CheckList } from "@/components/ui/CheckList";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
-import { PhotoPlaceholder } from "@/components/sections/PhotoPlaceholder";
-import { Faq } from "@/components/sections/Faq";
+import { SiteImage } from "@/components/sections/SiteImage";
+import { Faq, readyFaq } from "@/components/sections/Faq";
+import { hasImage } from "@/config/images";
 import { EndCta } from "@/components/sections/EndCta";
 
 /**
@@ -52,15 +53,19 @@ export async function ServicePage({ pageKey }: { pageKey: ServicePageKey }) {
         ]}
       />
 
-      <section className="container-site grid items-start gap-12 pt-7 pb-14 md:pb-16 lg:grid-cols-2">
-        <div className="flex flex-col gap-6">
+      <section
+        className={`container-site grid items-start gap-12 pt-7 pb-14 md:pb-16 ${
+          hasImage("homeCleaning") ? "lg:grid-cols-2" : ""
+        }`}
+      >
+        <div className="flex max-w-[820px] flex-col gap-6">
           <h1 className="text-h1-sm md:text-h1-page">{c.h1}</h1>
           <p className="max-w-[620px] text-lead text-muted">{c.lead}</p>
 
           <div className={`flex flex-col gap-4 ${cardFeaturedClasses}`}>
             <div>
               <h2 className="text-[26px] leading-tight">{c.cardTitle}</h2>
-              <p className="mt-1 text-[15px] text-muted">{c.cardText}</p>
+              <p className="mt-1 text-base text-muted">{c.cardText}</p>
             </div>
             <CheckList items={c.checks} />
             <Link
@@ -72,8 +77,10 @@ export async function ServicePage({ pageKey }: { pageKey: ServicePageKey }) {
             </Link>
           </div>
         </div>
-        <PhotoPlaceholder
-          caption={c.photoAlt}
+        <SiteImage
+          name="homeCleaning"
+          alt={c.photoAlt}
+          priority
           className="h-[280px] sm:h-[400px] lg:h-[520px]"
         />
       </section>
@@ -96,12 +103,13 @@ export async function ServicePage({ pageKey }: { pageKey: ServicePageKey }) {
             </li>
           ))}
         </ul>
-        <p className="text-sm text-muted">{c.includedNote}</p>
       </section>
 
-      <div className="md:pt-12">
-        <Faq title={c.faqTitle} items={c.faq} />
-      </div>
+      {readyFaq(c.faq).length > 0 ? (
+        <div className="md:pt-12">
+          <Faq title={c.faqTitle} items={c.faq} />
+        </div>
+      ) : null}
 
       <EndCta
         title={c.endTitle}

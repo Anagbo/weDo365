@@ -1,7 +1,39 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, type Ref } from "react";
 import { HONEYPOT_FIELD, type SpamGuard } from "@/lib/forms/schemas";
+
+/**
+ * The trap field. aria-hidden + inert: not read by screen readers, not
+ * focusable, not reachable by tabbing. Off-screen rather than display:none,
+ * because simple bots skip fields that are display:none. Password managers
+ * are told to leave it alone too.
+ */
+export function HoneypotField({ ref }: { ref?: Ref<HTMLInputElement> }) {
+  return (
+    <div
+      aria-hidden="true"
+      inert
+      className="pointer-events-none absolute -left-[10000px] size-px overflow-hidden"
+    >
+      <label aria-hidden="true">
+        Website
+        <input
+          ref={ref}
+          type="text"
+          name={HONEYPOT_FIELD}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          defaultValue=""
+          data-1p-ignore
+          data-lpignore="true"
+          data-form-type="other"
+        />
+      </label>
+    </div>
+  );
+}
 
 /**
  * Honeypot field + fill timer for a form.
@@ -36,24 +68,7 @@ export function useSpamGuard() {
     if (field.current) field.current.value = "";
   }, []);
 
-  const honeypot = (
-    <div
-      aria-hidden="true"
-      className="absolute -left-[10000px] size-px overflow-hidden"
-    >
-      <label>
-        Website
-        <input
-          ref={field}
-          type="text"
-          name={HONEYPOT_FIELD}
-          tabIndex={-1}
-          autoComplete="off"
-          defaultValue=""
-        />
-      </label>
-    </div>
-  );
+  const honeypot = <HoneypotField ref={field} />;
 
   return { honeypot, read, restart };
 }

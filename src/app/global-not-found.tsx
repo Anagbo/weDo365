@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { headers } from "next/headers";
 import { Inter, Manrope } from "next/font/google";
-import { MESSAGES } from "@/messages";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 import { buttonClasses } from "@/components/ui/button";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import "./globals.css";
 
 /*
  * 404 page for every URL that matches no page (see `globalNotFound` in
- * next.config.ts). It is one static page, so it cannot know the visitor's
- * language: it shows Swedish and English side by side. The text is in the
- * `notFound` namespace of the messages files.
+ * next.config.ts). It bypasses the language layout, so it builds the same
+ * page frame itself: header, footer, and the language of the URL (the
+ * next-intl proxy sets `x-next-intl-locale` on every request; Swedish at the
+ * root, English under /en). The text is in the `notFound` namespace.
  */
 
 const inter = Inter({
@@ -26,46 +33,55 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const { sv, en } = MESSAGES;
+// The page reads the request (for the language), so it is rendered per request.
+export const instant = false;
 
 export const metadata: Metadata = {
-  title: `${sv.notFound.h1} / ${en.notFound.h1} – ${sv.meta.siteName}`,
+  title: "404 – WeDo365",
 };
 
-export default function GlobalNotFound() {
+export default async function GlobalNotFound() {
+  const requested = (await headers()).get("x-next-intl-locale");
+  const locale = hasLocale(routing.locales, requested)
+    ? requested
+    : routing.defaultLocale;
+  setRequestLocale(locale);
+
+  const t = await getTranslations("notFound");
+  const ui = await getTranslations("ui");
+  const nav = await getTranslations("nav");
+  const meta = await getTranslations("meta");
+
   return (
-    <html lang="sv" className={`${inter.variable} ${manrope.variable}`}>
+    <html lang={locale} className={`${inter.variable} ${manrope.variable}`}>
       <body className="flex min-h-dvh flex-col">
-        <header className="container-site py-6">
-          <Link
-            href="/"
-            className="inline-flex min-h-11 items-center font-heading text-[21px] font-extrabold tracking-[-0.02em] text-ink no-underline"
-          >
-            {sv.meta.siteName}
-          </Link>
-        </header>
-
-        <main className="container-site grid flex-1 content-start gap-12 py-10 md:grid-cols-2 md:py-16">
-          <section lang="sv" className="flex flex-col items-start gap-5">
-            <h1 className="text-h1-sm md:text-h1-page">{sv.notFound.h1}</h1>
-            <p className="max-w-[620px] text-lead text-muted">
-              {sv.notFound.text}
-            </p>
-            <Link href="/" className={buttonClasses("primary")}>
-              {sv.notFound.home}
-            </Link>
-          </section>
-
-          <section lang="en" className="flex flex-col items-start gap-5">
-            <h2 className="text-h1-sm md:text-h1-page">{en.notFound.h1}</h2>
-            <p className="max-w-[620px] text-lead text-muted">
-              {en.notFound.text}
-            </p>
-            <Link href="/en" className={buttonClasses("secondary")}>
-              {en.notFound.home}
-            </Link>
-          </section>
-        </main>
+        <a
+          href="#main"
+          className="sr-only rounded-full bg-ink font-semibold text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:inline-flex focus:min-h-12 focus:items-center focus:px-5"
+        >
+          {ui("skipLink")}
+        </a>
+        <NextIntlClientProvider locale={locale} messages={null}>
+          <Header />
+          <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
+            <section className="container-site flex flex-col items-start gap-5 py-12 md:py-18">
+              <h1 className="text-h1-sm md:text-h1-page">{t("h1")}</h1>
+              <p className="max-w-[620px] text-lead text-muted">{t("text")}</p>
+              <Link href="/" className={buttonClasses("primary")}>
+                {t("home")}
+              </Link>
+            </section>
+          </main>
+          <Footer />
+          <MobileActionBar
+            call={{
+              label: nav("call"),
+              aria: `${nav("call")} ${meta("phone")}`,
+              href: meta("phoneHref"),
+            }}
+            cta={nav("cta")}
+          />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

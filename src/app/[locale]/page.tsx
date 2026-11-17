@@ -2,7 +2,8 @@ import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { bookHref, SERVICE_IDS, SITE_URL } from "@/config/site";
+import { bookHref, SERVICE_IDS, SHOW_REVIEWS, SITE_URL } from "@/config/site";
+import { hasImage } from "@/config/images";
 import { companyJsonLd } from "@/config/company";
 import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -10,7 +11,7 @@ import { buttonClasses } from "@/components/ui/button";
 import { cardClasses, cardFeaturedClasses } from "@/components/ui/card";
 import { CheckIcon } from "@/components/ui/CheckIcon";
 import { Eyebrow } from "@/components/sections/Eyebrow";
-import { PhotoPlaceholder } from "@/components/sections/PhotoPlaceholder";
+import { SiteImage } from "@/components/sections/SiteImage";
 import { Steps, type Step } from "@/components/sections/Steps";
 import { Faq, type FaqItem } from "@/components/sections/Faq";
 import { EndCta } from "@/components/sections/EndCta";
@@ -56,7 +57,10 @@ export default async function HomePage() {
   const locale = await getLocale();
   const t = await getTranslations("home");
 
-  const trust = t.raw("trust") as string[];
+  const trust = [
+    ...(t.raw("trust") as string[]),
+    ...(SHOW_REVIEWS ? [t("trustReviews")] : []),
+  ];
   const services = t.raw("services") as ServiceCard[];
   const how = t.raw("how") as Step[];
   const faq = t.raw("faq") as FaqItem[];
@@ -89,14 +93,20 @@ export default async function HomePage() {
       <JsonLd data={companyJsonLd(SITE_URL)} />
 
       {/* 1. Hero */}
-      <section className="container-site grid items-center gap-12 pt-12 pb-10 md:pt-18 md:pb-14 lg:grid-cols-2">
-        <div className="flex flex-col gap-5">
+      <section
+        className={`container-site grid items-center gap-12 pt-12 pb-10 md:pt-18 md:pb-14 ${
+          hasImage("hero") ? "lg:grid-cols-2" : ""
+        }`}
+      >
+        <div className="flex max-w-[820px] flex-col gap-5">
           <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h1 className="text-h1-sm md:text-h1">{t("h1")}</h1>
           <p className="max-w-[620px] text-lead text-muted">{t("lead")}</p>
         </div>
-        <PhotoPlaceholder
-          caption={t("heroPhotoAlt")}
+        <SiteImage
+          name="hero"
+          alt={t("heroPhotoAlt")}
+          priority
           className="h-[280px] sm:h-[360px] lg:h-[440px]"
         />
       </section>
@@ -116,7 +126,7 @@ export default async function HomePage() {
               {door.title}
             </h2>
             <p className="text-[17px] leading-[1.55] text-muted">{door.text}</p>
-            <p className="text-[15px] font-semibold text-green">{door.note}</p>
+            <p className="text-base font-semibold text-green">{door.note}</p>
             {/* The link covers the whole card (after:inset-0), like the prototype. */}
             <Link
               href={door.href}
@@ -135,7 +145,7 @@ export default async function HomePage() {
           {trust.map((item) => (
             <li
               key={item}
-              className="flex items-center gap-2.5 text-[15px] font-medium"
+              className="flex items-center gap-2.5 text-base font-medium"
             >
               <CheckIcon />
               <span>{item}</span>
@@ -179,13 +189,16 @@ export default async function HomePage() {
       {/* 6. Business band */}
       <section
         aria-labelledby="business-title"
-        className="container-site grid items-center gap-12 py-14 md:py-20 lg:grid-cols-2"
+        className={`container-site grid items-center gap-12 py-14 md:py-20 ${
+          hasImage("businessBand") ? "lg:grid-cols-2" : ""
+        }`}
       >
-        <PhotoPlaceholder
-          caption={t("businessPhotoAlt")}
+        <SiteImage
+          name="businessBand"
+          alt={t("businessPhotoAlt")}
           className="h-[260px] sm:h-[360px]"
         />
-        <div className="flex flex-col gap-[18px]">
+        <div className="flex max-w-[820px] flex-col gap-[18px]">
           <Eyebrow>{t("doorBusiness.title")}</Eyebrow>
           <h2 id="business-title" className="text-h2-sm md:text-h2">
             {t("businessTitle")}
@@ -205,33 +218,38 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 7. Reviews */}
-      <section
-        aria-labelledby="reviews-title"
-        className="container-site flex flex-col gap-6 pt-6 pb-14 md:pb-18"
-      >
-        <div className="flex flex-col gap-1.5">
-          <h2 id="reviews-title" className="text-h2-sm md:text-h2">
-            {t("reviewsTitle")}
-          </h2>
-          <p className="text-muted">{t("reviewsSub")}</p>
-        </div>
-        <div className="grid gap-5 md:grid-cols-3">
-          {[1, 2, 3].map((n) => (
-            <figure key={n} className={`flex flex-col gap-3.5 ${cardClasses}`}>
-              <Stars />
-              <blockquote className="text-[17px] leading-[1.55]">
-                {t("reviewPlaceholder")}
-              </blockquote>
-              <figcaption className="text-sm text-muted">
-                {t("reviewName")}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
+      {/* 7. Reviews: only while SHOW_REVIEWS is on (no real reviews yet) */}
+      {SHOW_REVIEWS ? (
+        <section
+          aria-labelledby="reviews-title"
+          className="container-site flex flex-col gap-6 pt-6 pb-14 md:pb-18"
+        >
+          <div className="flex flex-col gap-1.5">
+            <h2 id="reviews-title" className="text-h2-sm md:text-h2">
+              {t("reviewsTitle")}
+            </h2>
+            <p className="text-muted">{t("reviewsSub")}</p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[1, 2, 3].map((n) => (
+              <figure
+                key={n}
+                className={`flex flex-col gap-3.5 ${cardClasses}`}
+              >
+                <Stars />
+                <blockquote className="text-[17px] leading-[1.55]">
+                  {t("reviewPlaceholder")}
+                </blockquote>
+                <figcaption className="text-sm text-muted">
+                  {t("reviewName")}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
-      {/* 8. FAQ */}
+      {/* 8. FAQ (questions without an answer yet are left out) */}
       <Faq title={t("faqTitle")} items={faq} />
 
       {/* 9. End CTA */}

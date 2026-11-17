@@ -12,7 +12,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import type { ServiceId } from "@/config/site";
 import {
-  DEFAULT_FREQUENCY,
   LIMITS,
   MAX,
   type FrequencyId,
@@ -46,7 +45,7 @@ type Values = {
   service: ServiceId;
   size: string;
   windows: string;
-  frequency: FrequencyId;
+  frequency: FrequencyId | "";
   date: string;
   slot: SlotId | "";
   street: string;
@@ -80,7 +79,7 @@ function emptyValues(service: ServiceId): Values {
     service,
     size: "",
     windows: "",
-    frequency: DEFAULT_FREQUENCY,
+    frequency: "",
     date: "",
     slot: "",
     street: "",
@@ -264,7 +263,7 @@ export function BookingWizard({ initialService, consent }: Props) {
             <li
               key={label}
               aria-current={current ? "step" : undefined}
-              className="flex items-center gap-2.5 text-[15px]"
+              className="flex items-center gap-2.5 text-base"
             >
               <span
                 aria-hidden="true"
@@ -536,7 +535,7 @@ export function BookingWizard({ initialService, consent }: Props) {
                 </div>
               ))}
           </dl>
-          <p className="border-t border-ink/15 pt-3.5 text-[15px] leading-[1.55]">
+          <p className="border-t border-ink/15 pt-3.5 text-base leading-[1.55]">
             {t("summaryNote")}
           </p>
         </aside>
