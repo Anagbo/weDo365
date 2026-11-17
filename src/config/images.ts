@@ -6,7 +6,7 @@
  * `design-assets/` by `node scripts/process-images.mjs` (4:5 crop, 1200×1500,
  * no metadata, blur placeholder in `image-blur.ts`). To change a slot, add
  * the photo to that script, run it, then point the slot at the new file.
- * The alt text comes from the messages files (`home.heroPhotoAlt` etc.).
+ * The alt text comes from the messages files (`slider.alts`, `home.businessPhotoAlt` etc.).
  *
  * `homeCleaning` is empty on purpose: the photos we have show a gym and
  * staff rooms at commercial premises, and /hemstadning is about private homes.
@@ -22,8 +22,7 @@ export type SiteImage = {
   position?: string;
 };
 
-export type ImageKey =
-  "hero" | "businessBand" | "homeCleaning" | "business" | "about";
+export type ImageKey = "businessBand" | "homeCleaning" | "business" | "about";
 
 function photo(name: string, position?: string): SiteImage {
   return {
@@ -35,13 +34,36 @@ function photo(name: string, position?: string): SiteImage {
   };
 }
 
+function slide(name: string, position: string): SiteImage {
+  return {
+    src: `/images/${name}.jpg`,
+    width: 1200,
+    height: 900,
+    blurDataURL: BLUR[name],
+    position,
+  };
+}
+
 export const IMAGES: Record<ImageKey, SiteImage | null> = {
-  hero: photo("team-gym-floor-scrubber", "50% 35%"),
   businessBand: photo("team-mirror-orchid", "60% 40%"),
   homeCleaning: null,
   business: photo("team-gym-wetrok-mambo", "50% 40%"),
   about: photo("team-washroom-tap", "65% 40%"),
 };
+
+/**
+ * The hero slider on the home page: 4:3 photos (1200×900) shown at 4:3 on
+ * mobile and 16:10 from `lg`. `position` keeps the person and the logo on the
+ * shirt in frame when the 16:10 crop trims the top and bottom. The alt texts
+ * are `slider.alts` in the messages files, in the same order. No client names,
+ * phone numbers or readable text may be visible in any crop.
+ */
+export const HERO_SLIDES: readonly SiteImage[] = [
+  slide("slide-gym-floor-scrubber", "50% 35%"),
+  slide("slide-mirror-orchid", "50% 75%"),
+  slide("slide-microwave", "50% 60%"),
+  slide("slide-shower", "50% 40%"),
+];
 
 export const hasImage = (key: ImageKey) => IMAGES[key] !== null;
 

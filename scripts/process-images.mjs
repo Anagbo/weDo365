@@ -4,7 +4,7 @@
  * Turns the originals in design-assets/ into the web photos in public/images/
  * and writes the tiny blur placeholders to src/config/image-blur.ts.
  *
- * Every photo is cropped to 4:5, resized to 1200×1500 and re-encoded as a
+ * Every photo (except the hero SLIDES below) is cropped to 4:5, resized to 1200×1500 and re-encoded as a
  * progressive JPEG (quality 80). sharp drops all metadata (EXIF, GPS) unless
  * asked to keep it, so nothing from the phone is published. Next.js then
  * serves AVIF/WebP of these files.
@@ -48,8 +48,33 @@ const PHOTOS = [
   },
 ];
 
+/**
+ * Hero slider photos: 4:3, 1200×900. The slider shows them at 4:3 on mobile
+ * and crops to 16:10 on desktop (see HERO_SLIDES in src/config/images.ts).
+ * `top` is the first row kept of the 1530×2040 original; `keep` (optional)
+ * is the width kept from the left, to leave out text at the right edge.
+ */
+const SLIDES = [
+  { name: "slide-gym-floor-scrubber", file: "WhatsApp Image 2026-11-16 at 22.56.54 (2).jpeg", top: 250, keep: 1300 },
+  { name: "slide-mirror-orchid", file: "WhatsApp Image 2026-11-16 at 22.54.55 (2).jpeg", top: 300 },
+  { name: "slide-microwave", file: "WhatsApp Image 2026-11-16 at 22.54.55 (4).jpeg", top: 150 },
+  { name: "slide-shower", file: "WhatsApp Image 2026-11-16 at 22.54.54 (2).jpeg", top: 650 },
+];
+
 fs.mkdirSync(OUT, { recursive: true });
 const blur = {};
+
+for (const { name, file, top, keep } of SLIDES) {
+  const input = path.join(SRC, file);
+  const { width, height } = await sharp(input).metadata();
+  const cropWidth = keep ?? width;
+  const cropHeight = Math.round((cropWidth * 3) / 4);
+  if (top + cropHeight > height) throw new Error(`${name}: crop is too tall`);
+  const frame = sharp(input).rotate().extract({ left: 0, top, width: cropWidth, height: cropHeight });
+  await frame.clone().resize(1200, 900).jpeg({ quality: 80, progressive: true, mozjpeg: true }).toFile(path.join(OUT, `${name}.jpg`));
+  const tiny = await frame.clone().resize(16, 12).jpeg({ quality: 60 }).toBuffer();
+  blur[name] = `data:image/jpeg;base64,${tiny.toString("base64")}`;
+}
 
 for (const { name, file, top } of PHOTOS) {
   const input = path.join(SRC, file);

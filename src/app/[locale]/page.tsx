@@ -2,9 +2,15 @@ import type { ComponentProps } from "react";
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { bookHref, SERVICE_IDS, SHOW_REVIEWS, SITE_URL } from "@/config/site";
+import {
+  bookHref,
+  HERO_AUTOPLAY,
+  SERVICE_IDS,
+  SHOW_REVIEWS,
+  SITE_URL,
+} from "@/config/site";
 import Image from "next/image";
-import { hasImage, LOGO } from "@/config/images";
+import { HERO_SLIDES, hasImage, LOGO } from "@/config/images";
 import { companyJsonLd } from "@/config/company";
 import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -12,6 +18,7 @@ import { buttonClasses } from "@/components/ui/button";
 import { cardClasses, cardFeaturedClasses } from "@/components/ui/card";
 import { CheckIcon } from "@/components/ui/CheckIcon";
 import { Eyebrow } from "@/components/sections/Eyebrow";
+import { HeroSlider } from "@/components/sections/HeroSlider";
 import { SiteImage } from "@/components/sections/SiteImage";
 import { Steps, type Step } from "@/components/sections/Steps";
 import { Faq, type FaqItem } from "@/components/sections/Faq";
@@ -58,6 +65,12 @@ export default async function HomePage() {
   const locale = await getLocale();
   const t = await getTranslations("home");
   const about = await getTranslations("about");
+  const slider = await getTranslations("slider");
+  const sliderAlts = slider.raw("alts") as string[];
+  const sliderLabel = (key: "slide" | "goTo") =>
+    HERO_SLIDES.map((_, i) =>
+      slider(key, { n: i + 1, total: HERO_SLIDES.length }),
+    );
 
   const trust = [
     ...(t.raw("trust") as string[]),
@@ -98,7 +111,7 @@ export default async function HomePage() {
       {/* 1. Hero */}
       <section
         className={`container-site grid items-center gap-12 pt-12 pb-10 md:pt-18 md:pb-14 ${
-          hasImage("hero") ? "lg:grid-cols-2" : ""
+          HERO_SLIDES.length > 0 ? "lg:grid-cols-2" : ""
         }`}
       >
         <div className="flex max-w-[820px] flex-col gap-5">
@@ -106,12 +119,25 @@ export default async function HomePage() {
           <h1 className="text-h1-sm md:text-h1">{t("h1")}</h1>
           <p className="max-w-[620px] text-lead text-muted">{t("lead")}</p>
         </div>
-        <SiteImage
-          name="hero"
-          alt={t("heroPhotoAlt")}
-          preload
-          className="h-[280px] sm:h-[360px] lg:h-[440px]"
-        />
+        {HERO_SLIDES.length > 0 && (
+          <HeroSlider
+            autoplay={HERO_AUTOPLAY}
+            slides={HERO_SLIDES.map((image, i) => ({
+              ...image,
+              alt: sliderAlts[i],
+            }))}
+            labels={{
+              region: slider("label"),
+              slides: sliderLabel("slide"),
+              prev: slider("prev"),
+              next: slider("next"),
+              goTo: sliderLabel("goTo"),
+              pause: slider("pause"),
+              play: slider("play"),
+              dots: slider("dots"),
+            }}
+          />
+        )}
       </section>
 
       {/* 2. Doors: homes / business */}

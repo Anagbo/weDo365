@@ -403,6 +403,22 @@
     "sending": "Skickar …",
     "choose": "Välj …"
   },
+  "slider": {
+    "label": "Bilder från vårt arbete",
+    "slide": "Bild {n} av {total}",
+    "prev": "Föregående bild",
+    "next": "Nästa bild",
+    "goTo": "Visa bild {n}",
+    "pause": "Pausa bildspelet",
+    "play": "Spela upp bildspelet",
+    "dots": "Välj bild",
+    "alts": [
+      "En medarbetare från WeDo 365 AB, i firmatröja och svarta handskar, ler mot kameran och kör en Wetrok Mambo-skurmaskin på gummigolvet i ett gym.",
+      "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, torkar en spegel med en blå duk i ett rum med mörkblå väggar och en vit orkidé på en hylla.",
+      "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, tittar in i kameran och torkar en mikrovågsugn med en blå duk i ett personalkök.",
+      "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, rengör duschmunstycket och duschstången i ett duschrum med mörka kakelplattor."
+    ]
+  },
   "errors": {
     "required": "Fyll i det här fältet.",
     "choose": "Välj ett alternativ.",

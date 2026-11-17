@@ -403,6 +403,22 @@
     "sending": "Sending …",
     "choose": "Choose …"
   },
+  "slider": {
+    "label": "Photos of our work",
+    "slide": "Image {n} of {total}",
+    "prev": "Previous image",
+    "next": "Next image",
+    "goTo": "Show image {n}",
+    "pause": "Pause the slideshow",
+    "play": "Play the slideshow",
+    "dots": "Choose image",
+    "alts": [
+      "A WeDo 365 AB cleaner in a company T-shirt and black gloves smiles at the camera while running a Wetrok Mambo floor scrubber on the rubber floor of a gym.",
+      "A WeDo 365 AB cleaner in a company T-shirt and blue gloves wipes a mirror with a blue cloth in a room with dark blue walls and a white orchid on a shelf.",
+      "A WeDo 365 AB cleaner in a company T-shirt and blue gloves looks into the camera while wiping a microwave oven with a blue cloth in a staff kitchen.",
+      "A WeDo 365 AB cleaner in a company T-shirt and blue gloves cleans the shower head and rail in a shower room with dark tiles."
+    ]
+  },
   "errors": {
     "required": "Please fill in this field.",
     "choose": "Please choose an option.",
