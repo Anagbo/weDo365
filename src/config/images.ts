@@ -67,16 +67,22 @@ export const HERO_SLIDES: readonly SiteImage[] = [
 
 export const hasImage = (key: ImageKey) => IMAGES[key] !== null;
 
-/** The logo is a small raster (439×260): show it at this size or smaller. */
-export const LOGO = {
-  src: "/images/wedo365-logo.jpg",
-  width: 439,
-  height: 262,
-} as const;
-
-/** Header emblem, transparent PNG (338×140). Never shown larger than 2x of 116×48. */
+/**
+ * The emblem, transparent PNG (338×140), shown at most 116×48 so it is always
+ * at least 2x. There is no vector original yet (owner to supply one); both
+ * files are transparent, so they sit directly on the page background.
+ * `white` is the monochrome version for the dark footer, made from the
+ * colour one by scripts/make-emblem-white.mjs.
+ */
 export const EMBLEM = {
-  src: "/images/wedo365-emblem.png",
-  width: 338,
-  height: 140,
+  color: {
+    src: "/images/wedo365-emblem.png",
+    width: 338,
+    height: 140,
+  },
+  white: {
+    src: "/images/wedo365-emblem-white.png",
+    width: 338,
+    height: 140,
+  },
 } as const;

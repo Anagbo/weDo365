@@ -3,25 +3,37 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { EMBLEM } from "@/config/images";
 
-/** Header logo: the wide emblem (transparent PNG) + the wordmark text. */
-export async function Logo() {
+/**
+ * The one logo of the site: emblem (transparent PNG) + wordmark, linking to
+ * the home page. `color` is for the light header; `white` is the monochrome
+ * version that sits directly on the dark footer.
+ */
+export async function Logo({
+  variant = "color",
+}: {
+  variant?: "color" | "white";
+}) {
   const t = await getTranslations("nav");
   const siteName = (await getTranslations("meta"))("siteName");
+  const emblem = EMBLEM[variant];
 
   return (
     <Link
       href="/"
       aria-label={t("homeAria")}
-      className="inline-flex min-h-11 items-center gap-2 text-ink no-underline sm:gap-2.5"
+      className={`inline-flex min-h-11 items-center gap-2 no-underline sm:gap-2.5 ${
+        variant === "white" ? "text-white" : "text-ink"
+      }`}
     >
       {/* alt="" because the link has its own accessible name. 338×140 source:
-          shown at 36px (mobile) / 48px (md+) tall, so 2x never upscales it. */}
+          shown at 36px (mobile) / 48px (md+) tall, so 2x never upscales it.
+          Width and height are set, so nothing shifts while it loads. */}
       <Image
-        src={EMBLEM.src}
-        width={EMBLEM.width}
-        height={EMBLEM.height}
+        src={emblem.src}
+        width={emblem.width}
+        height={emblem.height}
         alt=""
-        preload
+        preload={variant === "color"}
         quality={80}
         sizes="(min-width: 768px) 116px, 87px"
         className="h-9 w-auto md:h-12"

@@ -1,10 +1,9 @@
 import type { ComponentProps } from "react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import Image from "next/image";
 import { bookHref, type ServiceId } from "@/config/site";
 import { socialLinks } from "@/config/company";
-import { LOGO } from "@/config/images";
+import { Logo } from "@/components/Logo";
 import { PostalAddress } from "@/components/PostalAddress";
 
 type Href = ComponentProps<typeof Link>["href"];
@@ -38,7 +37,6 @@ export async function Footer() {
   const locale = await getLocale();
   const t = await getTranslations("footer");
   const meta = await getTranslations("meta");
-  const about = await getTranslations("about");
   const serviceLabels = t.raw("serviceLinks") as string[];
   const social = socialLinks();
 
@@ -55,22 +53,9 @@ export async function Footer() {
     <footer className="mt-auto bg-ink text-white [&_:focus-visible]:outline-white">
       <div className="container-site grid gap-8 pt-14 pb-10 sm:grid-cols-2 lg:grid-cols-4">
         <section className="flex flex-col gap-2.5">
-          <p className="font-heading text-[22px] font-extrabold tracking-[-0.02em] text-white">
-            {meta("siteName")}
-          </p>
+          <Logo variant="white" />
           <p className="text-base text-white/85">{t("about")}</p>
           <p className="text-sm text-white/85">{t("org")}</p>
-          {/* Small raster logo with a cream background: on a white card, never enlarged. */}
-          <div className="mt-2 w-fit rounded-card bg-white p-3">
-            <Image
-              src={LOGO.src}
-              width={LOGO.width}
-              height={LOGO.height}
-              alt={about("logoAlt")}
-              unoptimized
-              className="h-auto w-[176px]"
-            />
-          </div>
         </section>
 
         <Column title={t("services")}>

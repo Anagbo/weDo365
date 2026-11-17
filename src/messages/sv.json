@@ -43,8 +43,7 @@
     "eyebrow": "Om oss",
     "title": "Städfirman bakom WeDo365",
     "text": "Vi städar hem, kontor, gym och fastigheter i Stockholm, 365 dagar om året.",
-    "facts": ["{company}", "{employees} anställda", "Stockholm"],
-    "logoAlt": "WeDo 365 AB, Expert Cleaning Squad"
+    "facts": ["{company}", "{employees} anställda", "Stockholm"]
   },
   "home": {
     "title": "WeDo365 – Städfirma i Stockholm",

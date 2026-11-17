@@ -55,10 +55,27 @@ const PHOTOS = [
  * is the width kept from the left, to leave out text at the right edge.
  */
 const SLIDES = [
-  { name: "slide-gym-floor-scrubber", file: "WhatsApp Image 2026-11-16 at 22.56.54 (2).jpeg", top: 250, keep: 1300 },
-  { name: "slide-mirror-orchid", file: "WhatsApp Image 2026-11-16 at 22.54.55 (2).jpeg", top: 300 },
-  { name: "slide-microwave", file: "WhatsApp Image 2026-11-16 at 22.54.55 (4).jpeg", top: 150 },
-  { name: "slide-shower", file: "WhatsApp Image 2026-11-16 at 22.54.54 (2).jpeg", top: 650 },
+  {
+    name: "slide-gym-floor-scrubber",
+    file: "WhatsApp Image 2026-11-16 at 22.56.54 (2).jpeg",
+    top: 250,
+    keep: 1300,
+  },
+  {
+    name: "slide-mirror-orchid",
+    file: "WhatsApp Image 2026-11-16 at 22.54.55 (2).jpeg",
+    top: 300,
+  },
+  {
+    name: "slide-microwave",
+    file: "WhatsApp Image 2026-11-16 at 22.54.55 (4).jpeg",
+    top: 150,
+  },
+  {
+    name: "slide-shower",
+    file: "WhatsApp Image 2026-11-16 at 22.54.54 (2).jpeg",
+    top: 650,
+  },
 ];
 
 fs.mkdirSync(OUT, { recursive: true });
@@ -70,9 +87,19 @@ for (const { name, file, top, keep } of SLIDES) {
   const cropWidth = keep ?? width;
   const cropHeight = Math.round((cropWidth * 3) / 4);
   if (top + cropHeight > height) throw new Error(`${name}: crop is too tall`);
-  const frame = sharp(input).rotate().extract({ left: 0, top, width: cropWidth, height: cropHeight });
-  await frame.clone().resize(1200, 900).jpeg({ quality: 80, progressive: true, mozjpeg: true }).toFile(path.join(OUT, `${name}.jpg`));
-  const tiny = await frame.clone().resize(16, 12).jpeg({ quality: 60 }).toBuffer();
+  const frame = sharp(input)
+    .rotate()
+    .extract({ left: 0, top, width: cropWidth, height: cropHeight });
+  await frame
+    .clone()
+    .resize(1200, 900)
+    .jpeg({ quality: 80, progressive: true, mozjpeg: true })
+    .toFile(path.join(OUT, `${name}.jpg`));
+  const tiny = await frame
+    .clone()
+    .resize(16, 12)
+    .jpeg({ quality: 60 })
+    .toBuffer();
   blur[name] = `data:image/jpeg;base64,${tiny.toString("base64")}`;
 }
 
@@ -98,11 +125,6 @@ for (const { name, file, top } of PHOTOS) {
     .toBuffer();
   blur[name] = `data:image/jpeg;base64,${tiny.toString("base64")}`;
 }
-
-// The logo is small; copy it unchanged (no re-compression), without metadata.
-await sharp(path.join(SRC, "WhatsApp Image 2026-11-16 at 22.53.51.jpeg"))
-  .jpeg({ quality: 92, mozjpeg: true })
-  .toFile(path.join(OUT, "wedo365-logo.jpg"));
 
 const body = Object.entries(blur)
   .map(([k, v]) => `  "${k}": "${v}",`)

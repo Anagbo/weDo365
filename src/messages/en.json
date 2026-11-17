@@ -43,8 +43,7 @@
     "eyebrow": "About us",
     "title": "The cleaning company behind WeDo365",
     "text": "We clean homes, offices, gyms and properties in Stockholm, 365 days a year.",
-    "facts": ["{company}", "{employees} employees", "Stockholm"],
-    "logoAlt": "WeDo 365 AB, Expert Cleaning Squad"
+    "facts": ["{company}", "{employees} employees", "Stockholm"]
   },
   "home": {
     "title": "WeDo365 – Cleaning company in Stockholm",

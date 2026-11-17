@@ -9,8 +9,7 @@ import {
   SHOW_REVIEWS,
   SITE_URL,
 } from "@/config/site";
-import Image from "next/image";
-import { HERO_SLIDES, hasImage, LOGO } from "@/config/images";
+import { HERO_SLIDES, hasImage } from "@/config/images";
 import { companyJsonLd } from "@/config/company";
 import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -271,17 +270,6 @@ export default async function HomePage() {
               <li key={fact}>{fact}</li>
             ))}
           </ul>
-          {/* Small raster logo with a cream background: on a white card, never enlarged. */}
-          <div className="mt-2 w-fit rounded-card border border-line bg-white p-3">
-            <Image
-              src={LOGO.src}
-              width={LOGO.width}
-              height={LOGO.height}
-              alt={about("logoAlt")}
-              unoptimized
-              className="h-auto w-[216px]"
-            />
-          </div>
         </div>
       </section>
 
