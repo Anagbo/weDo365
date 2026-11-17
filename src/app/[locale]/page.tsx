@@ -14,7 +14,8 @@ import { companyJsonLd } from "@/config/company";
 import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { buttonClasses } from "@/components/ui/button";
-import { cardClasses, cardFeaturedClasses } from "@/components/ui/card";
+import { cardClasses } from "@/components/ui/card";
+import { SECTION } from "@/components/ui/spacing";
 import { CheckIcon } from "@/components/ui/CheckIcon";
 import { Eyebrow } from "@/components/sections/Eyebrow";
 import { HeroSlider } from "@/components/sections/HeroSlider";
@@ -79,6 +80,9 @@ export default async function HomePage() {
   const how = t.raw("how") as Step[];
   const faq = t.raw("faq") as FaqItem[];
   const facts = about.raw("facts") as string[];
+  const areas = about.raw("areas") as string[];
+  // The list is shown only when no entry is still a TODO note.
+  const areasReady = areas.length > 0 && !areas.some((a) => /^TODO/.test(a));
 
   // home.services is in the same order as the wizard's service ids.
   const serviceHref = (service: ServiceCard, i: number): Href =>
@@ -89,15 +93,13 @@ export default async function HomePage() {
   const doors = [
     {
       key: "homes",
-      card: cardFeaturedClasses,
       button: buttonClasses("primary"),
       href: "/boka" as const,
       ...(t.raw("doorHomes") as DoorText),
     },
     {
       key: "business",
-      card: cardClasses,
-      button: buttonClasses("secondary"),
+      button: buttonClasses("primary"),
       href: "/offert" as const,
       ...(t.raw("doorBusiness") as DoorText),
     },
@@ -109,7 +111,7 @@ export default async function HomePage() {
 
       {/* 1. Hero */}
       <section
-        className={`container-site grid items-center gap-12 pt-12 pb-10 md:pt-18 md:pb-14 ${
+        className={`container-site grid items-center gap-12 pt-12 md:pt-14 ${
           HERO_SLIDES.length > 0 ? "lg:grid-cols-2" : ""
         }`}
       >
@@ -140,12 +142,12 @@ export default async function HomePage() {
       </section>
 
       {/* 2. Doors: homes / business */}
-      <div className="container-site grid gap-6 md:grid-cols-2">
+      <div className={`container-site grid gap-6 md:grid-cols-2 ${SECTION}`}>
         {doors.map((door) => (
           <section
             key={door.key}
             aria-labelledby={`door-${door.key}`}
-            className={`relative flex flex-col gap-3 ${door.card}`}
+            className={`relative flex flex-col gap-3 ${cardClasses}`}
           >
             <h2
               id={`door-${door.key}`}
@@ -168,7 +170,7 @@ export default async function HomePage() {
       </div>
 
       {/* 3. Trust bar */}
-      <div className="container-site pt-10 pb-6">
+      <div className={`container-site ${SECTION}`}>
         <ul className="flex flex-wrap justify-between gap-x-10 gap-y-4 border-y border-line py-5">
           {trust.map((item) => (
             <li
@@ -185,7 +187,7 @@ export default async function HomePage() {
       {/* 4. Services for homes */}
       <section
         aria-labelledby="services-title"
-        className="container-site flex flex-col gap-7 pt-12 pb-6 md:pt-16"
+        className={`container-site flex flex-col gap-7 ${SECTION}`}
       >
         <h2 id="services-title" className="text-h2-sm md:text-h2">
           {t("servicesTitle")}
@@ -203,7 +205,6 @@ export default async function HomePage() {
                 className="flex min-h-11 items-center gap-1.5 font-semibold underline underline-offset-4 hover:text-ink"
               >
                 {service.link}
-                <span className="sr-only"> – {service.name}</span>
                 <Arrow />
               </Link>
             </li>
@@ -217,7 +218,7 @@ export default async function HomePage() {
       {/* 6. Business band */}
       <section
         aria-labelledby="business-title"
-        className={`container-site grid items-center gap-12 py-14 md:py-20 ${
+        className={`container-site grid items-center gap-12 ${SECTION} ${
           hasImage("businessBand") ? "lg:grid-cols-2" : ""
         }`}
       >
@@ -250,7 +251,7 @@ export default async function HomePage() {
       <section
         id="om"
         aria-labelledby="about-title"
-        className={`container-site grid scroll-mt-24 items-center gap-12 py-6 md:py-10 ${
+        className={`container-site grid scroll-mt-24 items-center gap-12 ${SECTION} ${
           hasImage("about") ? "lg:grid-cols-2" : ""
         }`}
       >
@@ -265,11 +266,24 @@ export default async function HomePage() {
             {about("title")}
           </h2>
           <p className="max-w-[620px] text-lead text-muted">{about("text")}</p>
+          <p className="max-w-[620px] text-muted">{about("text2")}</p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2 font-semibold">
             {facts.map((fact) => (
               <li key={fact}>{fact}</li>
             ))}
           </ul>
+          {areasReady ? (
+            <div className="flex flex-col gap-2">
+              <h3 className="text-[21px] leading-tight">
+                {about("areasTitle")}
+              </h3>
+              <ul className="flex flex-wrap gap-x-6 gap-y-1 text-muted">
+                {areas.map((area) => (
+                  <li key={area}>{area}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -277,7 +291,7 @@ export default async function HomePage() {
       {SHOW_REVIEWS ? (
         <section
           aria-labelledby="reviews-title"
-          className="container-site flex flex-col gap-6 pt-6 pb-14 md:pb-18"
+          className={`container-site flex flex-col gap-6 ${SECTION}`}
         >
           <div className="flex flex-col gap-1.5">
             <h2 id="reviews-title" className="text-h2-sm md:text-h2">

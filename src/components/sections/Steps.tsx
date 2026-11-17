@@ -1,3 +1,5 @@
+import { SECTION } from "@/components/ui/spacing";
+
 export type Step = { title: string; text: string };
 
 /** "How it works": numbered steps with green circles. */
@@ -16,7 +18,7 @@ export function Steps({
 
   return (
     <section id={id} aria-labelledby={headingId} className={className}>
-      <div className="container-site flex flex-col gap-8 py-14 md:py-18">
+      <div className={`container-site flex flex-col gap-8 ${SECTION}`}>
         <h2 id={headingId} className="text-h2-sm md:text-h2">
           {title}
         </h2>

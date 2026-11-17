@@ -1,14 +1,17 @@
+import { SECTION } from "@/components/ui/spacing";
+
 export type FaqItem = { q: string; a: string };
 
 /**
- * An answer the owner has not written yet is still a [bracketed] note in the
- * messages file. Those questions are left out until the text is real.
+ * An answer the owner has not written yet starts with "TODO" in the messages
+ * file. A FAQ is shown only when every answer is real, so a visitor never
+ * sees a half-empty list.
  */
-const isPending = (item: FaqItem) => /\[[^\]]*\]/.test(item.a);
+const isPending = (item: FaqItem) => /^TODO\b/.test(item.a.trim());
 
-/** The questions that have a real answer. */
+/** The questions to show: all of them, or none while any answer is missing. */
 export const readyFaq = (items: FaqItem[]) =>
-  items.filter((item) => !isPending(item));
+  items.length > 0 && !items.some(isPending) ? items : [];
 
 /** FAQ accordion built on <details>/<summary>; works without JavaScript. */
 export function Faq({ title, items }: { title: string; items: FaqItem[] }) {
@@ -16,8 +19,8 @@ export function Faq({ title, items }: { title: string; items: FaqItem[] }) {
   if (ready.length === 0) return null;
 
   return (
-    <section aria-labelledby="faq-title">
-      <div className="mx-auto max-w-[900px] px-6 pt-6 pb-16 md:pb-20">
+    <section aria-labelledby="faq-title" className={SECTION}>
+      <div className="container-site">
         <h2 id="faq-title" className="mb-3 text-h2-sm md:text-h2">
           {title}
         </h2>

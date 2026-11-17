@@ -32,8 +32,8 @@ export function bookHref(locale: Locale, service: ServiceId) {
 export const SHOW_REVIEWS = process.env.SHOW_REVIEWS === "true";
 
 /**
- * Hero photo slider autoplay. Off by default: set HERO_AUTOPLAY=true when
- * building to advance every 6 seconds (paused on hover, focus and touch, with
+ * Hero photo slider autoplay. On by default (set HERO_AUTOPLAY=false when
+ * building to turn it off): advances every 6 seconds (paused on hover, focus and touch, with
  * a pause button, and never when the visitor prefers reduced motion).
  */
-export const HERO_AUTOPLAY = process.env.HERO_AUTOPLAY === "true";
+export const HERO_AUTOPLAY = process.env.HERO_AUTOPLAY !== "false";

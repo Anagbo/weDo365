@@ -10,7 +10,7 @@ import { cardClasses, cardFeaturedClasses } from "@/components/ui/card";
 import { CheckList } from "@/components/ui/CheckList";
 import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { SiteImage } from "@/components/sections/SiteImage";
-import { Faq, readyFaq } from "@/components/sections/Faq";
+import { Faq } from "@/components/sections/Faq";
 import { hasImage } from "@/config/images";
 import { EndCta } from "@/components/sections/EndCta";
 
@@ -105,11 +105,7 @@ export async function ServicePage({ pageKey }: { pageKey: ServicePageKey }) {
         </ul>
       </section>
 
-      {readyFaq(c.faq).length > 0 ? (
-        <div className="md:pt-12">
-          <Faq title={c.faqTitle} items={c.faq} />
-        </div>
-      ) : null}
+      <Faq title={c.faqTitle} items={c.faq} />
 
       <EndCta
         title={c.endTitle}

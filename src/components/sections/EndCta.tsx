@@ -26,7 +26,7 @@ export async function EndCta({
     : [text, undefined];
 
   return (
-    <section className="bg-tint">
+    <section className="mt-12 bg-tint md:mt-16">
       <div className="container-site flex flex-wrap items-center justify-between gap-6 py-14 md:py-18">
         <div className="flex flex-col gap-2">
           <h2 className="text-h2-sm md:text-[36px] md:leading-tight">

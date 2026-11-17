@@ -43,7 +43,10 @@
     "eyebrow": "About us",
     "title": "The cleaning company behind WeDo365",
     "text": "We clean homes, offices, gyms and properties in Stockholm, 365 days a year.",
-    "facts": ["{company}", "{employees} employees", "Stockholm"]
+    "facts": ["{company}", "{employees} employees", "Stockholm"],
+    "text2": "{company} is a cleaning company with {employees} employees. We clean private homes and businesses in Stockholm, and you have a personal contact with us before anything is booked.",
+    "areasTitle": "We clean in",
+    "areas": ["Stockholm", "TODO: more areas around Stockholm, one per line"]
   },
   "home": {
     "title": "WeDo365 – Cleaning company in Stockholm",
@@ -55,7 +58,7 @@
       "title": "For homes",
       "text": "Home cleaning, move-out cleaning, deep cleaning and window cleaning.",
       "note": "We get back to you with price and time",
-      "cta": "Send request"
+      "cta": "Get a price and a time"
     },
     "doorBusiness": {
       "title": "For businesses",
@@ -73,25 +76,25 @@
       {
         "name": "Home cleaning",
         "text": "Regular cleaning every week, every other week or every four weeks.",
-        "link": "Read more",
+        "link": "Read more about home cleaning",
         "target": "homeCleaning"
       },
       {
         "name": "Move-out cleaning",
         "text": "Thorough cleaning before the inspection when you move.",
-        "link": "Send request",
+        "link": "Ask about move-out cleaning",
         "target": "book"
       },
       {
         "name": "Deep cleaning",
         "text": "An extra thorough clean of the whole home.",
-        "link": "Send request",
+        "link": "Ask about deep cleaning",
         "target": "book"
       },
       {
         "name": "Window cleaning",
         "text": "Clean windows, inside and out.",
-        "link": "Send request",
+        "link": "Ask about window cleaning",
         "target": "book"
       }
     ],
@@ -112,7 +115,7 @@
     ],
     "businessTitle": "Cleaning for businesses and properties",
     "businessText": "Offices, stairwells, gyms and schools. We set up a schedule that fits how you work.",
-    "businessCta": "Request a quote",
+    "businessCta": "Get a proposal for your premises",
     "businessCta2": "Read more",
     "businessPhotoAlt": "A WeDo 365 AB cleaner in a company T-shirt and blue gloves wipes a mirror with a blue cloth in a room with dark blue walls and a white orchid on a shelf.",
     "reviewsTitle": "What our customers say",
@@ -126,21 +129,29 @@
         "a": "We go through what you need and give you a price by phone or email before anything is booked."
       },
       {
-        "q": "Do I need to be home while you clean?",
-        "a": "[Answer from WeDo365, e.g. how key handling works]"
+        "q": "Which areas do you clean in?",
+        "a": "We clean in Stockholm and the surrounding area. Not sure we come to you? Call {phone} or send a request and we will tell you."
       },
       {
-        "q": "What does move-out cleaning include?",
-        "a": "[Move-out checklist and any inspection guarantee]"
+        "q": "Do you bring cleaning supplies and equipment?",
+        "a": "TODO: answer from WeDo365 about supplies and equipment"
+      },
+      {
+        "q": "Are you insured?",
+        "a": "Yes, we have liability insurance with {insurer}."
       },
       {
         "q": "How do I cancel?",
-        "a": "[Cancellation rules from the terms]"
+        "a": "TODO: cancellation rules from WeDo365 (see Cancellation in the terms)"
+      },
+      {
+        "q": "How does booking work?",
+        "a": "You send a request on the website. We contact you by phone or email with a price and a suggested time. The job is booked only once we have confirmed the time and price."
       }
     ],
     "endTitle": "Ready for a cleaner home?",
     "endText": "It takes two minutes to send a request. Prefer to call? {phone}",
-    "endCta": "Send request",
+    "endCta": "Start your request",
     "trustReviews": "[RATING] out of 5 on Reco.se",
     "aboutPhotoAlt": "A WeDo 365 AB cleaner in a company T-shirt and blue gloves smiles at the camera while polishing a tap at a sink in front of a mirror in a washroom."
   },
@@ -153,7 +164,7 @@
     "lead": "Regular cleaning that keeps your home clean. You choose how often, we take care of the rest.",
     "cardTitle": "Get a suggested time and price",
     "cardText": "We get back to you by phone or email.",
-    "cta": "Send request",
+    "cta": "Get a price for home cleaning",
     "checks": [
       "Every week, every other week or every four weeks",
       "Personal contact before anything is booked"
@@ -190,20 +201,20 @@
     "faq": [
       {
         "q": "Do I get the same cleaner every time?",
-        "a": "[Answer from WeDo365]"
+        "a": "TODO: answer from WeDo365"
       },
       {
         "q": "What do I need to have at home?",
-        "a": "[Answer from WeDo365, e.g. whether you bring cleaning supplies]"
+        "a": "TODO: answer from WeDo365"
       },
       {
         "q": "Is there a binding period?",
-        "a": "[Answer from WeDo365]"
+        "a": "TODO: answer from WeDo365"
       }
     ],
     "endTitle": "Want help with home cleaning?",
     "endText": "Send a request and we will get back to you with a suggested time and price.",
-    "endCta": "Send request"
+    "endCta": "Ask about home cleaning"
   },
   "business": {
     "title": "Business cleaning in Stockholm – WeDo365",
@@ -412,10 +423,10 @@
     "play": "Play the slideshow",
     "dots": "Choose image",
     "alts": [
+      "A WeDo 365 AB cleaner in a company T-shirt and blue gloves cleans the shower head and rail in a shower room with dark tiles.",
       "A WeDo 365 AB cleaner in a company T-shirt and black gloves smiles at the camera while running a Wetrok Mambo floor scrubber on the rubber floor of a gym.",
       "A WeDo 365 AB cleaner in a company T-shirt and blue gloves wipes a mirror with a blue cloth in a room with dark blue walls and a white orchid on a shelf.",
-      "A WeDo 365 AB cleaner in a company T-shirt and blue gloves looks into the camera while wiping a microwave oven with a blue cloth in a staff kitchen.",
-      "A WeDo 365 AB cleaner in a company T-shirt and blue gloves cleans the shower head and rail in a shower room with dark tiles."
+      "A WeDo 365 AB cleaner in a company T-shirt and blue gloves looks into the camera while wiping a microwave oven with a blue cloth in a staff kitchen."
     ]
   },
   "errors": {

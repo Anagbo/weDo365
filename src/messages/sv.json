@@ -43,7 +43,10 @@
     "eyebrow": "Om oss",
     "title": "Städfirman bakom WeDo365",
     "text": "Vi städar hem, kontor, gym och fastigheter i Stockholm, 365 dagar om året.",
-    "facts": ["{company}", "{employees} anställda", "Stockholm"]
+    "facts": ["{company}", "{employees} anställda", "Stockholm"],
+    "text2": "{company} är en städfirma med {employees} anställda. Vi städar privata hem och verksamheter i Stockholm, och du har en personlig kontakt hos oss innan något bokas.",
+    "areasTitle": "Vi städar i",
+    "areas": ["Stockholm", "TODO: fler områden runt Stockholm, en per rad"]
   },
   "home": {
     "title": "WeDo365 – Städfirma i Stockholm",
@@ -55,7 +58,7 @@
       "title": "För hemmet",
       "text": "Hemstädning, flyttstädning, storstädning och fönsterputs.",
       "note": "Vi återkommer med pris och tid",
-      "cta": "Skicka förfrågan"
+      "cta": "Få pris och förslag på tid"
     },
     "doorBusiness": {
       "title": "För företag",
@@ -73,25 +76,25 @@
       {
         "name": "Hemstädning",
         "text": "Regelbunden städning varje vecka, varannan vecka eller var fjärde vecka.",
-        "link": "Läs mer",
+        "link": "Läs mer om hemstädning",
         "target": "homeCleaning"
       },
       {
         "name": "Flyttstädning",
         "text": "Grundlig städning inför besiktningen när du flyttar.",
-        "link": "Skicka förfrågan",
+        "link": "Fråga om flyttstädning",
         "target": "book"
       },
       {
         "name": "Storstädning",
         "text": "En extra grundlig städning av hela hemmet.",
-        "link": "Skicka förfrågan",
+        "link": "Fråga om storstädning",
         "target": "book"
       },
       {
         "name": "Fönsterputs",
         "text": "Rena fönster, in- och utvändigt.",
-        "link": "Skicka förfrågan",
+        "link": "Fråga om fönsterputs",
         "target": "book"
       }
     ],
@@ -112,7 +115,7 @@
     ],
     "businessTitle": "Städning för företag och fastigheter",
     "businessText": "Kontor, trappuppgångar, gym och skolor. Vi lägger upp ett schema som passar er verksamhet.",
-    "businessCta": "Begär offert",
+    "businessCta": "Få ett förslag för er lokal",
     "businessCta2": "Läs mer",
     "businessPhotoAlt": "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, torkar en spegel med en blå duk i ett rum med mörkblå väggar och en vit orkidé på en hylla.",
     "reviewsTitle": "Vad våra kunder säger",
@@ -126,21 +129,29 @@
         "a": "Vi går igenom dina önskemål och ger dig ett pris via telefon eller e-post innan något bokas."
       },
       {
-        "q": "Behöver jag vara hemma när ni städar?",
-        "a": "[Svar från WeDo365, t.ex. hur nyckelhantering fungerar]"
+        "q": "Vilka områden städar ni i?",
+        "a": "Vi städar i Stockholm med omnejd. Osäker på om vi kommer till dig? Ring {phone} eller skicka en förfrågan, så säger vi till."
       },
       {
-        "q": "Vad ingår i en flyttstädning?",
-        "a": "[Checklista för flyttstädning och eventuell besiktningsgaranti]"
+        "q": "Tar ni med städmaterial och utrustning?",
+        "a": "TODO: svar från WeDo365 om städmaterial och utrustning"
+      },
+      {
+        "q": "Är ni försäkrade?",
+        "a": "Ja, vi har ansvarsförsäkring hos {insurer}."
       },
       {
         "q": "Hur avbokar jag?",
-        "a": "[Avbokningsregler enligt villkoren]"
+        "a": "TODO: avbokningsregler från WeDo365 (se Avbokning i villkoren)"
+      },
+      {
+        "q": "Hur fungerar bokningen?",
+        "a": "Du skickar en förfrågan på webbplatsen. Vi kontaktar dig via telefon eller e-post med pris och förslag på tid. Uppdraget är bokat först när vi har bekräftat tid och pris."
       }
     ],
     "endTitle": "Redo för ett renare hem?",
     "endText": "Det tar två minuter att skicka en förfrågan. Hellre ringa? {phone}",
-    "endCta": "Skicka förfrågan",
+    "endCta": "Starta din förfrågan",
     "trustReviews": "[BETYG] av 5 på Reco.se",
     "aboutPhotoAlt": "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, ler mot kameran och putsar en kran vid ett handfat framför en spegel i en toalett."
   },
@@ -153,7 +164,7 @@
     "lead": "Regelbunden städning som håller hemmet rent. Du väljer hur ofta, vi sköter resten.",
     "cardTitle": "Få ett förslag på tid och pris",
     "cardText": "Vi återkommer via telefon eller e-post.",
-    "cta": "Skicka förfrågan",
+    "cta": "Få pris på hemstädning",
     "checks": [
       "Varje vecka, varannan eller var fjärde vecka",
       "Personlig kontakt innan något bokas"
@@ -190,20 +201,20 @@
     "faq": [
       {
         "q": "Får jag samma städare varje gång?",
-        "a": "[Svar från WeDo365]"
+        "a": "TODO: svar från WeDo365"
       },
       {
         "q": "Vad behöver jag ha hemma?",
-        "a": "[Svar från WeDo365, t.ex. om ni tar med städmaterial]"
+        "a": "TODO: svar från WeDo365"
       },
       {
         "q": "Finns det bindningstid?",
-        "a": "[Svar från WeDo365]"
+        "a": "TODO: svar från WeDo365"
       }
     ],
     "endTitle": "Vill du ha hjälp med hemstädning?",
     "endText": "Skicka en förfrågan, så hör vi av oss med förslag på tid och pris.",
-    "endCta": "Skicka förfrågan"
+    "endCta": "Fråga om hemstädning"
   },
   "business": {
     "title": "Företagsstädning i Stockholm – WeDo365",
@@ -412,10 +423,10 @@
     "play": "Spela upp bildspelet",
     "dots": "Välj bild",
     "alts": [
+      "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, rengör duschmunstycket och duschstången i ett duschrum med mörka kakelplattor.",
       "En medarbetare från WeDo 365 AB, i firmatröja och svarta handskar, ler mot kameran och kör en Wetrok Mambo-skurmaskin på gummigolvet i ett gym.",
       "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, torkar en spegel med en blå duk i ett rum med mörkblå väggar och en vit orkidé på en hylla.",
-      "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, tittar in i kameran och torkar en mikrovågsugn med en blå duk i ett personalkök.",
-      "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, rengör duschmunstycket och duschstången i ett duschrum med mörka kakelplattor."
+      "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, tittar in i kameran och torkar en mikrovågsugn med en blå duk i ett personalkök."
     ]
   },
   "errors": {

@@ -218,11 +218,12 @@ export function HeroSlider({
                 aria-label={labels.goTo[i]}
                 aria-current={i === active ? "true" : undefined}
                 onClick={() => goTo(i)}
-                className="group grid size-11 place-items-center rounded-full"
+                className="grid size-6 place-items-center rounded-full"
               >
+                {/* A 24px hit area around a plain dot; the active one is bigger and green. */}
                 <span
-                  className={`block size-3 rounded-full border-2 border-green transition-colors ${
-                    i === active ? "bg-green" : "bg-transparent"
+                  className={`block rounded-full transition-all ${
+                    i === active ? "size-3.5 bg-green" : "size-2.5 bg-ink/30"
                   }`}
                 />
               </button>
