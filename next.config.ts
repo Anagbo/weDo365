@@ -1,5 +1,10 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import {
+  IS_PRODUCTION_BUILD,
+  NOINDEX,
+  PRODUCTION_HOST,
+} from "./src/config/indexing";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
@@ -11,6 +16,23 @@ const nextConfig: NextConfig = {
     // Photos are served as AVIF, with WebP as the fallback.
     formats: ["image/avif", "image/webp"],
     qualities: [80],
+  },
+  // Keep every deployment except production on the real domain out of search
+  // results: all hosts when this is not a production deployment, otherwise
+  // every host but the public one (e.g. the *.vercel.app address).
+  async headers() {
+    const noindex = [{ key: "X-Robots-Tag", value: NOINDEX }];
+    if (!IS_PRODUCTION_BUILD) {
+      return [{ source: "/:path*", headers: noindex }];
+    }
+    const host = PRODUCTION_HOST.replace(/\./g, "\\.");
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: `(?!(?:www\\.)?${host}$).*` }],
+        headers: noindex,
+      },
+    ];
   },
   async rewrites() {
     return {

@@ -12,6 +12,9 @@ export const INDEXED_PATHS = (
   Object.keys(routing.pathnames) as AppPathname[]
 ).filter((path) => !NOINDEX_PATHS.includes(path));
 
+/** Share image for Open Graph and Twitter (made by scripts/make-brand-assets.mjs). */
+const OG_IMAGE = { url: "/og-image.jpg", width: 1200, height: 630 } as const;
+
 const OG_LOCALE: Record<Locale, string> = { sv: "sv_SE", en: "en_GB" };
 
 /** Absolute URL of a page in one language, e.g. https://wedo365.se/en/book */
@@ -59,8 +62,13 @@ export async function pageMetadata({
       siteName,
       locale: OG_LOCALE[locale],
       alternateLocale: otherLocales.map((l) => OG_LOCALE[l]),
-      // [OG-BILD] TODO: add `images: [{ url, width: 1200, height: 630, alt }]`
-      // here once the real share image exists.
+      images: [{ ...OG_IMAGE, alt: siteName }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [{ url: OG_IMAGE.url, alt: siteName }],
     },
     ...(NOINDEX_PATHS.includes(path) ? { robots: { index: false } } : {}),
   };

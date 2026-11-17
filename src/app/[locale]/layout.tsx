@@ -6,6 +6,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { SITE_URL } from "@/config/site";
+import { IS_PRODUCTION_BUILD } from "@/config/indexing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MobileActionBar } from "@/components/layout/MobileActionBar";
@@ -34,6 +35,7 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  ...(IS_PRODUCTION_BUILD ? {} : { robots: { index: false, follow: false } }),
 };
 
 export default async function LocaleLayout({

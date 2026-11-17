@@ -266,3 +266,19 @@ The pages and forms themselves are not covered by automated browser tests. Durin
 - **Spam protection** is a hidden honeypot field (off-screen, `aria-hidden`, `inert`, not focusable, autofill switched off) plus a minimum fill time of 3 seconds. There is no rate limiting. If spam gets through after launch, add rules in Vercel's firewall; no code change is needed.
 - **The thank-you page** always says a copy was sent to the customer. If only that copy fails (the owner email went through), the request still counts as received.
 - **The org.nr is deliberately not collected** in the quote form. The owner asks for it when writing the contract.
+
+## Audit pass (2026-11-17)
+
+What changed and what it means for whoever edits the site next.
+
+- **Owner placeholders.** None are rendered. `npm run build` runs `scripts/check-markers.mjs` first and fails if `[ÄGARE` or `[TEXT FRÅN` appears in `src/` (messages or code). Open owner questions live in `src/config/owner-todo.ts`.
+- **"TODO" text hides itself.** An answer or list entry that starts with `TODO` in a messages file is never shown. The home FAQ, each service-page FAQ and "Det här ingår", and the Om oss area list stay hidden until no entry starts with `TODO` (`src/lib/todo.ts`).
+- **Service pages.** `/hemstadning`, `/flyttstadning`, `/storstadning`, `/fonsterputs` (English: `/home-cleaning`, `/move-out-cleaning`, `/deep-cleaning`, `/window-cleaning`) share `<ServicePage>`. Footer, home cards, sitemap and hreflang follow from `routing.ts` and `service-pages.ts`. Wizard links use neutral values (`?service=move`); both languages' values and the plain ids are accepted.
+- **Hero slider.** The bathroom photo is first. Autoplay is **on** by default with a pause button (set `HERO_AUTOPLAY=false` at build time to turn it off); it never runs with reduced motion.
+- **Indexing.** Only the production domain in a production deployment is indexable (`src/config/indexing.ts`). `X-Robots-Tag: noindex, nofollow` is sent on every other host (and on all hosts when `VERCEL_ENV` is not `production`), and robots.txt disallows everything outside production.
+- **Icons and share image** are made by `node scripts/make-brand-assets.mjs` (stand-in "W" tile icon, share image from a site photo and the emblem). Replace `src/app/icon.svg` with the real square emblem when it exists and run the script again.
+- **404 page.** The only console entry is the browser's own "Failed to load resource: 404" for the page itself; that comes with a real 404 status and is not a bug.
+
+### New text to review by a native Swedish speaker
+
+`notFound.helpTitle/homeCleaning/business`; `about.text2/areasTitle`; `home.faq` (the three answered questions); the CTA labels `home.doorHomes.cta`, `home.services[*].link`, `home.businessCta`, `home.endCta`, `homeCleaning.cta/endCta`; everything in `moveOut`, `deepCleaning`, `windowCleaning` (built only from wording already on the site) and `homeCleaning.whoTitle/who`.
