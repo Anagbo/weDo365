@@ -5,7 +5,12 @@ import { Logo } from "@/components/Logo";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { SiteNav, type NavItem, type SocialItem } from "./SiteNav";
 
-export async function Header() {
+/** `switchToHome`: the language switch goes to the other language's home page (404 page). */
+export async function Header({
+  switchToHome = false,
+}: {
+  switchToHome?: boolean;
+}) {
   const locale = await getLocale();
   const t = await getTranslations("nav");
   const meta = await getTranslations("meta");
@@ -37,6 +42,7 @@ export async function Header() {
             target={target}
             label={t("switchLabel")}
             ariaLabel={t("switchAria")}
+            toHome={switchToHome}
           />
         }
         items={items}

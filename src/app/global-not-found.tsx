@@ -52,6 +52,11 @@ export default async function GlobalNotFound() {
   const nav = await getTranslations("nav");
   const meta = await getTranslations("meta");
 
+  const links = [
+    { href: "/hemstadning", label: t("homeCleaning") },
+    { href: "/foretag", label: t("business") },
+  ] as const;
+
   return (
     <html lang={locale} className={`${inter.variable} ${manrope.variable}`}>
       <body className="flex min-h-dvh flex-col">
@@ -62,7 +67,7 @@ export default async function GlobalNotFound() {
           {ui("skipLink")}
         </a>
         <NextIntlClientProvider locale={locale} messages={null}>
-          <Header />
+          <Header switchToHome />
           <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
             <section className="container-site flex flex-col items-start gap-5 py-12 md:py-18">
               <h1 className="text-h1-sm md:text-h1-page">{t("h1")}</h1>
@@ -70,6 +75,29 @@ export default async function GlobalNotFound() {
               <Link href="/" className={buttonClasses("primary")}>
                 {t("home")}
               </Link>
+              <nav aria-label={t("helpTitle")} className="flex flex-col gap-1">
+                <p className="font-semibold">{t("helpTitle")}</p>
+                <ul>
+                  {links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="inline-flex min-h-11 items-center underline underline-offset-4"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                  <li>
+                    <a
+                      href={meta("phoneHref")}
+                      className="inline-flex min-h-11 items-center underline underline-offset-4"
+                    >
+                      {nav("call")} {meta("phone")}
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </section>
           </main>
           <Footer />

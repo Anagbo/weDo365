@@ -438,6 +438,9 @@
     "why": "Du får det här mejlet eftersom du skickade en förfrågan på {site}."
   },
   "notFound": {
+    "helpTitle": "Hjälp på vägen",
+    "homeCleaning": "Hemstädning",
+    "business": "Städning för företag",
     "h1": "Sidan hittades inte",
     "text": "Länken kan vara felaktig, eller så har sidan flyttats.",
     "home": "Till startsidan"

@@ -25,7 +25,7 @@ export function MobileActionBar({
   if (HIDDEN_ON.includes(pathname as AppPathname)) return null;
 
   return (
-    <div className="sticky bottom-0 z-40 flex gap-3 border-t border-line bg-ground px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden">
+    <div className="sticky bottom-0 z-40 flex gap-3 border-t border-line bg-ground px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] in-data-[menu-open]:hidden md:hidden">
       <a
         href={call.href}
         aria-label={call.aria}

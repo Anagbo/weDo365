@@ -46,6 +46,26 @@ function SocialGlyph({ id }: { id: SocialItem["id"] }) {
   );
 }
 
+function PhoneGlyph() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="18"
+      height="18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+      className="shrink-0"
+    >
+      <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" />
+    </svg>
+  );
+}
+
 type Props = {
   logo: ReactNode;
   languageSwitch: ReactNode;
@@ -91,6 +111,15 @@ export function SiteNav({
   }, [open]);
 
   const close = () => setOpen(false);
+
+  // Tell the page (the sticky mobile bar) that the menu is open.
+  useEffect(() => {
+    if (open) document.body.dataset.menuOpen = "";
+    else delete document.body.dataset.menuOpen;
+    return () => {
+      delete document.body.dataset.menuOpen;
+    };
+  }, [open]);
 
   // Desktop: 2px green bar under the current page (as in the prototype).
   const desktopLinkClass = (current: boolean) =>
@@ -150,11 +179,17 @@ export function SiteNav({
             </ul>
           ) : null}
           {languageSwitch}
+          {/* Click-to-call: icon button from md, with the number from 2xl. */}
           <a
             href={call.href}
-            className={buttonClasses("secondary", "max-[1535px]:hidden")}
+            aria-label={call.label}
+            className={buttonClasses(
+              "secondary",
+              "max-[1535px]:size-11 max-[1535px]:min-h-11 max-[1535px]:px-0 max-md:hidden",
+            )}
           >
-            {call.label}
+            <PhoneGlyph />
+            <span className="max-[1535px]:hidden">{call.label}</span>
           </a>
           <Link
             href="/boka"

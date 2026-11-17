@@ -10,15 +10,17 @@ type Props = {
   label: string;
   /** Accessible name, written in the target language. */
   ariaLabel: string;
+  /** Link to the other language's home page (for the 404 page, which has no matching page). */
+  toHome?: boolean;
 };
 
 /** Links to the same page in the other language. */
-export function LanguageSwitch({ target, label, ariaLabel }: Props) {
+export function LanguageSwitch({ target, label, ariaLabel, toHome }: Props) {
   const pathname = usePathname();
   // A plain <a>: changing language swaps the root layout (full page load)
   // anyway, and this gives the final URL ("/hemstadning", not
   // "/sv/hemstadning"), so there is no extra redirect.
-  const href = getPathname({ href: pathname, locale: target });
+  const href = getPathname({ href: toHome ? "/" : pathname, locale: target });
 
   return (
     <a

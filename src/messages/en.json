@@ -438,6 +438,9 @@
     "why": "You are receiving this email because you sent a request on {site}."
   },
   "notFound": {
+    "helpTitle": "Helpful pages",
+    "homeCleaning": "Home cleaning",
+    "business": "Business cleaning",
     "h1": "Page not found",
     "text": "The link may be wrong, or the page may have moved.",
     "home": "Back to home page"
