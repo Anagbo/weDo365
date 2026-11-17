@@ -55,7 +55,7 @@ export default async function BusinessPage() {
         <SiteImage
           name="business"
           alt={t("photoAlt")}
-          priority
+          preload
           className="h-[280px] sm:h-[360px] lg:h-[440px]"
         />
       </section>

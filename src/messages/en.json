@@ -34,14 +34,23 @@
     "area": "Stockholm and surroundings",
     "privacy": "Privacy policy",
     "terms": "Terms and conditions",
-    "copyright": "© 2026 {company}"
+    "copyright": "© 2026 {company}",
+    "instagramAria": "WeDo 365 AB on Instagram",
+    "facebookAria": "WeDo 365 AB on Facebook"
+  },
+  "about": {
+    "eyebrow": "About us",
+    "title": "The cleaning company behind WeDo365",
+    "text": "We clean homes, offices, gyms and properties in Stockholm, 365 days a year.",
+    "facts": ["{company}", "{employees} employees", "Stockholm"],
+    "logoAlt": "WeDo 365 AB, Expert Cleaning Squad"
   },
   "home": {
     "title": "WeDo365 – Cleaning company in Stockholm",
     "eyebrow": "Cleaning company in Stockholm · 365 days a year",
     "h1": "Clean at home and at work. We take care of the rest.",
     "lead": "Tell us what you need and we will contact you with a suggested time and price.",
-    "heroPhotoAlt": "the WeDo365 team at work in a home",
+    "heroPhotoAlt": "A WeDo 365 AB cleaner in a company T-shirt and black gloves smiles at the camera while running a Wetrok Mambo floor scrubber on the rubber floor of a gym.",
     "doorHomes": {
       "title": "For homes",
       "text": "Home cleaning, move-out cleaning, deep cleaning and window cleaning.",
@@ -105,7 +114,7 @@
     "businessText": "Offices, stairwells, gyms and schools. We set up a schedule that fits how you work.",
     "businessCta": "Request a quote",
     "businessCta2": "Read more",
-    "businessPhotoAlt": "office cleaning",
+    "businessPhotoAlt": "A WeDo 365 AB cleaner in a company T-shirt and blue gloves wipes a mirror with a blue cloth in a room with dark blue walls and a white orchid on a shelf.",
     "reviewsTitle": "What our customers say",
     "reviewsSub": "[RATING] out of 5 from [COUNT] reviews on Reco.se",
     "reviewPlaceholder": "[Customer review taken from Reco or Google]",
@@ -132,7 +141,8 @@
     "endTitle": "Ready for a cleaner home?",
     "endText": "It takes two minutes to send a request. Prefer to call? {phone}",
     "endCta": "Send request",
-    "trustReviews": "[RATING] out of 5 on Reco.se"
+    "trustReviews": "[RATING] out of 5 on Reco.se",
+    "aboutPhotoAlt": "A WeDo 365 AB cleaner in a company T-shirt and blue gloves smiles at the camera while polishing a tap at a sink in front of a mirror in a washroom."
   },
   "homeCleaning": {
     "title": "Home cleaning in Stockholm – WeDo365",
@@ -202,7 +212,7 @@
     "lead": "A clean workplace without you having to think about it. We set the schedule around how you work.",
     "cta": "Request a free quote",
     "callCta": "Call {phone}",
-    "photoAlt": "WeDo365 cleaning an office",
+    "photoAlt": "A WeDo 365 AB cleaner runs a Wetrok Mambo floor scrubber between exercise machines in a gym.",
     "sectorsTitle": "What we help with",
     "sectors": [
       {

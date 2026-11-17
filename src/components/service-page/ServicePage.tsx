@@ -80,7 +80,7 @@ export async function ServicePage({ pageKey }: { pageKey: ServicePageKey }) {
         <SiteImage
           name="homeCleaning"
           alt={c.photoAlt}
-          priority
+          preload
           className="h-[280px] sm:h-[400px] lg:h-[520px]"
         />
       </section>

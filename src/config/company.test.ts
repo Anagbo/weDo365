@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { MESSAGES } from "@/messages";
-import { COMPANY, COMPANY_TOKENS, companyJsonLd } from "./company";
+import {
+  COMPANY,
+  COMPANY_TOKENS,
+  FACEBOOK_URL,
+  INSTAGRAM_URL,
+  companyJsonLd,
+  socialLinks,
+} from "./company";
 
 const ALL_TEXT = JSON.stringify(MESSAGES);
 
@@ -68,9 +75,24 @@ describe("structured data", () => {
     });
   });
 
+  it("lists the Instagram and Facebook pages in sameAs", () => {
+    expect(data.sameAs).toEqual([
+      "https://www.instagram.com/wedo365ab/",
+      "https://www.facebook.com/profile.php?id=61595583265899",
+    ]);
+  });
+
   it("has no coordinates or opening hours", () => {
     expect(data).not.toHaveProperty("geo");
     expect(data).not.toHaveProperty("openingHours");
     expect(data).not.toHaveProperty("openingHoursSpecification");
+  });
+});
+
+describe("social links", () => {
+  it("are https links to the right services", () => {
+    expect(new URL(INSTAGRAM_URL).hostname).toBe("www.instagram.com");
+    expect(new URL(FACEBOOK_URL).hostname).toBe("www.facebook.com");
+    expect(socialLinks().map((l) => l.id)).toEqual(["instagram", "facebook"]);
   });
 });

@@ -37,6 +37,25 @@ export const COMPANY = {
   bankgiro: "5253-4021",
 } as const;
 
+/**
+ * Social media pages. A link is shown (footer) and listed in the structured
+ * data only while its value is not empty. Plain links only: nothing is embedded.
+ */
+export const INSTAGRAM_URL: string = "https://www.instagram.com/wedo365ab/";
+export const FACEBOOK_URL: string =
+  "https://www.facebook.com/profile.php?id=61595583265899";
+
+/** The social pages that are set, in the order they are shown. */
+export function socialLinks() {
+  return [
+    { id: "instagram", url: INSTAGRAM_URL },
+    { id: "facebook", url: FACEBOOK_URL },
+  ].filter((link) => link.url.trim() !== "") as {
+    id: "instagram" | "facebook";
+    url: string;
+  }[];
+}
+
 /** The postal address as lines: name, c/o, street, postcode and town. */
 export const POSTAL_ADDRESS_LINES = [
   COMPANY.name,
@@ -60,6 +79,7 @@ export const COMPANY_TOKENS = {
 
 /** Structured data (schema.org) describing the company. */
 export function companyJsonLd(siteUrl: string) {
+  const sameAs = socialLinks().map((link) => link.url);
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -78,5 +98,6 @@ export function companyJsonLd(siteUrl: string) {
     },
     areaServed: "Stockholm",
     url: siteUrl,
+    ...(sameAs.length > 0 ? { sameAs } : {}),
   };
 }

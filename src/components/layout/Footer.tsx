@@ -1,7 +1,10 @@
 import type { ComponentProps } from "react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import { bookHref, type ServiceId } from "@/config/site";
+import { socialLinks } from "@/config/company";
+import { LOGO } from "@/config/images";
 import { PostalAddress } from "@/components/PostalAddress";
 
 type Href = ComponentProps<typeof Link>["href"];
@@ -35,7 +38,9 @@ export async function Footer() {
   const locale = await getLocale();
   const t = await getTranslations("footer");
   const meta = await getTranslations("meta");
+  const about = await getTranslations("about");
   const serviceLabels = t.raw("serviceLinks") as string[];
+  const social = socialLinks();
 
   // Same order as footer.serviceLinks in the messages files.
   const serviceTargets: Href[] = [
@@ -55,6 +60,15 @@ export async function Footer() {
           </p>
           <p className="text-base text-white/85">{t("about")}</p>
           <p className="text-sm text-white/85">{t("org")}</p>
+          {/* Small raster logo: shown at about half its size, on its own light tile. */}
+          <Image
+            src={LOGO.src}
+            width={LOGO.width}
+            height={LOGO.height}
+            alt={about("logoAlt")}
+            unoptimized
+            className="mt-2 h-auto w-[200px] rounded-logo"
+          />
         </section>
 
         <Column title={t("services")}>
@@ -84,6 +98,19 @@ export async function Footer() {
             <li className="flex min-h-11 items-center text-base text-white/85">
               {t("area")}
             </li>
+            {social.map((link) => (
+              <li key={link.id}>
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t(`${link.id}Aria`)}
+                  className={linkClass}
+                >
+                  {link.id === "instagram" ? "Instagram" : "Facebook"}
+                </a>
+              </li>
+            ))}
           </ul>
           <PostalAddress
             label={t("postalAddress")}

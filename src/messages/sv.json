@@ -34,14 +34,23 @@
     "area": "Stockholm med omnejd",
     "privacy": "Integritetspolicy",
     "terms": "Allmänna villkor",
-    "copyright": "© 2026 {company}"
+    "copyright": "© 2026 {company}",
+    "instagramAria": "WeDo 365 AB på Instagram",
+    "facebookAria": "WeDo 365 AB på Facebook"
+  },
+  "about": {
+    "eyebrow": "Om oss",
+    "title": "Städfirman bakom WeDo365",
+    "text": "Vi städar hem, kontor, gym och fastigheter i Stockholm, 365 dagar om året.",
+    "facts": ["{company}", "{employees} anställda", "Stockholm"],
+    "logoAlt": "WeDo 365 AB, Expert Cleaning Squad"
   },
   "home": {
     "title": "WeDo365 – Städfirma i Stockholm",
     "eyebrow": "Städfirma i Stockholm · 365 dagar om året",
     "h1": "Rent hemma och på jobbet. Vi tar hand om resten.",
     "lead": "Berätta vad du behöver, så kontaktar vi dig med ett förslag på tid och pris.",
-    "heroPhotoAlt": "WeDo365-teamet på jobb i ett hem",
+    "heroPhotoAlt": "En medarbetare från WeDo 365 AB, i firmatröja och svarta handskar, ler mot kameran och kör en Wetrok Mambo-skurmaskin på gummigolvet i ett gym.",
     "doorHomes": {
       "title": "För hemmet",
       "text": "Hemstädning, flyttstädning, storstädning och fönsterputs.",
@@ -105,7 +114,7 @@
     "businessText": "Kontor, trappuppgångar, gym och skolor. Vi lägger upp ett schema som passar er verksamhet.",
     "businessCta": "Begär offert",
     "businessCta2": "Läs mer",
-    "businessPhotoAlt": "städning av kontor",
+    "businessPhotoAlt": "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, torkar en spegel med en blå duk i ett rum med mörkblå väggar och en vit orkidé på en hylla.",
     "reviewsTitle": "Vad våra kunder säger",
     "reviewsSub": "[BETYG] av 5 baserat på [ANTAL] omdömen på Reco.se",
     "reviewPlaceholder": "[Kundomdöme hämtat från Reco eller Google]",
@@ -132,7 +141,8 @@
     "endTitle": "Redo för ett renare hem?",
     "endText": "Det tar två minuter att skicka en förfrågan. Hellre ringa? {phone}",
     "endCta": "Skicka förfrågan",
-    "trustReviews": "[BETYG] av 5 på Reco.se"
+    "trustReviews": "[BETYG] av 5 på Reco.se",
+    "aboutPhotoAlt": "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, ler mot kameran och putsar en kran vid ett handfat framför en spegel i en toalett."
   },
   "homeCleaning": {
     "title": "Hemstädning i Stockholm – WeDo365",
@@ -202,7 +212,7 @@
     "lead": "En ren arbetsmiljö utan att ni behöver tänka på det. Vi lägger upp schemat efter er verksamhet.",
     "cta": "Begär kostnadsfri offert",
     "callCta": "Ring {phone}",
-    "photoAlt": "WeDo365 städar ett kontor",
+    "photoAlt": "En medarbetare från WeDo 365 AB skurar golvet med en Wetrok Mambo-skurmaskin mellan träningsmaskiner i ett gym.",
     "sectorsTitle": "Det här hjälper vi till med",
     "sectors": [
       {

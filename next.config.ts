@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
   // One complete, server-rendered 404 page for every unknown URL. (A not-found
   // thrown from a page under Cache Components is only a client-rendered shell.)
   experimental: { globalNotFound: true },
+  images: {
+    // Photos are served as AVIF, with WebP as the fallback.
+    formats: ["image/avif", "image/webp"],
+    qualities: [80],
+  },
   async rewrites() {
     return {
       // The proxy skips URLs with a dot (so it leaves /favicon.ico alone), which

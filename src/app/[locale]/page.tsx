@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { bookHref, SERVICE_IDS, SHOW_REVIEWS, SITE_URL } from "@/config/site";
-import { hasImage } from "@/config/images";
+import Image from "next/image";
+import { hasImage, LOGO } from "@/config/images";
 import { companyJsonLd } from "@/config/company";
 import { pageMetadata } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -56,6 +57,7 @@ function Stars() {
 export default async function HomePage() {
   const locale = await getLocale();
   const t = await getTranslations("home");
+  const about = await getTranslations("about");
 
   const trust = [
     ...(t.raw("trust") as string[]),
@@ -64,6 +66,7 @@ export default async function HomePage() {
   const services = t.raw("services") as ServiceCard[];
   const how = t.raw("how") as Step[];
   const faq = t.raw("faq") as FaqItem[];
+  const facts = about.raw("facts") as string[];
 
   // home.services is in the same order as the wizard's service ids.
   const serviceHref = (service: ServiceCard, i: number): Href =>
@@ -106,7 +109,7 @@ export default async function HomePage() {
         <SiteImage
           name="hero"
           alt={t("heroPhotoAlt")}
-          priority
+          preload
           className="h-[280px] sm:h-[360px] lg:h-[440px]"
         />
       </section>
@@ -215,6 +218,42 @@ export default async function HomePage() {
               <span className="sr-only"> – {t("businessTitle")}</span>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* 6b. About us (the #om target) */}
+      <section
+        id="om"
+        aria-labelledby="about-title"
+        className={`container-site grid scroll-mt-24 items-center gap-12 py-6 md:py-10 ${
+          hasImage("about") ? "lg:grid-cols-2" : ""
+        }`}
+      >
+        <SiteImage
+          name="about"
+          alt={t("aboutPhotoAlt")}
+          className="h-[280px] sm:h-[360px] lg:order-2"
+        />
+        <div className="flex max-w-[820px] flex-col gap-[18px]">
+          <Eyebrow>{about("eyebrow")}</Eyebrow>
+          <h2 id="about-title" className="text-h2-sm md:text-h2">
+            {about("title")}
+          </h2>
+          <p className="max-w-[620px] text-lead text-muted">{about("text")}</p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2 font-semibold">
+            {facts.map((fact) => (
+              <li key={fact}>{fact}</li>
+            ))}
+          </ul>
+          {/* Small raster logo: never shown larger than 300px wide. */}
+          <Image
+            src={LOGO.src}
+            width={LOGO.width}
+            height={LOGO.height}
+            alt={about("logoAlt")}
+            unoptimized
+            className="mt-2 h-auto w-[240px] rounded-logo border border-line"
+          />
         </div>
       </section>
 
