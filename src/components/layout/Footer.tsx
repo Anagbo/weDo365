@@ -1,7 +1,8 @@
 import type { ComponentProps } from "react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { bookHref, type ServiceId } from "@/config/site";
+import { SERVICE_IDS } from "@/config/site";
+import { SERVICE_PAGE_PATH } from "@/config/service-pages";
 import { socialLinks } from "@/config/company";
 import { Logo } from "@/components/Logo";
 import { PostalAddress } from "@/components/PostalAddress";
@@ -34,7 +35,6 @@ function Column({
 }
 
 export async function Footer() {
-  const locale = await getLocale();
   const t = await getTranslations("footer");
   const meta = await getTranslations("meta");
   const serviceLabels = t.raw("serviceLinks") as string[];
@@ -42,10 +42,7 @@ export async function Footer() {
 
   // Same order as footer.serviceLinks in the messages files.
   const serviceTargets: Href[] = [
-    "/hemstadning",
-    ...(["flytt", "stor", "fonster"] satisfies ServiceId[]).map((id) =>
-      bookHref(locale, id),
-    ),
+    ...SERVICE_IDS.map((id) => SERVICE_PAGE_PATH[id]),
     "/foretag",
   ];
 

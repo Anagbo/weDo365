@@ -1,4 +1,5 @@
 import { SECTION } from "@/components/ui/spacing";
+import { isTodo } from "@/lib/todo";
 
 export type FaqItem = { q: string; a: string };
 
@@ -7,7 +8,7 @@ export type FaqItem = { q: string; a: string };
  * file. A FAQ is shown only when every answer is real, so a visitor never
  * sees a half-empty list.
  */
-const isPending = (item: FaqItem) => /^TODO\b/.test(item.a.trim());
+const isPending = (item: FaqItem) => isTodo(item.a);
 
 /** The questions to show: all of them, or none while any answer is missing. */
 export const readyFaq = (items: FaqItem[]) =>

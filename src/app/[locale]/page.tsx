@@ -1,9 +1,9 @@
 import type { ComponentProps } from "react";
 import type { Metadata } from "next";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { SERVICE_PAGE_PATH } from "@/config/service-pages";
 import {
-  bookHref,
   HERO_AUTOPLAY,
   SERVICE_IDS,
   SHOW_REVIEWS,
@@ -12,6 +12,7 @@ import {
 import { HERO_SLIDES, hasImage } from "@/config/images";
 import { companyJsonLd } from "@/config/company";
 import { pageMetadata } from "@/lib/seo";
+import { hasTodo } from "@/lib/todo";
 import { JsonLd } from "@/components/JsonLd";
 import { buttonClasses } from "@/components/ui/button";
 import { cardClasses } from "@/components/ui/card";
@@ -26,12 +27,7 @@ import { EndCta } from "@/components/sections/EndCta";
 
 type Href = ComponentProps<typeof Link>["href"];
 
-type ServiceCard = {
-  name: string;
-  text: string;
-  link: string;
-  target: "homeCleaning" | "book";
-};
+type ServiceCard = { name: string; text: string; link: string };
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("home");
@@ -62,7 +58,6 @@ function Stars() {
 }
 
 export default async function HomePage() {
-  const locale = await getLocale();
   const t = await getTranslations("home");
   const about = await getTranslations("about");
   const slider = await getTranslations("slider");
@@ -82,13 +77,10 @@ export default async function HomePage() {
   const facts = about.raw("facts") as string[];
   const areas = about.raw("areas") as string[];
   // The list is shown only when no entry is still a TODO note.
-  const areasReady = areas.length > 0 && !areas.some((a) => /^TODO/.test(a));
+  const areasReady = areas.length > 0 && !hasTodo(areas);
 
   // home.services is in the same order as the wizard's service ids.
-  const serviceHref = (service: ServiceCard, i: number): Href =>
-    service.target === "homeCleaning"
-      ? "/hemstadning"
-      : bookHref(locale, SERVICE_IDS[i]);
+  const serviceHref = (i: number): Href => SERVICE_PAGE_PATH[SERVICE_IDS[i]];
 
   const doors = [
     {
@@ -186,6 +178,7 @@ export default async function HomePage() {
 
       {/* 4. Services for homes */}
       <section
+        id="tjanster"
         aria-labelledby="services-title"
         className={`container-site flex flex-col gap-7 ${SECTION}`}
       >
@@ -201,7 +194,7 @@ export default async function HomePage() {
               <h3 className="text-[22px] leading-tight">{service.name}</h3>
               <p className="flex-1 leading-[1.55] text-muted">{service.text}</p>
               <Link
-                href={serviceHref(service, i)}
+                href={serviceHref(i)}
                 className="flex min-h-11 items-center gap-1.5 font-semibold underline underline-offset-4 hover:text-ink"
               >
                 {service.link}

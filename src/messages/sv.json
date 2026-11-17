@@ -76,26 +76,22 @@
       {
         "name": "Hemstädning",
         "text": "Regelbunden städning varje vecka, varannan vecka eller var fjärde vecka.",
-        "link": "Läs mer om hemstädning",
-        "target": "homeCleaning"
+        "link": "Läs mer om hemstädning"
       },
       {
         "name": "Flyttstädning",
         "text": "Grundlig städning inför besiktningen när du flyttar.",
-        "link": "Fråga om flyttstädning",
-        "target": "book"
+        "link": "Fråga om flyttstädning"
       },
       {
         "name": "Storstädning",
         "text": "En extra grundlig städning av hela hemmet.",
-        "link": "Fråga om storstädning",
-        "target": "book"
+        "link": "Fråga om storstädning"
       },
       {
         "name": "Fönsterputs",
         "text": "Rena fönster, in- och utvändigt.",
-        "link": "Fråga om fönsterputs",
-        "target": "book"
+        "link": "Fråga om fönsterputs"
       }
     ],
     "howTitle": "Så enkelt skickar du en förfrågan",
@@ -169,7 +165,7 @@
       "Varje vecka, varannan eller var fjärde vecka",
       "Personlig kontakt innan något bokas"
     ],
-    "photoAlt": "hemstädning i kök",
+    "photoAlt": "En medarbetare från WeDo 365 AB, i firmatröja och blå handskar, tittar in i kameran och torkar en mikrovågsugn med en blå duk i ett personalkök.",
     "includedTitle": "Det här ingår",
     "included": [
       {
@@ -214,7 +210,12 @@
     ],
     "endTitle": "Vill du ha hjälp med hemstädning?",
     "endText": "Skicka en förfrågan, så hör vi av oss med förslag på tid och pris.",
-    "endCta": "Fråga om hemstädning"
+    "endCta": "Fråga om hemstädning",
+    "whoTitle": "Hemstädning passar dig som",
+    "who": [
+      "vill ha ett rent hem utan att lägga din egen tid på det",
+      "vill ha regelbunden städning: varje vecka, varannan vecka eller var fjärde vecka"
+    ]
   },
   "business": {
     "title": "Företagsstädning i Stockholm – WeDo365",
@@ -547,5 +548,143 @@
         }
       ]
     }
+  },
+  "moveOut": {
+    "title": "Flyttstädning i Stockholm – WeDo365",
+    "breadcrumbHome": "Start",
+    "breadcrumbHomes": "För hemmet",
+    "breadcrumbCurrent": "Flyttstädning",
+    "h1": "Flyttstädning i Stockholm",
+    "lead": "Grundlig städning inför besiktningen när du flyttar. Berätta om bostaden, så återkommer vi med pris och förslag på tid.",
+    "cardTitle": "Få ett förslag på tid och pris",
+    "cardText": "Vi återkommer via telefon eller e-post.",
+    "cta": "Få pris på flyttstädning",
+    "checks": [
+      "Grundlig städning inför besiktningen",
+      "Personlig kontakt innan något bokas"
+    ],
+    "photoAlt": "TODO: alt-text när ett foto läggs till",
+    "includedTitle": "Det här ingår",
+    "included": [
+      {
+        "title": "TODO: rubrik",
+        "items": ["TODO: vad som ingår, från WeDo365"]
+      }
+    ],
+    "faqTitle": "Frågor om flyttstädning",
+    "faq": [
+      {
+        "q": "Vad ingår i en flyttstädning?",
+        "a": "TODO: svar från WeDo365"
+      },
+      {
+        "q": "Vad behöver jag ha gjort innan ni kommer?",
+        "a": "TODO: svar från WeDo365"
+      },
+      {
+        "q": "Finns det besiktningsgaranti?",
+        "a": "TODO: svar från WeDo365"
+      }
+    ],
+    "whoTitle": "Flyttstädning passar dig som",
+    "who": [
+      "flyttar och ska lämna över bostaden",
+      "vill ha en grundlig städning inför besiktningen"
+    ],
+    "endTitle": "Ska du flytta?",
+    "endText": "Skicka en förfrågan, så hör vi av oss med förslag på tid och pris.",
+    "endCta": "Fråga om flyttstädning"
+  },
+  "deepCleaning": {
+    "title": "Storstädning i Stockholm – WeDo365",
+    "breadcrumbHome": "Start",
+    "breadcrumbHomes": "För hemmet",
+    "breadcrumbCurrent": "Storstädning",
+    "h1": "Storstädning i Stockholm",
+    "lead": "En extra grundlig städning av hela hemmet. Berätta vad du behöver, så återkommer vi med pris och förslag på tid.",
+    "cardTitle": "Få ett förslag på tid och pris",
+    "cardText": "Vi återkommer via telefon eller e-post.",
+    "cta": "Få pris på storstädning",
+    "checks": [
+      "Extra grundlig städning av hela hemmet",
+      "Personlig kontakt innan något bokas"
+    ],
+    "photoAlt": "TODO: alt-text när ett foto läggs till",
+    "includedTitle": "Det här ingår",
+    "included": [
+      {
+        "title": "TODO: rubrik",
+        "items": ["TODO: vad som ingår, från WeDo365"]
+      }
+    ],
+    "faqTitle": "Frågor om storstädning",
+    "faq": [
+      {
+        "q": "Vad ingår i en storstädning?",
+        "a": "TODO: svar från WeDo365"
+      },
+      {
+        "q": "Hur lång tid tar en storstädning?",
+        "a": "TODO: svar från WeDo365"
+      },
+      {
+        "q": "Kan jag kombinera med fönsterputs?",
+        "a": "TODO: svar från WeDo365"
+      }
+    ],
+    "whoTitle": "Storstädning passar dig som",
+    "who": [
+      "vill ha en extra grundlig städning av hela hemmet",
+      "vill ha en engångsstädning"
+    ],
+    "endTitle": "Dags för en storstädning?",
+    "endText": "Skicka en förfrågan, så hör vi av oss med förslag på tid och pris.",
+    "endCta": "Fråga om storstädning"
+  },
+  "windowCleaning": {
+    "title": "Fönsterputs i Stockholm – WeDo365",
+    "breadcrumbHome": "Start",
+    "breadcrumbHomes": "För hemmet",
+    "breadcrumbCurrent": "Fönsterputs",
+    "h1": "Fönsterputs i Stockholm",
+    "lead": "Rena fönster, in- och utvändigt. Berätta hur många fönster du har, så återkommer vi med pris och förslag på tid.",
+    "cardTitle": "Få ett förslag på tid och pris",
+    "cardText": "Vi återkommer via telefon eller e-post.",
+    "cta": "Få pris på fönsterputs",
+    "checks": [
+      "Rena fönster, in- och utvändigt",
+      "Personlig kontakt innan något bokas"
+    ],
+    "photoAlt": "TODO: alt-text när ett foto läggs till",
+    "includedTitle": "Det här ingår",
+    "included": [
+      {
+        "title": "TODO: rubrik",
+        "items": ["TODO: vad som ingår, från WeDo365"]
+      }
+    ],
+    "faqTitle": "Frågor om fönsterputs",
+    "faq": [
+      {
+        "q": "Putsar ni både in- och utsidan?",
+        "a": "TODO: svar från WeDo365"
+      },
+      {
+        "q": "Vad behöver jag göra innan ni kommer?",
+        "a": "TODO: svar från WeDo365"
+      },
+      {
+        "q": "Hur ofta bör fönster putsas?",
+        "a": "TODO: svar från WeDo365"
+      }
+    ],
+    "whoTitle": "Fönsterputs passar dig som",
+    "who": [
+      "vill ha rena fönster, in- och utvändigt",
+      "bor i hus eller lägenhet i Stockholm"
+    ],
+    "endTitle": "Vill du ha rena fönster?",
+    "endText": "Skicka en förfrågan, så hör vi av oss med förslag på tid och pris.",
+    "endCta": "Fråga om fönsterputs"
   }
 }

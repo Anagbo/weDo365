@@ -16,6 +16,9 @@ export const routing = defineRouting({
   pathnames: {
     "/": "/",
     "/hemstadning": { sv: "/hemstadning", en: "/home-cleaning" },
+    "/flyttstadning": { sv: "/flyttstadning", en: "/move-out-cleaning" },
+    "/storstadning": { sv: "/storstadning", en: "/deep-cleaning" },
+    "/fonsterputs": { sv: "/fonsterputs", en: "/window-cleaning" },
     "/foretag": { sv: "/foretag", en: "/business" },
     "/boka": { sv: "/boka", en: "/book" },
     "/offert": { sv: "/offert", en: "/quote" },

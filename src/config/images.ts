@@ -8,8 +8,9 @@
  * the photo to that script, run it, then point the slot at the new file.
  * The alt text comes from the messages files (`slider.alts`, `home.businessPhotoAlt` etc.).
  *
- * `homeCleaning` is empty on purpose: the photos we have show a gym and
- * staff rooms at commercial premises, and /hemstadning is about private homes.
+ * `homeCleaning` is the staff-kitchen photo (microwave): the closest we have
+ * to a home, but NOT a private home. Swap it for a photo from a real home job
+ * when there is one.
  */
 import { BLUR } from "./image-blur";
 
@@ -46,7 +47,7 @@ function slide(name: string, position: string): SiteImage {
 
 export const IMAGES: Record<ImageKey, SiteImage | null> = {
   businessBand: photo("team-mirror-orchid", "60% 40%"),
-  homeCleaning: null,
+  homeCleaning: slide("slide-microwave", "50% 60%"),
   business: photo("team-gym-wetrok-mambo", "50% 40%"),
   about: photo("team-washroom-tap", "65% 40%"),
 };

@@ -2,12 +2,8 @@
 
 import type { ComponentProps } from "react";
 import { useSearchParams } from "next/navigation";
-import { SERVICE_IDS, SERVICE_QUERY_KEY, type ServiceId } from "@/config/site";
+import { SERVICE_QUERY_KEY, serviceFromSlug } from "@/config/site";
 import { BookingWizard } from "./BookingWizard";
-
-function isServiceId(value: string | null): value is ServiceId {
-  return SERVICE_IDS.includes(value as ServiceId);
-}
 
 /**
  * Reads ?tjanst= (sv) or ?service= (en) and preselects that service.
@@ -21,7 +17,7 @@ export function BookingWizardFromQuery(
   // Accept either language's key, so a shared link works in both.
   const raw =
     params.get(SERVICE_QUERY_KEY.sv) ?? params.get(SERVICE_QUERY_KEY.en);
-  const service: ServiceId = isServiceId(raw) ? raw : "hem";
+  const service = serviceFromSlug(raw) ?? "hem";
 
   // A new preselected service (e.g. from a footer link) starts a fresh wizard.
   return <BookingWizard key={service} initialService={service} {...props} />;

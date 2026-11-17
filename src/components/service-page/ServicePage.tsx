@@ -12,6 +12,8 @@ import { Breadcrumb } from "@/components/sections/Breadcrumb";
 import { SiteImage } from "@/components/sections/SiteImage";
 import { Faq } from "@/components/sections/Faq";
 import { hasImage } from "@/config/images";
+import { SECTION } from "@/components/ui/spacing";
+import { hasTodo } from "@/lib/todo";
 import { EndCta } from "@/components/sections/EndCta";
 
 /**
@@ -40,22 +42,27 @@ export async function getServicePageMetadata(
 export async function ServicePage({ pageKey }: { pageKey: ServicePageKey }) {
   const locale = await getLocale();
   const c = await getContent(pageKey);
-  const requestHref = bookHref(locale, SERVICE_PAGES[pageKey].service);
+  const { service, image } = SERVICE_PAGES[pageKey];
+  const requestHref = bookHref(locale, service);
+  const withPhoto = image !== null && hasImage(image);
 
   return (
     <>
       <Breadcrumb
         items={[
           { label: c.breadcrumbHome, href: "/" },
-          // "För hemmet" has no page of its own yet, so it is plain text.
-          { label: c.breadcrumbHomes },
+          // "För hemmet" has no page of its own: it links to the service list on the home page.
+          {
+            label: c.breadcrumbHomes,
+            href: { pathname: "/", hash: "tjanster" },
+          },
           { label: c.breadcrumbCurrent },
         ]}
       />
 
       <section
-        className={`container-site grid items-start gap-12 pt-7 pb-14 md:pb-16 ${
-          hasImage("homeCleaning") ? "lg:grid-cols-2" : ""
+        className={`container-site grid items-start gap-12 pt-7 ${
+          withPhoto ? "lg:grid-cols-2" : ""
         }`}
       >
         <div className="flex max-w-[820px] flex-col gap-6">
@@ -77,33 +84,48 @@ export async function ServicePage({ pageKey }: { pageKey: ServicePageKey }) {
             </Link>
           </div>
         </div>
-        <SiteImage
-          name="homeCleaning"
-          alt={c.photoAlt}
-          preload
-          className="h-[280px] sm:h-[400px] lg:h-[520px]"
-        />
+        {image ? (
+          <SiteImage
+            name={image}
+            alt={c.photoAlt}
+            preload
+            className="h-[280px] sm:h-[400px] lg:h-[520px]"
+          />
+        ) : null}
       </section>
 
       <section
-        aria-labelledby="included-title"
-        className="container-site flex flex-col gap-6 pb-14 md:pb-18"
+        aria-labelledby="who-title"
+        className={`container-site flex flex-col gap-4 ${SECTION}`}
       >
-        <h2 id="included-title" className="text-h2-sm md:text-h2">
-          {c.includedTitle}
+        <h2 id="who-title" className="text-h2-sm md:text-h2">
+          {c.whoTitle}
         </h2>
-        <ul className="grid gap-5 md:grid-cols-3">
-          {c.included.map((group) => (
-            <li
-              key={group.title}
-              className={`flex flex-col gap-3.5 ${cardClasses}`}
-            >
-              <h3 className="text-[21px] leading-tight">{group.title}</h3>
-              <CheckList items={group.items} />
-            </li>
-          ))}
-        </ul>
+        <CheckList items={c.who} />
       </section>
+
+      {/* Shown once the owner has filled in what is included. */}
+      {hasTodo(c.included) ? null : (
+        <section
+          aria-labelledby="included-title"
+          className={`container-site flex flex-col gap-6 ${SECTION}`}
+        >
+          <h2 id="included-title" className="text-h2-sm md:text-h2">
+            {c.includedTitle}
+          </h2>
+          <ul className="grid gap-5 md:grid-cols-3">
+            {c.included.map((group) => (
+              <li
+                key={group.title}
+                className={`flex flex-col gap-3.5 ${cardClasses}`}
+              >
+                <h3 className="text-[21px] leading-tight">{group.title}</h3>
+                <CheckList items={group.items} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <Faq title={c.faqTitle} items={c.faq} />
 

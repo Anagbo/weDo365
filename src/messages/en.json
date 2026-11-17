@@ -76,26 +76,22 @@
       {
         "name": "Home cleaning",
         "text": "Regular cleaning every week, every other week or every four weeks.",
-        "link": "Read more about home cleaning",
-        "target": "homeCleaning"
+        "link": "Read more about home cleaning"
       },
       {
         "name": "Move-out cleaning",
         "text": "Thorough cleaning before the inspection when you move.",
-        "link": "Ask about move-out cleaning",
-        "target": "book"
+        "link": "Ask about move-out cleaning"
       },
       {
         "name": "Deep cleaning",
         "text": "An extra thorough clean of the whole home.",
-        "link": "Ask about deep cleaning",
-        "target": "book"
+        "link": "Ask about deep cleaning"
       },
       {
         "name": "Window cleaning",
         "text": "Clean windows, inside and out.",
-        "link": "Ask about window cleaning",
-        "target": "book"
+        "link": "Ask about window cleaning"
       }
     ],
     "howTitle": "Sending a request is simple",
@@ -169,7 +165,7 @@
       "Every week, every other week or every four weeks",
       "Personal contact before anything is booked"
     ],
-    "photoAlt": "home cleaning in a kitchen",
+    "photoAlt": "A WeDo 365 AB cleaner in a company T-shirt and blue gloves looks into the camera while wiping a microwave oven with a blue cloth in a staff kitchen.",
     "includedTitle": "What's included",
     "included": [
       {
@@ -214,7 +210,12 @@
     ],
     "endTitle": "Want help with home cleaning?",
     "endText": "Send a request and we will get back to you with a suggested time and price.",
-    "endCta": "Ask about home cleaning"
+    "endCta": "Ask about home cleaning",
+    "whoTitle": "Home cleaning is for you if you",
+    "who": [
+      "want a clean home without spending your own time on it",
+      "want regular cleaning: every week, every other week or every four weeks"
+    ]
   },
   "business": {
     "title": "Business cleaning in Stockholm – WeDo365",
@@ -547,5 +548,143 @@
         }
       ]
     }
+  },
+  "moveOut": {
+    "title": "Move-out cleaning in Stockholm – WeDo365",
+    "breadcrumbHome": "Home",
+    "breadcrumbHomes": "For homes",
+    "breadcrumbCurrent": "Move-out cleaning",
+    "h1": "Move-out cleaning in Stockholm",
+    "lead": "Thorough cleaning ahead of the inspection when you move. Tell us about the home and we will get back to you with a price and a suggested time.",
+    "cardTitle": "Get a suggested time and price",
+    "cardText": "We get back to you by phone or email.",
+    "cta": "Get a price for move-out cleaning",
+    "checks": [
+      "Thorough cleaning ahead of the inspection",
+      "Personal contact before anything is booked"
+    ],
+    "photoAlt": "TODO: alt text when a photo is added",
+    "includedTitle": "What's included",
+    "included": [
+      {
+        "title": "TODO: heading",
+        "items": ["TODO: what is included, from WeDo365"]
+      }
+    ],
+    "faqTitle": "Questions about move-out cleaning",
+    "faq": [
+      {
+        "q": "What does move-out cleaning include?",
+        "a": "TODO: answer from WeDo365"
+      },
+      {
+        "q": "What do I need to do before you arrive?",
+        "a": "TODO: answer from WeDo365"
+      },
+      {
+        "q": "Is there an inspection guarantee?",
+        "a": "TODO: answer from WeDo365"
+      }
+    ],
+    "whoTitle": "Move-out cleaning is for you if you",
+    "who": [
+      "are moving out and handing over the home",
+      "want a thorough clean ahead of the inspection"
+    ],
+    "endTitle": "Are you moving?",
+    "endText": "Send a request and we will get back to you with a suggested time and price.",
+    "endCta": "Ask about move-out cleaning"
+  },
+  "deepCleaning": {
+    "title": "Deep cleaning in Stockholm – WeDo365",
+    "breadcrumbHome": "Home",
+    "breadcrumbHomes": "For homes",
+    "breadcrumbCurrent": "Deep cleaning",
+    "h1": "Deep cleaning in Stockholm",
+    "lead": "An extra thorough clean of the whole home. Tell us what you need and we will get back to you with a price and a suggested time.",
+    "cardTitle": "Get a suggested time and price",
+    "cardText": "We get back to you by phone or email.",
+    "cta": "Get a price for deep cleaning",
+    "checks": [
+      "Extra thorough cleaning of the whole home",
+      "Personal contact before anything is booked"
+    ],
+    "photoAlt": "TODO: alt text when a photo is added",
+    "includedTitle": "What's included",
+    "included": [
+      {
+        "title": "TODO: heading",
+        "items": ["TODO: what is included, from WeDo365"]
+      }
+    ],
+    "faqTitle": "Questions about deep cleaning",
+    "faq": [
+      {
+        "q": "What does deep cleaning include?",
+        "a": "TODO: answer from WeDo365"
+      },
+      {
+        "q": "How long does a deep clean take?",
+        "a": "TODO: answer from WeDo365"
+      },
+      {
+        "q": "Can I combine it with window cleaning?",
+        "a": "TODO: answer from WeDo365"
+      }
+    ],
+    "whoTitle": "Deep cleaning is for you if you",
+    "who": [
+      "want an extra thorough clean of the whole home",
+      "want a one-off clean"
+    ],
+    "endTitle": "Time for a deep clean?",
+    "endText": "Send a request and we will get back to you with a suggested time and price.",
+    "endCta": "Ask about deep cleaning"
+  },
+  "windowCleaning": {
+    "title": "Window cleaning in Stockholm – WeDo365",
+    "breadcrumbHome": "Home",
+    "breadcrumbHomes": "For homes",
+    "breadcrumbCurrent": "Window cleaning",
+    "h1": "Window cleaning in Stockholm",
+    "lead": "Clean windows, inside and out. Tell us how many windows you have and we will get back to you with a price and a suggested time.",
+    "cardTitle": "Get a suggested time and price",
+    "cardText": "We get back to you by phone or email.",
+    "cta": "Get a price for window cleaning",
+    "checks": [
+      "Clean windows, inside and out",
+      "Personal contact before anything is booked"
+    ],
+    "photoAlt": "TODO: alt text when a photo is added",
+    "includedTitle": "What's included",
+    "included": [
+      {
+        "title": "TODO: heading",
+        "items": ["TODO: what is included, from WeDo365"]
+      }
+    ],
+    "faqTitle": "Questions about window cleaning",
+    "faq": [
+      {
+        "q": "Do you clean both the inside and the outside?",
+        "a": "TODO: answer from WeDo365"
+      },
+      {
+        "q": "What do I need to do before you arrive?",
+        "a": "TODO: answer from WeDo365"
+      },
+      {
+        "q": "How often should windows be cleaned?",
+        "a": "TODO: answer from WeDo365"
+      }
+    ],
+    "whoTitle": "Window cleaning is for you if you",
+    "who": [
+      "want clean windows, inside and out",
+      "live in a house or flat in Stockholm"
+    ],
+    "endTitle": "Want clean windows?",
+    "endText": "Send a request and we will get back to you with a suggested time and price.",
+    "endCta": "Ask about window cleaning"
   }
 }
