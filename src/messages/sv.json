@@ -431,19 +431,23 @@
     "company": "{company}, org.nr {orgNr}",
     "privacy": {
       "h1": "Integritetspolicy",
-      "lead": "Här förklarar vi vilka uppgifter du lämnar när du skickar en förfrågan och vad vi gör med dem.",
+      "lead": "Här förklarar vi vilka uppgifter du lämnar när du skickar en förfrågan, vad vi gör med dem och vilka rättigheter du har.",
       "sections": [
         {
           "title": "Vilka uppgifter vi tar emot",
           "text": "Det du fyller i när du skickar en förfrågan. För hemstädning, flyttstädning, storstädning och fönsterputs: tjänst, bostadens storlek eller antal fönster, önskad frekvens, önskat datum och tid, adress, anteckningar, namn, e-postadress och mobilnummer. För offerter till företag: typ av lokal, yta, frekvens, företag eller förening, kontaktperson, e-postadress, telefonnummer och meddelande."
         },
         {
-          "title": "Varför vi använder uppgifterna",
-          "text": "Vi använder uppgifterna för att svara på din förfrågan, till exempel med ett förslag på tid och pris."
+          "title": "Varför vi använder uppgifterna och på vilken grund",
+          "text": "Vi använder uppgifterna för att svara på din förfrågan, till exempel med ett förslag på tid och pris, och för att kunna utföra uppdraget om du blir kund.\nRättslig grund är att vidta åtgärder på din begäran innan ett avtal ingås (artikel 6.1.b i dataskyddsförordningen, GDPR) och vårt berättigade intresse av att kunna svara på förfrågningar (artikel 6.1.f). Om du blir kund behandlar vi uppgifterna också för att uppfylla avtalet och för att följa bokföringslagen (artikel 6.1.b och 6.1.c)."
         },
         {
           "title": "Vad som sparas på webbplatsen",
-          "text": "Webbplatsen har ingen databas och sparar inte det du skickar. Det går som e-post till oss, och du får en kopia."
+          "text": "Webbplatsen sparar ingenting själv. Den har ingen databas och sparar inte det du skickar. Din förfrågan skickas som e-post till oss, och du får en kopia."
+        },
+        {
+          "title": "Vår e-postlåda: Loopia",
+          "text": "Förfrågningar kommer till vår e-postlåda, som drivs av Loopia i Sverige [ÄGARE BEKRÄFTAR: bekräfta e-postleverantör]. Loopia är personuppgiftsbiträde åt oss."
         },
         {
           "title": "Webbhotell: Vercel",
@@ -454,12 +458,20 @@
           "text": "Vi skickar e-post med tjänsten Resend (EU-region), som är personuppgiftsbiträde åt oss. Det du skickar går via Resend på väg till oss och till dig."
         },
         {
+          "title": "Överföring utanför EU/EES",
+          "text": "Vercel och Resend är amerikanska företag, så uppgifter kan hanteras utanför EU/EES. Enligt vad leverantörerna anger i sina personuppgiftsbiträdesavtal sker sådan överföring med stöd av EU-kommissionens standardavtalsklausuler. [ÄGARE BEKRÄFTAR: bekräfta att avtalen med Vercel och Resend är accepterade i respektive kontopanel]"
+        },
+        {
           "title": "Hur länge vi sparar uppgifterna",
-          "text": "[TEXT FRÅN WEDO365]"
+          "text": "Vi sparar din förfrågan bara så länge det behövs för att besvara den. Förfrågningar som inte leder till ett uppdrag raderas från vår inkorg inom [ÄGARE BEKRÄFTAR: tid, förslag 12 månader].\nBlir du kund sparar vi uppgifterna så länge uppdraget pågår och därefter så länge bokföringslagen kräver det.\nWebbplatsen sparar ingenting själv. Vercel och Resend kan spara tekniska loggar en begränsad tid enligt sina egna villkor."
         },
         {
           "title": "Dina rättigheter",
-          "text": "[TEXT FRÅN WEDO365]"
+          "text": "Du har rätt att:\n• få veta vilka uppgifter vi har om dig och få en kopia (rätt till tillgång)\n• få felaktiga uppgifter rättade\n• få uppgifter raderade\n• begära att vi begränsar behandlingen\n• invända mot behandling som grundar sig på vårt berättigade intresse\n• få de uppgifter du har lämnat till oss i ett vanligt format när behandlingen grundar sig på avtal (dataportabilitet)\nKontakta oss på {email} så svarar vi inom en månad. Du har också rätt att klaga till Integritetsskyddsmyndigheten (IMY, imy.se)."
+        },
+        {
+          "title": "Länkar och kakor",
+          "text": "Vi länkar till vår Facebook- och Instagramsida [ÄGARE BEKRÄFTAR: länkarna finns inte på webbplatsen ännu; lägg till dem eller ta bort meningen]. Vi bäddar inte in något från dem. Webbplatsen sätter inga spårningskakor och använder ingen analys med kakor [ÄGARE BEKRÄFTAR: uppdatera om analys läggs till]. När du klickar på en länk lämnar du webbplatsen, och den andra tjänstens egen policy gäller."
         },
         {
           "title": "Personuppgiftsansvarig",
@@ -473,23 +485,35 @@
       "sections": [
         {
           "title": "Om villkoren",
-          "text": "[TEXT FRÅN WEDO365]"
+          "text": "Villkoren gäller för städtjänster från {company} (org.nr {orgNr}). Företagskunder får en skriftlig offert, och om den avviker från villkoren gäller offerten. [ÄGARE BEKRÄFTAR: bekräfta att villkoren ska gälla även företagskunder]"
         },
         {
           "title": "Förfrågan och bokning",
-          "text": "En förfrågan på webbplatsen är inte en bokning. Vi kontaktar dig med pris och bekräftar tiden innan något är bokat. [TEXT FRÅN WEDO365]"
+          "text": "En förfrågan på webbplatsen är inte en bokning. Vi kontaktar dig med pris och bekräftar tiden innan något är bokat. Uppdraget är bokat först när vi har bekräftat tid och pris, via telefon eller e-post."
         },
         {
           "title": "Avbokning",
-          "text": "[TEXT FRÅN WEDO365]"
+          "text": "Du kan avboka kostnadsfritt fram till [ÄGARE BEKRÄFTAR: tid före utförandet, t.ex. 24 eller 48 timmar]. Avbokar du senare kan vi ta ut [ÄGARE BEKRÄFTAR: avgift]. Avbokning görs via telefon eller e-post."
         },
         {
           "title": "Reklamation",
-          "text": "[TEXT FRÅN WEDO365]"
+          "text": "Är du inte nöjd ska du kontakta oss så snart som möjligt, och senast inom [ÄGARE BEKRÄFTAR: reklamationstid] efter utfört arbete, så att vi kan rätta till det. [ÄGARE BEKRÄFTAR: bekräfta hur brister åtgärdas, t.ex. omstädning]\nSom konsument har du rättigheter enligt konsumenttjänstlagen som de här villkoren inte begränsar."
         },
         {
           "title": "Ansvar och försäkring",
-          "text": "[TEXT FRÅN WEDO365]"
+          "text": "Vi har ansvarsförsäkring hos {insurer}. Skadar vi något under uppdraget ska du meddela oss så snart som möjligt. [ÄGARE BEKRÄFTAR: vad försäkringen omfattar och eventuell självrisk]\nFörsäkringsnumret publiceras inte här. [ÄGARE BEKRÄFTAR: bekräfta om försäkringsbevis kan lämnas ut på begäran]"
+        },
+        {
+          "title": "Betalning",
+          "text": "Du betalar mot faktura efter utfört uppdrag. [ÄGARE BEKRÄFTAR: betalningsvillkor, t.ex. 10 eller 14 dagar, och om Bankgiro 5253-4021 ska anges här]"
+        },
+        {
+          "title": "Ångerrätt",
+          "text": "Som konsument har du 14 dagars ångerrätt när du köper en tjänst på distans. Ångerfristen räknas från den dag avtalet ingås. Meddela oss tydligt via e-post eller telefon att du ångrar dig.\nVill du att vi börjar innan ångerfristen har gått ut måste du uttryckligen be oss om det. Ångrar du dig efter att vi har börjat betalar du för det som redan är utfört. Har vi utfört hela tjänsten efter ditt uttryckliga önskemål och du har godkänt att ångerrätten då upphör, kan du inte längre ångra dig.\nÅngerrätten gäller inte företagskunder."
+        },
+        {
+          "title": "Tvist",
+          "text": "Vi försöker alltid lösa en tvist direkt med dig. Som konsument kan du också vända dig till Allmänna reklamationsnämnden (arn.se). [ÄGARE BEKRÄFTAR: bekräfta att bolaget går med på att få tvister prövade av ARN]"
         }
       ]
     }

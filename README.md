@@ -149,7 +149,7 @@ These strings were not in the approved copy and were added by the developer. Ple
 | `home.heroPhotoAlt`, `home.businessPhotoAlt` (changed), `home.aboutPhotoAlt`, `business.photoAlt` (changed) | Descriptions of what the four photos show                                                                                                                   | The same in English                                                                                                                                                       | Alt text of the photos                                                                      |
 | `footer.about` (end)                                                                                        | · {employees} anställda.                                                                                                                                    | · {employees} employees.                                                                                                                                                  | Footer "Om oss" line; added to the approved text                                            |
 
-**Privacy policy and terms (`legal.*`): must be reviewed before launch.** All of this text was written by the developer. The first five privacy sections (what we receive, why, what is stored, Vercel as host, Resend as email service) describe how the site works today and should be checked for accuracy. They name Vercel and Resend as data processors and say that Vercel keeps standard hosting logs. The data controller section names the company, org.nr, postal address and email (from `src/config/company.ts`). Retention and rights are `[TEXT FRÅN WEDO365]` placeholders, and so is most of the terms. The policy does not yet cover the delivery log Resend keeps of sent emails, or cookies (the site sets none). **Have a lawyer review both pages (`/integritetspolicy` and `/villkor`) before launch.**
+**Privacy policy and terms (`legal.*`): drafted by the developer, must be reviewed by a lawyer before launch.** The text is plain-language and states only what the site does today; every statement that depends on an owner decision is a `[ÄGARE BEKRÄFTAR: …]` placeholder (full list under "Owner decisions still open"). Points for the lawyer: the legal bases (GDPR art. 6.1.b, 6.1.c and 6.1.f); the transfer statement (Vercel and Resend are US companies; the text says transfers rely on standard contractual clauses "as the providers state in their DPAs", which has **not** been checked against the actual agreements); the retention wording; the withdrawal-right text (14 days, early start at the customer's request); and the complaints wording, which must not limit consumer rights under konsumenttjänstlagen. The policy still does not cover the delivery log Resend keeps of sent emails.
 
 ### Taken from the prototype
 
@@ -170,10 +170,31 @@ Text in square brackets is a placeholder for the owner. The brackets are kept ex
 | `[Kundomdöme hämtat från Reco eller Google]`, `[Förnamn]`, `[Område]` (and English)                                                 | Hidden (SHOW_REVIEWS off)     | Real reviews, with permission                             |
 | `[Svar från WeDo365, t.ex. hur nyckelhantering fungerar]`, `[Checklista för flyttstädning …]`, `[Avbokningsregler …]` (and English) | Hidden until answered         | The answers                                               |
 | `[Svar från WeDo365]`, `[Svar från WeDo365, t.ex. om ni tar med städmaterial]` (and English)                                        | Hidden until answered         | The answers                                               |
-| `[TEXT FRÅN WEDO365]`                                                                                                               | Privacy policy and terms      | Retention and rights; all terms                           |
+| `[ÄGARE BEKRÄFTAR: …]`                                                                                                              | Privacy policy and terms      | The owner's decisions; see "Owner decisions still open"   |
 | `[OG-BILD]`                                                                                                                         | A comment in `src/lib/seo.ts` | A share image (1200×630) for links shared on social media |
 
 **Claims in the approved copy to confirm are true before launch:** "Godkänd för F-skatt" (see the checklist), the liability insurance with If, the Reco.se rating, "365 dagar om året", and that WeDo365 can offer the services on the site (including the checklist under "Det här ingår").
+
+### Owner decisions still open (`[ÄGARE BEKRÄFTAR: …]`)
+
+Each of these is a placeholder in the privacy policy or terms (both languages). Replace the whole bracket with the final text.
+
+**Privacy policy (`legal.privacy`)**
+
+1. **Mail provider:** the policy says requests arrive in a mailbox hosted by Loopia (Sweden). Confirm that Loopia is the provider.
+2. **Transfers outside the EU/EEA:** confirm that the data processing agreements with Vercel and Resend are accepted in each account, and that they rely on standard contractual clauses.
+3. **Retention:** how long requests that do not lead to a job stay in the inbox (suggested 12 months).
+4. **Facebook and Instagram:** the policy says we link to them, but **the site has no such links yet**. Add the links (footer) or remove the sentence.
+5. **Analytics:** the policy says there is none. Update the policy if analytics is ever added.
+
+**Terms (`legal.terms`)**
+
+6. Whether the terms also apply to business customers (the draft says the written quote wins if it differs).
+7. **Cancellation:** the notice period (e.g. 24 or 48 hours) and the fee for late cancellation.
+8. **Complaints:** the complaint period, and how defects are put right (e.g. a re-clean). The text already says consumer rights under konsumenttjänstlagen are not limited.
+9. **Insurance:** what the policy at If covers and any excess, and whether a certificate can be given on request. The policy number is never published.
+10. **Payment:** payment terms (e.g. 10 or 14 days), and whether Bankgiro 5253-4021 should be stated. It is not shown until the owner confirms.
+11. **Disputes:** that the company agrees to have consumer disputes reviewed by Allmänna reklamationsnämnden (ARN).
 
 ## Deploying (Vercel and Resend)
 
@@ -193,7 +214,8 @@ All accounts (GitHub, Vercel, Resend, the domain registrar) should belong to WeD
 - [ ] **Owner to confirm F-skatt status (check at skatteverket.se).** "Godkänd för F-skatt" / "Approved for F-tax" is on the site (footer, home and business trust lists) but has not been verified.
 - [ ] **Kollektivavtal (collective agreement): owner to confirm.** The "[Kollektivavtal: bekräftas]" line was taken off the business page. If there is one, add a trust point for it in `business.trust` (both files).
 - [ ] **Native Swedish proofread** of all Swedish text, including the strings in the review table
-- [ ] **Lawyer review of the privacy policy and terms** (`/integritetspolicy`, `/villkor`), with the policy updated for anything missing (see the note above)
+- [ ] **Lawyer review of the privacy policy and terms before launch** (`/integritetspolicy`, `/villkor`, both languages), after the owner has answered every `[ÄGARE BEKRÄFTAR: …]` item (see "Owner decisions still open")
+- [ ] **Owner decisions:** answer the 11 `[ÄGARE BEKRÄFTAR: …]` items and add the Facebook/Instagram links or remove that sentence
 - [ ] **Real Resend key test** on the live site: send one request through each form, in both languages. Both emails must arrive (also check spam). The owner email must have the customer as Reply-To, and the customer copy must have the owner as Reply-To.
 - [ ] **Vercel Pro** on the WeDo 365 AB account (the free Hobby plan is for non-commercial use only)
 - [ ] **Domain records added without touching MX:** the site records for `wedo365ab.se` in Vercel, and the SPF/DKIM records for `send.wedo365ab.se` in Resend. Normal email on the main domain must keep working.

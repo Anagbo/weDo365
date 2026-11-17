@@ -431,35 +431,47 @@
     "company": "{company}, org. no. {orgNr}",
     "privacy": {
       "h1": "Privacy policy",
-      "lead": "Here we explain what details you give us when you send a request, and what we do with them.",
+      "lead": "Here we explain what you share when you send a request, what we do with it, and what rights you have.",
       "sections": [
         {
-          "title": "What details we receive",
-          "text": "What you fill in when you send a request. For home cleaning, move-out cleaning, deep cleaning and window cleaning: service, size of your home or number of windows, how often, preferred date and time, address, notes, name, email address and mobile number. For business quotes: type of premises, area, how often, company or association, contact person, email address, phone number and message."
+          "title": "What we receive",
+          "text": "What you fill in when you send a request. For home cleaning, move-out cleaning, deep cleaning and window cleaning: service, size of the home or number of windows, preferred frequency, preferred date and time, address, notes, name, email address and mobile number. For business quotes: type of premises, area, frequency, company or organisation, contact person, email address, phone number and message."
         },
         {
-          "title": "Why we use the details",
-          "text": "We use the details to answer your request, for example with a suggested time and price."
+          "title": "Why we use the information and on what basis",
+          "text": "We use the information to answer your request, for example with a suggested time and price, and to carry out the job if you become a customer.\nThe legal basis is taking steps at your request before a contract is made (Article 6.1.b of the General Data Protection Regulation, GDPR) and our legitimate interest in being able to answer enquiries (Article 6.1.f). If you become a customer we also process the information to fulfil the contract and to comply with the Swedish Accounting Act (Article 6.1.b and 6.1.c)."
         },
         {
-          "title": "What is stored on the website",
-          "text": "The website has no database and does not store what you send. It goes to us as an email, and you get a copy."
+          "title": "What the website stores",
+          "text": "The website stores nothing itself. It has no database and does not keep what you send. Your request is sent to us as an email, and you get a copy."
+        },
+        {
+          "title": "Our mailbox: Loopia",
+          "text": "Requests arrive in our mailbox, which is hosted by Loopia in Sweden [ÄGARE BEKRÄFTAR: confirm mail provider]. Loopia is a data processor for us."
         },
         {
           "title": "Hosting: Vercel",
-          "text": "The website is run by Vercel, which is a data processor for us. Vercel keeps standard hosting logs of visits to the website."
+          "text": "The website is hosted by Vercel, which is a data processor for us. Vercel keeps standard server logs of visits to the website."
         },
         {
           "title": "Email service: Resend",
-          "text": "We send email with the service Resend (EU region), which is a data processor for us. What you send goes through Resend on its way to us and to you."
+          "text": "We send email with the Resend service (EU region), which is a data processor for us. What you send goes through Resend on its way to us and to you."
         },
         {
-          "title": "How long we keep the details",
-          "text": "[TEXT FRÅN WEDO365]"
+          "title": "Transfers outside the EU/EEA",
+          "text": "Vercel and Resend are US companies, so information may be handled outside the EU/EEA. According to what the providers state in their data processing agreements, such transfers rely on the European Commission's standard contractual clauses. [ÄGARE BEKRÄFTAR: confirm that the agreements with Vercel and Resend are accepted in each account panel]"
+        },
+        {
+          "title": "How long we keep the information",
+          "text": "We keep your request only as long as needed to answer it. Requests that do not lead to a job are deleted from our inbox within [ÄGARE BEKRÄFTAR: time, suggestion 12 months].\nIf you become a customer, we keep the information while the job is ongoing and afterwards for as long as the Accounting Act requires.\nThe website stores nothing itself. Vercel and Resend may keep technical logs for a limited time under their own terms."
         },
         {
           "title": "Your rights",
-          "text": "[TEXT FRÅN WEDO365]"
+          "text": "You have the right to:\n• find out what information we hold about you and get a copy (right of access)\n• have incorrect information corrected\n• have information erased\n• ask us to restrict the processing\n• object to processing based on our legitimate interest\n• receive the information you gave us in a common format when the processing is based on a contract (data portability)\nContact us at {email} and we will reply within one month. You also have the right to complain to the Swedish Authority for Privacy Protection (IMY, imy.se)."
+        },
+        {
+          "title": "Links and cookies",
+          "text": "We link to our Facebook and Instagram pages [ÄGARE BEKRÄFTAR: the links are not on the website yet; add them or remove this sentence]. We embed nothing from them. The website sets no tracking cookies and uses no analytics with cookies [ÄGARE BEKRÄFTAR: update if analytics is added]. When you click a link you leave the website, and the other service's own policy applies."
         },
         {
           "title": "Data controller",
@@ -472,24 +484,36 @@
       "lead": "Terms for services from {company}.",
       "sections": [
         {
-          "title": "About these terms",
-          "text": "[TEXT FRÅN WEDO365]"
+          "title": "About the terms",
+          "text": "These terms apply to cleaning services from {company} (org. no. {orgNr}). Business customers receive a written quote, and if it differs from these terms, the quote applies. [ÄGARE BEKRÄFTAR: confirm that the terms should also apply to business customers]"
         },
         {
           "title": "Requests and booking",
-          "text": "A request on the website is not a booking. We contact you with a price and confirm the time before anything is booked. [TEXT FRÅN WEDO365]"
+          "text": "A request on the website is not a booking. We contact you with a price and confirm the time before anything is booked. The job is booked only once we have confirmed the time and price, by phone or email."
         },
         {
           "title": "Cancellation",
-          "text": "[TEXT FRÅN WEDO365]"
+          "text": "You can cancel free of charge up to [ÄGARE BEKRÄFTAR: time before the job, e.g. 24 or 48 hours]. If you cancel later, we may charge [ÄGARE BEKRÄFTAR: fee]. Cancel by phone or email."
         },
         {
           "title": "Complaints",
-          "text": "[TEXT FRÅN WEDO365]"
+          "text": "If you are not satisfied, contact us as soon as possible, and no later than [ÄGARE BEKRÄFTAR: complaint period] after the work, so that we can put it right. [ÄGARE BEKRÄFTAR: confirm how defects are remedied, e.g. a re-clean]\nAs a consumer you have rights under the Swedish Consumer Services Act that these terms do not limit."
         },
         {
           "title": "Liability and insurance",
-          "text": "[TEXT FRÅN WEDO365]"
+          "text": "We have liability insurance with {insurer}. If we damage something during a job, tell us as soon as possible. [ÄGARE BEKRÄFTAR: what the insurance covers and any excess]\nThe policy number is not published here. [ÄGARE BEKRÄFTAR: confirm whether a certificate of insurance can be provided on request]"
+        },
+        {
+          "title": "Payment",
+          "text": "You pay by invoice after the job is done. [ÄGARE BEKRÄFTAR: payment terms, e.g. 10 or 14 days, and whether Bankgiro 5253-4021 should be stated here]"
+        },
+        {
+          "title": "Right of withdrawal",
+          "text": "As a consumer you have a 14-day right of withdrawal when you buy a service at a distance. The period runs from the day the contract is made. Tell us clearly by email or phone that you withdraw.\nIf you want us to start before the withdrawal period has ended, you must expressly ask us to. If you withdraw after we have started, you pay for what has already been done. If we have performed the whole service at your express request and you have accepted that the right of withdrawal then ends, you can no longer withdraw.\nThe right of withdrawal does not apply to business customers."
+        },
+        {
+          "title": "Disputes",
+          "text": "We always try to resolve a dispute directly with you. As a consumer you can also turn to the National Board for Consumer Disputes (Allmänna reklamationsnämnden, arn.se). [ÄGARE BEKRÄFTAR: confirm that the company agrees to have disputes reviewed by ARN]"
         }
       ]
     }

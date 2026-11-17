@@ -24,7 +24,7 @@ export async function getLegalMetadata(key: LegalKey): Promise<Metadata> {
 /**
  * Privacy policy and terms. The text lives in the `legal` namespace of the
  * messages files as a list of { title, text } sections, so the owner can add,
- * remove or reword sections there. Text in [BRACKETS] is a placeholder;
+ * remove or reword sections there (a line break starts a new paragraph). Text in [BRACKETS] is a placeholder;
  * tokens like {orgNr} are filled from src/config/company.ts.
  */
 export async function LegalPage({ pageKey }: { pageKey: LegalKey }) {
@@ -44,7 +44,11 @@ export async function LegalPage({ pageKey }: { pageKey: LegalKey }) {
         {page.sections.map((section) => (
           <section key={section.title} className="flex flex-col gap-2">
             <h2 className="text-2xl leading-tight">{section.title}</h2>
-            <p className="leading-[1.6]">{section.text}</p>
+            {section.text.split("\n").map((line) => (
+              <p key={line} className="leading-[1.6]">
+                {line}
+              </p>
+            ))}
           </section>
         ))}
 
