@@ -5,8 +5,24 @@
  */
 
 /** book.freqs[].id */
-export const FREQUENCY_IDS = ["w1", "w2", "w4", "once"] as const;
+export const FREQUENCY_IDS = [
+  "weekly",
+  "biweekly",
+  "every4weeks",
+  "once",
+  "unsure",
+] as const;
 export type FrequencyId = (typeof FREQUENCY_IDS)[number];
+
+/**
+ * Ids used before "every two weeks"/"not sure yet" was added. Links or saved
+ * data using these still work: the schema maps them onto the new ids.
+ */
+export const LEGACY_FREQUENCY_IDS = {
+  w1: "weekly",
+  w2: "biweekly",
+  w4: "every4weeks",
+} as const satisfies Record<string, FrequencyId>;
 
 /** book.slots[].id */
 export const SLOT_IDS = ["am", "pm"] as const;

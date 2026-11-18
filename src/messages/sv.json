@@ -343,20 +343,24 @@
     "freqLabel": "Hur ofta?",
     "freqs": [
       {
-        "id": "w1",
+        "id": "weekly",
         "label": "Varje vecka"
       },
       {
-        "id": "w2",
+        "id": "biweekly",
         "label": "Varannan vecka"
       },
       {
-        "id": "w4",
+        "id": "every4weeks",
         "label": "Var fjärde vecka"
       },
       {
         "id": "once",
-        "label": "En gång"
+        "label": "Engångsstädning"
+      },
+      {
+        "id": "unsure",
+        "label": "Vet inte än"
       }
     ],
     "dateLabel": "Önskat datum",

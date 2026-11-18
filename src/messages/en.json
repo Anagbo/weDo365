@@ -75,7 +75,7 @@
     "services": [
       {
         "name": "Home cleaning",
-        "text": "Regular cleaning every week, every other week or every four weeks.",
+        "text": "Regular cleaning every week, every two weeks or every four weeks.",
         "link": "Read more about home cleaning"
       },
       {
@@ -162,7 +162,7 @@
     "cardText": "We get back to you by phone or email.",
     "cta": "Get a price for home cleaning",
     "checks": [
-      "Every week, every other week or every four weeks",
+      "Every week, every two weeks or every four weeks",
       "Personal contact before anything is booked"
     ],
     "photoAlt": "A WeDo 365 AB cleaner in a company T-shirt and blue gloves looks into the camera while wiping a microwave oven with a blue cloth in a staff kitchen.",
@@ -214,7 +214,7 @@
     "whoTitle": "Home cleaning is for you if you",
     "who": [
       "want a clean home without spending your own time on it",
-      "want regular cleaning: every week, every other week or every four weeks"
+      "want regular cleaning: every week, every two weeks or every four weeks"
     ]
   },
   "business": {
@@ -291,7 +291,7 @@
       "Daily",
       "Several times a week",
       "Every week",
-      "Every other week",
+      "Every two weeks",
       "One-off"
     ],
     "companyLabel": "Company or association",
@@ -343,20 +343,24 @@
     "freqLabel": "How often?",
     "freqs": [
       {
-        "id": "w1",
+        "id": "weekly",
         "label": "Every week"
       },
       {
-        "id": "w2",
-        "label": "Every other week"
+        "id": "biweekly",
+        "label": "Every two weeks"
       },
       {
-        "id": "w4",
+        "id": "every4weeks",
         "label": "Every four weeks"
       },
       {
         "id": "once",
         "label": "One-off"
+      },
+      {
+        "id": "unsure",
+        "label": "Not sure yet"
       }
     ],
     "dateLabel": "Preferred date",

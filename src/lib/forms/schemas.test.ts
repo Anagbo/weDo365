@@ -34,10 +34,32 @@ describe("home request", () => {
       kind: "home",
       service: "hem",
       size: 72,
-      frequency: "w2",
+      frequency: "biweekly",
       phone: "0701234567",
     });
   });
+
+  it.each(["unsure", "once", "weekly", "every4weeks"] as const)(
+    "accepts the frequency %s",
+    (frequency) => {
+      expect(
+        homeRequestSchema.parse({ ...rawHome, frequency }),
+      ).toMatchObject({ frequency });
+    },
+  );
+
+  it.each([
+    ["w1", "weekly"],
+    ["w2", "biweekly"],
+    ["w4", "every4weeks"],
+  ] as const)(
+    "accepts the older frequency id %s as %s, for links or data saved before 'unsure' was added",
+    (legacy, current) => {
+      expect(
+        homeRequestSchema.parse({ ...rawHome, frequency: legacy }),
+      ).toMatchObject({ frequency: current });
+    },
+  );
 
   it.each(["flytt", "stor"] as const)(
     "accepts %s with a size and no frequency",

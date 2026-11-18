@@ -356,7 +356,7 @@ export function BookingWizard({ initialService, consent }: Props) {
                     value={values.frequency}
                     onChange={(v) => set("frequency", v as FrequencyId)}
                     error={errorText("frequency")}
-                    columns="grid-cols-2 md:grid-cols-4"
+                    columns="grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
                   />
                 ) : null}
               </>

@@ -3,6 +3,7 @@ import { SERVICE_IDS } from "@/config/site";
 import { routing } from "@/i18n/routing";
 import {
   FREQUENCY_IDS,
+  LEGACY_FREQUENCY_IDS,
   LIMITS,
   MAX,
   PREMISES_IDS,
@@ -90,11 +91,20 @@ export const homeServiceStep = z.object({
 
 const size = intInRange(LIMITS.size);
 
+/** Accepts the current ids, plus the older w1/w2/w4 ids for back-compat. */
+const frequency = z.preprocess(
+  (v) =>
+    typeof v === "string" && v in LEGACY_FREQUENCY_IDS
+      ? LEGACY_FREQUENCY_IDS[v as keyof typeof LEGACY_FREQUENCY_IDS]
+      : v,
+  z.enum(FREQUENCY_IDS, err("choose")),
+);
+
 export const homeDetailsStep = z.discriminatedUnion("service", [
   z.object({
     service: z.literal("hem"),
     size,
-    frequency: z.enum(FREQUENCY_IDS, err("choose")),
+    frequency,
   }),
   z.object({ service: z.literal("flytt"), size }),
   z.object({ service: z.literal("stor"), size }),

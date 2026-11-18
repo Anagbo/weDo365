@@ -9,7 +9,7 @@ export const rawHome = {
   locale: "sv",
   service: "hem",
   size: "72",
-  frequency: "w2",
+  frequency: "biweekly",
   date: "2026-12-04", // a Friday
   slot: "am",
   street: "Storgatan 1",

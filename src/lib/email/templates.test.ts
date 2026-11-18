@@ -277,7 +277,7 @@ describe("customer email", () => {
         "What you sent us",
         "Street address",
         "Home cleaning",
-        "Every other week",
+        "Every two weeks",
         "Morning 08–12",
         "Kind regards,",
       ]);
