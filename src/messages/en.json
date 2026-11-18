@@ -41,7 +41,7 @@
   },
   "about": {
     "eyebrow": "About us",
-    "title": "The cleaning company behind WeDo365",
+    "title": "The cleaning company WeDo365",
     "text": "We clean homes, offices, gyms and properties in Stockholm, 365 days a year.",
     "facts": ["{company}", "{employees} employees", "Stockholm"],
     "text2": "{company} is a cleaning company with {employees} employees. We clean private homes and businesses in Stockholm, and you have a personal contact with us before anything is booked.",

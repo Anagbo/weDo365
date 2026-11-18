@@ -41,7 +41,7 @@
   },
   "about": {
     "eyebrow": "Om oss",
-    "title": "Städfirman bakom WeDo365",
+    "title": "Städfirman WeDo365",
     "text": "Vi städar hem, kontor, gym och fastigheter i Stockholm, 365 dagar om året.",
     "facts": ["{company}", "{employees} anställda", "Stockholm"],
     "text2": "{company} är en städfirma med {employees} anställda. Vi städar privata hem och verksamheter i Stockholm, och du har en personlig kontakt hos oss innan något bokas.",
