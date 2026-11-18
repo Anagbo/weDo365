@@ -55,17 +55,8 @@ const PHOTOS = [
  * is the width kept from the left, to leave out text at the right edge.
  */
 const SLIDES = [
-  {
-    name: "slide-gym-floor-scrubber",
-    file: "WhatsApp Image 2026-11-16 at 22.56.54 (2).jpeg",
-    top: 250,
-    keep: 1300,
-  },
-  {
-    name: "slide-mirror-orchid",
-    file: "WhatsApp Image 2026-11-16 at 22.54.55 (2).jpeg",
-    top: 300,
-  },
+  // Not in the hero carousel any more; kept for IMAGES.homeCleaning in
+  // src/config/images.ts, which points at this file independently.
   {
     name: "slide-microwave",
     file: "WhatsApp Image 2026-11-16 at 22.54.55 (4).jpeg",
@@ -73,8 +64,23 @@ const SLIDES = [
   },
   {
     name: "slide-shower",
-    file: "WhatsApp Image 2026-11-16 at 22.54.54 (2).jpeg",
-    top: 650,
+    file: "home.jpeg",
+    top: 450,
+  },
+  {
+    name: "slide-oven",
+    file: "home-2.jpeg",
+    top: 100,
+  },
+  {
+    name: "slide-office-desk",
+    file: "home-4.jpeg",
+    top: 400,
+  },
+  {
+    name: "slide-floor-scrubber",
+    file: "home-8.jpeg",
+    top: 150,
   },
 ];
 

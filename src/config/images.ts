@@ -60,10 +60,10 @@ export const IMAGES: Record<ImageKey, SiteImage | null> = {
  * phone numbers or readable text may be visible in any crop.
  */
 export const HERO_SLIDES: readonly SiteImage[] = [
-  slide("slide-shower", "50% 40%"),
-  slide("slide-gym-floor-scrubber", "50% 35%"),
-  slide("slide-mirror-orchid", "50% 75%"),
-  slide("slide-microwave", "50% 60%"),
+  slide("slide-shower", "60% 40%"),
+  slide("slide-oven", "45% 40%"),
+  slide("slide-office-desk", "50% 55%"),
+  slide("slide-floor-scrubber", "55% 45%"),
 ];
 
 export const hasImage = (key: ImageKey) => IMAGES[key] !== null;
