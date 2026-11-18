@@ -9,7 +9,7 @@ import {
   SHOW_REVIEWS,
   SITE_URL,
 } from "@/config/site";
-import { HERO_SLIDES, hasImage } from "@/config/images";
+import { BUSINESS_BAND_VIDEO, HERO_SLIDES, IMAGES, hasImage } from "@/config/images";
 import { companyJsonLd } from "@/config/company";
 import { pageMetadata } from "@/lib/seo";
 import { hasTodo } from "@/lib/todo";
@@ -21,6 +21,7 @@ import { CheckIcon } from "@/components/ui/CheckIcon";
 import { Eyebrow } from "@/components/sections/Eyebrow";
 import { HeroSlider } from "@/components/sections/HeroSlider";
 import { SiteImage } from "@/components/sections/SiteImage";
+import { SiteVideo } from "@/components/sections/SiteVideo";
 import { Steps, type Step } from "@/components/sections/Steps";
 import { Faq, type FaqItem } from "@/components/sections/Faq";
 import { EndCta } from "@/components/sections/EndCta";
@@ -216,11 +217,16 @@ export default async function HomePage() {
           hasImage("businessBand") ? "lg:grid-cols-2" : ""
         }`}
       >
-        <SiteImage
-          name="businessBand"
-          alt={t("businessPhotoAlt")}
-          className="h-[260px] sm:h-[360px]"
-        />
+        {IMAGES.businessBand && (
+          <SiteVideo
+            src={BUSINESS_BAND_VIDEO}
+            poster={IMAGES.businessBand}
+            alt={t("businessVideoAlt")}
+            pauseLabel={t("businessVideoPause")}
+            playLabel={t("businessVideoPlay")}
+            className="h-[260px] sm:h-[360px]"
+          />
+        )}
         <div className="flex max-w-[820px] flex-col gap-[18px]">
           <Eyebrow>{t("doorBusiness.title")}</Eyebrow>
           <h2 id="business-title" className="text-h2-sm md:text-h2">

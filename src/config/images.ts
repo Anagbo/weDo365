@@ -6,7 +6,7 @@
  * `design-assets/` by `node scripts/process-images.mjs` (4:5 crop, 1200×1500,
  * no metadata, blur placeholder in `image-blur.ts`). To change a slot, add
  * the photo to that script, run it, then point the slot at the new file.
- * The alt text comes from the messages files (`slider.alts`, `home.businessPhotoAlt` etc.).
+ * The alt text comes from the messages files (`slider.alts`, `home.businessVideoAlt` etc.).
  *
  * `homeCleaning` is the staff-kitchen photo (microwave): the closest we have
  * to a home, but NOT a private home. Swap it for a photo from a real home job
@@ -46,11 +46,21 @@ function slide(name: string, position: string): SiteImage {
 }
 
 export const IMAGES: Record<ImageKey, SiteImage | null> = {
-  businessBand: photo("team-mirror-orchid", "60% 40%"),
+  businessBand: photo("business-band-poster", "50% 35%"),
   homeCleaning: slide("slide-microwave", "50% 60%"),
   business: photo("team-gym-wetrok-mambo", "50% 40%"),
   about: photo("team-washroom-tap", "65% 40%"),
 };
+
+/**
+ * The "business band" section on the home page shows a looping background
+ * video instead of a static photo (see SiteVideo). `IMAGES.businessBand`
+ * above is its poster frame: the first paint before the video loads, and
+ * what's shown instead of the video when the visitor has
+ * prefers-reduced-motion set. Both come from design-assets/video.mp4 via
+ * scripts/process-video.mjs + scripts/process-images.mjs.
+ */
+export const BUSINESS_BAND_VIDEO = "/videos/business-band.mp4";
 
 /**
  * The hero slider on the home page: 4:3 photos (1200×900) shown at 4:3 on

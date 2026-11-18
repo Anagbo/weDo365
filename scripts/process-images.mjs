@@ -46,6 +46,13 @@ const PHOTOS = [
     file: "WhatsApp Image 2026-11-16 at 22.54.52 (2).jpeg",
     top: 120,
   },
+  // Poster frame for the business-band video (see SiteVideo / businessBand),
+  // extracted from design-assets/video.mp4 at ~2s.
+  {
+    name: "business-band-poster",
+    file: "business-band-poster.jpg",
+    top: 150,
+  },
 ];
 
 /**
