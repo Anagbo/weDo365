@@ -134,12 +134,19 @@ export function SiteNav({
     }`;
 
   return (
-    <div className="container-site">
+    <div
+      data-testid="site-header-row"
+      className="container-site overflow-hidden"
+    >
       <div className="flex min-h-14 items-center gap-2 sm:gap-4 md:min-h-17">
-        {logo}
+        <div className="shrink-0 whitespace-nowrap">{logo}</div>
 
-        <nav aria-label={navLabel} className="ml-4 hidden shrink-0 xl:block">
-          <ul className="flex items-center gap-6">
+        <nav
+          aria-label={navLabel}
+          data-testid="site-nav-desktop"
+          className="ml-4 hidden min-w-0 xl:block"
+        >
+          <ul className="flex items-center gap-4 2xl:gap-6">
             {items.map((item) => {
               const current = isCurrent(item, pathname);
               return (
@@ -147,6 +154,7 @@ export function SiteNav({
                   <Link
                     href={item.href}
                     aria-current={current ? "page" : undefined}
+                    data-testid="site-nav-link"
                     className={desktopLinkClass(current)}
                   >
                     {item.label}
@@ -179,17 +187,19 @@ export function SiteNav({
             </ul>
           ) : null}
           {languageSwitch}
-          {/* Click-to-call: icon button from md, with the number from 2xl. */}
+          {/* Click-to-call: icon-only at every width, so the header row
+              never has to make room for the number text (that pushed the
+              wordmark and nav into each other above 1535px). 44x44 target. */}
           <a
             href={call.href}
             aria-label={call.label}
+            title={call.label}
             className={buttonClasses(
               "secondary",
-              "max-[1535px]:size-11 max-[1535px]:min-h-11 max-[1535px]:px-0 max-md:hidden",
+              "size-11 min-h-11 px-0 max-md:hidden",
             )}
           >
             <PhoneGlyph />
-            <span className="max-[1535px]:hidden">{call.label}</span>
           </a>
           <Link
             href="/boka"

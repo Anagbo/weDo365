@@ -40,6 +40,7 @@ export async function Logo({
       />
       <span
         aria-hidden="true"
+        data-testid="brand-wordmark"
         className="font-heading text-[18px] font-extrabold tracking-[-0.02em] max-[379px]:hidden sm:text-[21px]"
       >
         {siteName}
