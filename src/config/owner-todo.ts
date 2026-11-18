@@ -43,7 +43,7 @@ export const OWNER_TODO = [
   },
   {
     where: "legal.terms, Tvist",
-    todo: "Confirm the company agrees to have consumer disputes reviewed by ARN.",
+    todo: "Confirm the company agrees to have private customer disputes reviewed by ARN.",
   },
   // --- FAQ and about (hidden until answered; the TODO text sits in messages) ---
   {

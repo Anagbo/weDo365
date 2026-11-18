@@ -532,7 +532,7 @@
         },
         {
           "title": "Reklamation",
-          "text": "Är du inte nöjd ska du kontakta oss så snart som möjligt, så att vi kan rätta till det.\nSom konsument har du rättigheter enligt konsumenttjänstlagen som de här villkoren inte begränsar."
+          "text": "Är du inte nöjd ska du kontakta oss så snart som möjligt, så att vi kan rätta till det.\nSom privatkund har du rättigheter enligt konsumenttjänstlagen som de här villkoren inte begränsar."
         },
         {
           "title": "Ansvar och försäkring",
@@ -544,11 +544,11 @@
         },
         {
           "title": "Ångerrätt",
-          "text": "Som konsument har du 14 dagars ångerrätt när du köper en tjänst på distans. Ångerfristen räknas från den dag avtalet ingås. Meddela oss tydligt via e-post eller telefon att du ångrar dig.\nVill du att vi börjar innan ångerfristen har gått ut måste du uttryckligen be oss om det. Ångrar du dig efter att vi har börjat betalar du för det som redan är utfört. Har vi utfört hela tjänsten efter ditt uttryckliga önskemål och du har godkänt att ångerrätten då upphör, kan du inte längre ångra dig.\nÅngerrätten gäller inte företagskunder."
+          "text": "Som privatkund har du 14 dagars ångerrätt när du köper en tjänst på distans. Ångerfristen räknas från den dag avtalet ingås. Meddela oss tydligt via e-post eller telefon att du ångrar dig.\nVill du att vi börjar innan ångerfristen har gått ut måste du uttryckligen be oss om det. Ångrar du dig efter att vi har börjat betalar du för det som redan är utfört. Har vi utfört hela tjänsten efter ditt uttryckliga önskemål och du har godkänt att ångerrätten då upphör, kan du inte längre ångra dig.\nÅngerrätten gäller inte företagskunder."
         },
         {
           "title": "Tvist",
-          "text": "Vi försöker alltid lösa en tvist direkt med dig. Som konsument kan du också vända dig till Allmänna reklamationsnämnden (arn.se)."
+          "text": "Vi försöker alltid lösa en tvist direkt med dig. Som privatkund kan du också vända dig till Allmänna reklamationsnämnden (arn.se)."
         }
       ]
     }

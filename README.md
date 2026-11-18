@@ -158,7 +158,7 @@ These strings were not in the approved copy and were added by the developer. Ple
 | `home.heroPhotoAlt`, `home.businessPhotoAlt` (changed), `home.aboutPhotoAlt`, `business.photoAlt` (changed) | Descriptions of what the four photos show                                                                                                                   | The same in English                                                                                                                                                       | Alt text of the photos                                                                      |
 | `footer.about` (end)                                                                                        | · {employees} anställda.                                                                                                                                    | · {employees} employees.                                                                                                                                                  | Footer "Om oss" line; added to the approved text                                            |
 
-**Privacy policy and terms (`legal.*`): drafted by the developer, must be reviewed by a lawyer before launch.** The text is plain-language and states only what the site does today; statements that depend on an owner decision are left out until the owner answers (the open questions are listed in `src/config/owner-todo.ts` and under "Owner decisions still open"). Points for the lawyer: the legal bases (GDPR art. 6.1.b, 6.1.c and 6.1.f); the transfer statement (Vercel and Resend are US companies; the text says transfers rely on standard contractual clauses "as the providers state in their DPAs", which has **not** been checked against the actual agreements); the retention wording; the withdrawal-right text (14 days, early start at the customer's request); and the complaints wording, which must not limit consumer rights under konsumenttjänstlagen. The policy still does not cover the delivery log Resend keeps of sent emails.
+**Privacy policy and terms (`legal.*`): drafted by the developer, must be reviewed by a lawyer before launch.** The text is plain-language and states only what the site does today; statements that depend on an owner decision are left out until the owner answers (the open questions are listed in `src/config/owner-todo.ts` and under "Owner decisions still open"). Points for the lawyer: the legal bases (GDPR art. 6.1.b, 6.1.c and 6.1.f); the transfer statement (Vercel and Resend are US companies; the text says transfers rely on standard contractual clauses "as the providers state in their DPAs", which has **not** been checked against the actual agreements); the retention wording; the withdrawal-right text (14 days, early start at the customer's request); and the complaints wording, which must not limit private customers' rights under konsumenttjänstlagen. The policy still does not cover the delivery log Resend keeps of sent emails.
 
 ### Taken from the prototype
 
@@ -199,10 +199,10 @@ Each of these was a placeholder in the privacy policy or terms. The sentence has
 
 6. Whether the terms also apply to business customers (the draft says the written quote wins if it differs).
 7. **Cancellation:** the notice period (e.g. 24 or 48 hours) and the fee for late cancellation.
-8. **Complaints:** the complaint period, and how defects are put right (e.g. a re-clean). The text already says consumer rights under konsumenttjänstlagen are not limited.
+8. **Complaints:** the complaint period, and how defects are put right (e.g. a re-clean). The text already says private customers' rights under konsumenttjänstlagen are not limited.
 9. **Insurance:** what the policy at If covers and any excess, and whether a certificate can be given on request. The policy number is never published.
 10. **Payment:** payment terms (e.g. 10 or 14 days), and whether Bankgiro 5253-4021 should be stated. It is not shown until the owner confirms.
-11. **Disputes:** that the company agrees to have consumer disputes reviewed by Allmänna reklamationsnämnden (ARN).
+11. **Disputes:** that the company agrees to have private customer disputes reviewed by Allmänna reklamationsnämnden (ARN).
 
 ## Deploying (Vercel and Resend)
 
