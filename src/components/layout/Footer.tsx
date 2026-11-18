@@ -40,7 +40,7 @@ export async function Footer() {
   const serviceLabels = t.raw("serviceLinks") as string[];
   const social = socialLinks();
 
-  // Same order as footer.serviceLinks in the messages files.
+  //Same order as footer.serviceLinks in the messages files.
   const serviceTargets: Href[] = [
     ...SERVICE_IDS.map((id) => SERVICE_PAGE_PATH[id]),
     "/foretag",
