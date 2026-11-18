@@ -42,9 +42,13 @@
   "about": {
     "eyebrow": "Om oss",
     "title": "Städfirman WeDo365",
-    "text": "Vi städar hem, kontor, gym och fastigheter i Stockholm, 365 dagar om året.",
+    "text": "WeDo 365 AB är en erfaren städfirma i Stockholm. Med ett engagerat team av skickliga medarbetare och gedigen branscherfarenhet strävar vi efter att leverera högkvalitativ, pålitlig service och resultat vi är stolta över – varje dag på året. Vi städar hem, kontor, gym och fastigheter i Stockholm.",
+    "text2": "Du har en personlig kontakt hos oss innan något bokas.",
     "facts": ["{company}", "{employees} anställda", "Stockholm"],
-    "text2": "{company} är en städfirma med {employees} anställda. Vi städar privata hem och verksamheter i Stockholm, och du har en personlig kontakt hos oss innan något bokas.",
+    "values": ["Kvalitet", "Pålitlighet", "Anpassningsförmåga"],
+    "whyTitle": "Varför välja WeDo 365 AB?",
+    "why": "Vi står för kvalitet, pålitlighet och anpassningsförmåga. Genom väl utförda uppdrag, fastställda kvalitetsrutiner och miljövänliga städprodukter strävar vi efter att skapa rena och trivsamma miljöer för våra kunder.",
+    "closing": "Med WeDo 365 AB får du en pålitlig städpartner som satsar på kvalitet och service året runt.",
     "areasTitle": "Vi städar i",
     "areas": ["Stockholm", "TODO: fler områden runt Stockholm, en per rad"]
   },

@@ -75,6 +75,7 @@ export default async function HomePage() {
   const how = t.raw("how") as Step[];
   const faq = t.raw("faq") as FaqItem[];
   const facts = about.raw("facts") as string[];
+  const values = about.raw("values") as string[];
   const areas = about.raw("areas") as string[];
   // The list is shown only when no entry is still a TODO note.
   const areasReady = areas.length > 0 && !hasTodo(areas);
@@ -260,11 +261,26 @@ export default async function HomePage() {
           </h2>
           <p className="max-w-[620px] text-lead text-muted">{about("text")}</p>
           <p className="max-w-[620px] text-muted">{about("text2")}</p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 font-semibold">
-            {facts.map((fact) => (
-              <li key={fact}>{fact}</li>
-            ))}
-          </ul>
+          <div className="flex flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 font-semibold">
+              {facts.map((fact) => (
+                <li key={fact}>{fact}</li>
+              ))}
+            </ul>
+            <ul className="flex flex-wrap gap-2">
+              {values.map((value) => (
+                <li
+                  key={value}
+                  className="rounded-full bg-tint px-3 py-1 text-sm font-semibold text-green"
+                >
+                  {value}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <h3 className="text-[21px] leading-tight">{about("whyTitle")}</h3>
+          <p className="max-w-[620px] text-muted">{about("why")}</p>
+          <p className="max-w-[620px] text-muted">{about("closing")}</p>
           {areasReady ? (
             <div className="flex flex-col gap-2">
               <h3 className="text-[21px] leading-tight">

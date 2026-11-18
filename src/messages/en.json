@@ -42,9 +42,13 @@
   "about": {
     "eyebrow": "About us",
     "title": "The cleaning company WeDo365",
-    "text": "We clean homes, offices, gyms and properties in Stockholm, 365 days a year.",
+    "text": "WeDo 365 AB is a seasoned cleaning firm located in Stockholm. With a committed team of skilled professionals and extensive industry expertise, we endeavor to provide high-quality, dependable service and outcomes that inspire pride – every day of the year. We clean homes, offices, gyms and properties in Stockholm.",
+    "text2": "You have a personal contact with us before anything is booked.",
     "facts": ["{company}", "{employees} employees", "Stockholm"],
-    "text2": "{company} is a cleaning company with {employees} employees. We clean private homes and businesses in Stockholm, and you have a personal contact with us before anything is booked.",
+    "values": ["Quality", "Reliability", "Adaptability"],
+    "whyTitle": "Why select WeDo 365 AB?",
+    "why": "We advocate for quality, reliability, and adaptability. Through expertly executed tasks, established quality protocols, and eco-friendly cleaning products, we strive to cultivate clean and inviting environments for our clients.",
+    "closing": "With WeDo 365 AB, you gain a dependable cleaning partner dedicated to quality and service throughout the year.",
     "areasTitle": "We clean in",
     "areas": ["Stockholm", "TODO: more areas around Stockholm, one per line"]
   },

@@ -282,3 +282,5 @@ What changed and what it means for whoever edits the site next.
 ### New text to review by a native Swedish speaker
 
 `notFound.helpTitle/homeCleaning/business`; `about.text2/areasTitle`; `home.faq` (the three answered questions); the CTA labels `home.doorHomes.cta`, `home.services[*].link`, `home.businessCta`, `home.endCta`, `homeCleaning.cta/endCta`; everything in `moveOut`, `deepCleaning`, `windowCleaning` (built only from wording already on the site) and `homeCleaning.whoTitle/who`.
+
+Also flagged: the Swedish `about.text`, `about.why` and `about.closing` added in the header/copy pass below — translated from the owner's English "About us" text, meaning kept as close as possible, but not reviewed by a native speaker yet.
