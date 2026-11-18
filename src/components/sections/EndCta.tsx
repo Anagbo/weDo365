@@ -11,11 +11,17 @@ export async function EndCta({
   text,
   cta,
   href,
+  attached = false,
 }: {
   title: string;
   text: string;
   cta: string;
   href: Href;
+  /**
+   * Set when this band sits directly after another `tint` section (no page
+   * background should show between them) — drops the usual top margin.
+   */
+  attached?: boolean;
 }) {
   const meta = await getTranslations("meta");
   const phone = meta("phone");
@@ -26,7 +32,7 @@ export async function EndCta({
     : [text, undefined];
 
   return (
-    <section className="mt-12 bg-tint md:mt-16">
+    <section className={`bg-tint ${attached ? "mt-0" : "mt-12 md:mt-16"}`}>
       <div className="container-site flex flex-wrap items-center justify-between gap-6 py-14 md:py-18">
         <div className="flex flex-col gap-2">
           <h2 className="text-h2-sm md:text-[36px] md:leading-tight">

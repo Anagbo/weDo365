@@ -109,6 +109,7 @@ export default async function BusinessPage() {
         text={t("endText")}
         cta={t("endCta")}
         href="/offert"
+        attached
       />
     </>
   );
