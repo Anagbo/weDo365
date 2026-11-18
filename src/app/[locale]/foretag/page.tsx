@@ -6,8 +6,9 @@ import { buttonClasses } from "@/components/ui/button";
 import { cardClasses } from "@/components/ui/card";
 import { CheckList } from "@/components/ui/CheckList";
 import { Eyebrow } from "@/components/sections/Eyebrow";
-import { SiteImage } from "@/components/sections/SiteImage";
-import { hasImage } from "@/config/images";
+import { HeroSlider } from "@/components/sections/HeroSlider";
+import { BUSINESS_SLIDES } from "@/config/images";
+import { HERO_AUTOPLAY } from "@/config/site";
 import { Steps, type Step } from "@/components/sections/Steps";
 import { EndCta } from "@/components/sections/EndCta";
 
@@ -25,17 +26,23 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function BusinessPage() {
   const t = await getTranslations("business");
   const meta = await getTranslations("meta");
+  const slider = await getTranslations("businessSlider");
 
   const trust = t.raw("trust") as string[];
   const sectors = t.raw("sectors") as Sector[];
   const how = t.raw("how") as Step[];
+  const sliderAlts = slider.raw("alts") as string[];
+  const sliderLabel = (key: "slide" | "goTo") =>
+    BUSINESS_SLIDES.map((_, i) =>
+      slider(key, { n: i + 1, total: BUSINESS_SLIDES.length }),
+    );
 
   return (
     <>
       {/* Hero */}
       <section
         className={`container-site grid items-center gap-12 pt-12 pb-14 md:pt-18 md:pb-16 ${
-          hasImage("business") ? "lg:grid-cols-2" : ""
+          BUSINESS_SLIDES.length > 0 ? "lg:grid-cols-2" : ""
         }`}
       >
         <div className="flex max-w-[820px] flex-col gap-5">
@@ -52,12 +59,25 @@ export default async function BusinessPage() {
           </div>
           <CheckList items={trust} inline className="mt-2" />
         </div>
-        <SiteImage
-          name="business"
-          alt={t("photoAlt")}
-          preload
-          className="h-[280px] sm:h-[360px] lg:h-[440px]"
-        />
+        {BUSINESS_SLIDES.length > 0 && (
+          <HeroSlider
+            autoplay={HERO_AUTOPLAY}
+            slides={BUSINESS_SLIDES.map((image, i) => ({
+              ...image,
+              alt: sliderAlts[i],
+            }))}
+            labels={{
+              region: slider("label"),
+              slides: sliderLabel("slide"),
+              prev: slider("prev"),
+              next: slider("next"),
+              goTo: sliderLabel("goTo"),
+              pause: slider("pause"),
+              play: slider("play"),
+              dots: slider("dots"),
+            }}
+          />
+        )}
       </section>
 
       {/* Sectors */}

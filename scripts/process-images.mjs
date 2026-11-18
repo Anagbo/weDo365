@@ -82,6 +82,27 @@ const SLIDES = [
     file: "home-8.jpeg",
     top: 150,
   },
+  // /foretag hero slider (BUSINESS_SLIDES in src/config/images.ts).
+  {
+    name: "slide-office-meeting",
+    file: "office-1.jpeg",
+    top: 550,
+  },
+  {
+    name: "slide-office-desk-2",
+    file: "office-2.jpeg",
+    top: 500,
+  },
+  {
+    name: "slide-office-vacuum",
+    file: "office-4.jpeg",
+    top: 350,
+  },
+  {
+    name: "slide-office-staircase",
+    file: "office-6.jpeg",
+    top: 300,
+  },
 ];
 
 fs.mkdirSync(OUT, { recursive: true });

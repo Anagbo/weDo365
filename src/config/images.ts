@@ -66,6 +66,21 @@ export const HERO_SLIDES: readonly SiteImage[] = [
   slide("slide-floor-scrubber", "55% 45%"),
 ];
 
+/**
+ * The hero slider on the /foretag page: same 4:3/16:10 frame as the homepage
+ * slider. The first slide reuses the existing `business` photo (4:5, but
+ * `object-cover` crops it the same as the others); the rest are new 4:3
+ * slides. The alt texts are `foretag.slider.alts` in the messages files, in
+ * the same order.
+ */
+export const BUSINESS_SLIDES: readonly SiteImage[] = [
+  photo("team-gym-wetrok-mambo", "50% 30%"),
+  slide("slide-office-meeting", "45% 30%"),
+  slide("slide-office-desk-2", "55% 35%"),
+  slide("slide-office-vacuum", "50% 30%"),
+  slide("slide-office-staircase", "40% 35%"),
+];
+
 export const hasImage = (key: ImageKey) => IMAGES[key] !== null;
 
 /**

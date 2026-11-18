@@ -442,6 +442,23 @@
       "A WeDo 365 AB cleaner in a company T-shirt pushes a floor scrubber machine across a concrete floor."
     ]
   },
+  "businessSlider": {
+    "label": "Photos of our business cleaning",
+    "slide": "Image {n} of {total}",
+    "prev": "Previous image",
+    "next": "Next image",
+    "goTo": "Show image {n}",
+    "pause": "Pause the slideshow",
+    "play": "Play the slideshow",
+    "dots": "Choose image",
+    "alts": [
+      "A WeDo 365 AB cleaner runs a Wetrok Mambo floor scrubber between exercise machines in a gym.",
+      "A WeDo 365 AB cleaner in a company T-shirt wipes a meeting-room table with a blue cloth and spray bottle.",
+      "A WeDo 365 AB cleaner wipes down an office desk and monitor in a modern office.",
+      "A WeDo 365 AB cleaner vacuums a carpeted office hallway with a canister vacuum cleaner.",
+      "A WeDo 365 AB cleaner pushes a floor scrubber machine past a spiral staircase in an office building."
+    ]
+  },
   "errors": {
     "required": "Please fill in this field.",
     "choose": "Please choose an option.",
