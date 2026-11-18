@@ -187,7 +187,9 @@ export function ToggleGroup({
                   : "border-[1.5px] border-field bg-white hover:border-green"
               }`}
             >
-              <span className="font-bold">{o.label}</span>
+              <span className="min-w-0 break-words font-bold hyphens-auto">
+                {o.label}
+              </span>
               {o.sub ? (
                 <span className="text-sm text-muted">{o.sub}</span>
               ) : null}
