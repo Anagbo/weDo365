@@ -55,8 +55,8 @@ const FIELD_ORDER: readonly Field[] = [
   "frequency",
   "company",
   "contactName",
-  "email",
   "phone",
+  "email",
   "message",
 ];
 
@@ -191,9 +191,6 @@ export function QuoteForm({ consent }: { consent: ReactNode }) {
             label: freqLabels[i],
           }))}
         />
-      </div>
-
-      <div className="grid gap-[18px] md:grid-cols-2">
         <TextField
           {...field("company")}
           label={t("companyLabel")}
@@ -210,9 +207,14 @@ export function QuoteForm({ consent }: { consent: ReactNode }) {
           value={values.contactName}
           onChange={(e) => set("contactName", e.target.value)}
         />
-      </div>
-
-      <div className="grid gap-[18px] md:grid-cols-2">
+        <TextField
+          {...field("phone")}
+          label={t("phoneLabel")}
+          type="tel"
+          autoComplete="tel"
+          value={values.phone}
+          onChange={(e) => set("phone", e.target.value)}
+        />
         <TextField
           {...field("email")}
           label={t("emailLabel")}
@@ -221,14 +223,7 @@ export function QuoteForm({ consent }: { consent: ReactNode }) {
           maxLength={MAX.email}
           value={values.email}
           onChange={(e) => set("email", e.target.value)}
-        />
-        <TextField
-          {...field("phone")}
-          label={t("phoneLabel")}
-          type="tel"
-          autoComplete="tel"
-          value={values.phone}
-          onChange={(e) => set("phone", e.target.value)}
+          className="md:col-span-2"
         />
       </div>
 
