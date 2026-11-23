@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getMessages, getTranslations } from "next-intl/server";
 import type { AppPathname } from "@/i18n/routing";
 import { pageMetadata } from "@/lib/seo";
-import { PostalAddress } from "@/components/PostalAddress";
 
 type LegalKey = "privacy" | "terms";
 
@@ -74,10 +73,6 @@ export async function LegalPage({ pageKey }: { pageKey: LegalKey }) {
               </a>
             </li>
           </ul>
-          <PostalAddress
-            label={footer("postalAddress")}
-            className="leading-[1.6]"
-          />
         </section>
       </div>
     </article>

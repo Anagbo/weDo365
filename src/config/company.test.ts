@@ -64,14 +64,11 @@ describe("structured data", () => {
       taxID: "559564-8022",
       telephone: "+46761780902",
       email: "info@wedo365.se",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "c/o Aikins Owusu, Storevretsvägen 19, LGH 1302",
-        postalCode: "147 54",
-        addressLocality: "Tumba",
-        addressCountry: "SE",
-      },
     });
+  });
+
+  it("has no postal address", () => {
+    expect(data).not.toHaveProperty("address");
   });
 
   it("lists the Instagram and Facebook pages in sameAs", () => {

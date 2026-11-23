@@ -31,7 +31,6 @@
       "Företag"
     ],
     "email": "{email}",
-    "postalAddress": "Postadress",
     "area": "Stockholm med omnejd",
     "privacy": "Integritetspolicy",
     "terms": "Allmänna villkor",
@@ -535,7 +534,7 @@
         },
         {
           "title": "Personuppgiftsansvarig",
-          "text": "{company}, org.nr {orgNr}. Postadress: {postalAddress}. E-post: {email}."
+          "text": "{company}, org.nr {orgNr}. E-post: {email}. Telefon: {phone}."
         }
       ]
     },

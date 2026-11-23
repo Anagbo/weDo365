@@ -21,14 +21,6 @@ export const COMPANY = {
     /** International format, for tel: links and structured data. */
     e164: "+46761780902",
   },
-  /** Postal address only; not a visiting address. */
-  postalAddress: {
-    careOf: "c/o Aikins Owusu",
-    street: "Storevretsvägen 19, LGH 1302",
-    postalCode: "147 54",
-    locality: "Tumba",
-    country: "SE",
-  },
   /** Liability insurer, as named on the site. */
   insurer: "If",
   /** Number of employees, as shown on the site ("30–50 anställda"). */
@@ -56,14 +48,6 @@ export function socialLinks() {
   }[];
 }
 
-/** The postal address as lines: name, c/o, street, postcode and town. */
-export const POSTAL_ADDRESS_LINES = [
-  COMPANY.name,
-  COMPANY.postalAddress.careOf,
-  COMPANY.postalAddress.street,
-  `${COMPANY.postalAddress.postalCode} ${COMPANY.postalAddress.locality}`,
-] as const;
-
 /** Tokens available in the messages files, e.g. "Org.nr {orgNr}". */
 export const COMPANY_TOKENS = {
   company: COMPANY.name,
@@ -74,7 +58,6 @@ export const COMPANY_TOKENS = {
   phoneHref: `tel:${COMPANY.phone.e164}`,
   insurer: COMPANY.insurer,
   employees: COMPANY.employees,
-  postalAddress: POSTAL_ADDRESS_LINES.join(", "),
 } as const satisfies Record<string, string>;
 
 /** Structured data (schema.org) describing the company. */
@@ -89,13 +72,6 @@ export function companyJsonLd(siteUrl: string) {
     taxID: COMPANY.orgNr,
     telephone: COMPANY.phone.e164,
     email: COMPANY.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: `${COMPANY.postalAddress.careOf}, ${COMPANY.postalAddress.street}`,
-      postalCode: COMPANY.postalAddress.postalCode,
-      addressLocality: COMPANY.postalAddress.locality,
-      addressCountry: COMPANY.postalAddress.country,
-    },
     areaServed: "Stockholm",
     url: siteUrl,
     ...(sameAs.length > 0 ? { sameAs } : {}),

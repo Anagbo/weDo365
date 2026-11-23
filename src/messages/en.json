@@ -31,7 +31,6 @@
       "Business"
     ],
     "email": "{email}",
-    "postalAddress": "Postal address",
     "area": "Stockholm and surroundings",
     "privacy": "Privacy policy",
     "terms": "Terms and conditions",
@@ -535,7 +534,7 @@
         },
         {
           "title": "Data controller",
-          "text": "{company}, org. no. {orgNr}. Postal address: {postalAddress}. Email: {email}."
+          "text": "{company}, org. no. {orgNr}. Email: {email}. Phone: {phone}."
         }
       ]
     },
