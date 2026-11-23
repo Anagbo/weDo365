@@ -1,10 +1,6 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
-import {
-  IS_PRODUCTION_BUILD,
-  NOINDEX,
-  PRODUCTION_HOST,
-} from "./src/config/indexing";
+import { NOINDEX, NON_PRODUCTION_HOST_PATTERN } from "./src/config/indexing";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
@@ -17,20 +13,14 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     qualities: [80],
   },
-  // Keep every deployment except production on the real domain out of search
-  // results: all hosts when this is not a production deployment, otherwise
-  // every host but the public one (e.g. the *.vercel.app address).
+  // Only the production hosts (wedo365.se, www.wedo365.se) may be indexed;
+  // every other host gets noindex (see src/config/indexing.ts).
   async headers() {
-    const noindex = [{ key: "X-Robots-Tag", value: NOINDEX }];
-    if (!IS_PRODUCTION_BUILD) {
-      return [{ source: "/:path*", headers: noindex }];
-    }
-    const host = PRODUCTION_HOST.replace(/\./g, "\\.");
     return [
       {
         source: "/:path*",
-        has: [{ type: "host", value: `(?!(?:www\\.)?${host}$).*` }],
-        headers: noindex,
+        has: [{ type: "host", value: NON_PRODUCTION_HOST_PATTERN }],
+        headers: [{ key: "X-Robots-Tag", value: NOINDEX }],
       },
     ];
   },

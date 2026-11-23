@@ -2,7 +2,7 @@
 
 The website for WeDo 365 AB, a cleaning company in Stockholm. Swedish at `/`, English at `/en`. Customers send **requests** (never bookings) for home cleaning or a business quote; the site emails them to the owner and sends the customer a copy. Nothing is stored on the site.
 
-Built with Next.js 16 (App Router), Tailwind CSS v4, next-intl, zod and Resend. Hosted on Vercel.
+Built with Next.js 16 (App Router), Tailwind CSS v4, next-intl, zod and Resend. Hosted on Netlify (live; Vercel also works).
 
 **Hard rules for the site:** no prices, no RUT and no personnummer anywhere, on the site or in the forms. Every customer action is a request. The company talks price and RUT through with each customer by phone or email after a request arrives.
 
@@ -45,7 +45,14 @@ Copy `.env.example` to `.env.local` for local work. On Vercel, set the same vari
 | `MAIL_FROM`            | yes    | Sender of both emails, e.g. `WeDo365 <noreply@send.wedo365.se>`. The domain must be verified in Resend.                                                                                                                        |
 | `MAIL_TO_OWNER`        | yes    | The inbox where new requests arrive (`info@wedo365.se`, a Loopia mailbox). The owner email has the customer as Reply-To.                                                                                                       |
 | `MAIL_REPLY_TO`        | no     | Reply-To of the customer's confirmation email (`info@wedo365.se`), so a reply lands in the owner's inbox. Falls back to `MAIL_TO_OWNER` if left out.                                                                           |
-| `NEXT_PUBLIC_SITE_URL` | yes    | The public address, no trailing slash. Used for canonical links, the sitemap, robots.txt and structured data. **Read at build time**, so set it before deploying and redeploy if it changes. Defaults to `https://wedo365.se`. |
+| `NEXT_PUBLIC_SITE_URL` | yes    | The public address, no trailing slash. Used for canonical links, the sitemap, robots.txt and structured data. **Read at build time**, so set it before deploying and redeploy if it changes. Must be the **canonical** address: `https://www.wedo365.se` (the live site redirects `wedo365.se` to `www.wedo365.se`). Defaults to `https://www.wedo365.se`. |
+
+### Hosting: Netlify (live) and Vercel
+
+Set the same variables in either dashboard (Netlify: _Site configuration → Environment variables_; Vercel: _Project Settings → Environment Variables_), for the Production context, and for previews if they should send email:
+
+- **Required on both:** `RESEND_API_KEY`, `MAIL_FROM`, `MAIL_TO_OWNER`, and `NEXT_PUBLIC_SITE_URL=https://www.wedo365.se`. `NEXT_PUBLIC_SITE_URL` is read **at build time**, so redeploy after changing it. Optional: `MAIL_REPLY_TO`, `SHOW_REVIEWS`, `HERO_AUTOPLAY`.
+- **Nothing platform-specific is needed for indexing.** Do not set (or rely on) `VERCEL_ENV`, `CONTEXT` or similar: production is recognised by the host name alone. Make sure the custom domain `www.wedo365.se` (with `wedo365.se` redirecting to it) is attached to the production deployment; the `*.netlify.app` / `*.vercel.app` addresses stay noindex.
 
 `SHOW_REVIEWS` is optional (`true` shows the reviews section and the Reco.se rating; leave it out until there are real reviews). Also read at build time.
 
@@ -62,7 +69,7 @@ src/
                          Swedish path (boka, offert, foretag …). layout.tsx is the root layout.
     api/request/         POST /api/request: validates, then sends the two emails
     global-not-found.tsx The 404 page
-    sitemap.ts, robots.ts
+    sitemap.ts, robots.txt/route.ts
   components/            layout (header, footer), sections (reusable page blocks),
                          forms (wizard, quote form), service-page, legal, ui
   config/                company.ts (company facts), site.ts (site URL, service ids),
@@ -211,10 +218,10 @@ All accounts (GitHub, Vercel, Resend, the domain registrar) should belong to WeD
 1. **GitHub.** Push this repository to a repository owned by the company.
 2. **Vercel.** Import the repository. **Use a Pro plan:** the free Hobby plan is for non-commercial use only. The framework (Next.js) and build settings are detected automatically. `vercel.json` pins the server function (`/api/request`) to Stockholm (`arn1`); every page is static and is served from Vercel's network.
 3. **Environment variables.** Add the variables above (`RESEND_API_KEY`, `MAIL_FROM`, `MAIL_TO_OWNER`, `MAIL_REPLY_TO`, `NEXT_PUBLIC_SITE_URL`), for Production (and Preview if you want preview deployments to send email). Set `NEXT_PUBLIC_SITE_URL` to the final public address.
-4. **Domain.** Add `wedo365.se` in Vercel and set the DNS records it shows. Choose whether the main address is `wedo365.se` or `www.wedo365.se`, make the other one redirect to it (in Vercel's domain settings), and use the main one in `NEXT_PUBLIC_SITE_URL`.
+4. **Domain.** Add `wedo365.se` in Vercel and set the DNS records it shows. Choose `www.wedo365.se` as the main address (the live site does this), make `wedo365.se` redirect to it, and use it in `NEXT_PUBLIC_SITE_URL`.
 5. **Resend.** Add the sending domain as a **subdomain**, `send.wedo365.se`, and choose the **EU region** when adding it. Add the DNS records Resend lists (SPF, DKIM) **without touching the MX records of the main domain**, so normal email keeps working. Wait until Resend shows the domain as verified, then create an API key and set `MAIL_FROM`.
 6. **First test in production.** Send one request through each form (`/boka` and `/offert`, and the English versions). Check that the owner inbox gets the email in Swedish, that the customer copy arrives (also look in spam), and that replying to each email goes to the other party (the owner for the customer copy, the customer for the owner email).
-7. **Google Search Console.** Add the property and submit `https://wedo365.se/sitemap.xml`. (Vercel marks preview deployments as `noindex` by default.)
+7. **Google Search Console.** Add the property and submit `https://www.wedo365.se/sitemap.xml`. Check `https://www.wedo365.se/robots.txt` shows `Allow: /`.
 
 ## Before launch
 
@@ -275,7 +282,7 @@ What changed and what it means for whoever edits the site next.
 - **"TODO" text hides itself.** An answer or list entry that starts with `TODO` in a messages file is never shown. The home FAQ, each service-page FAQ and "Det här ingår", and the Om oss area list stay hidden until no entry starts with `TODO` (`src/lib/todo.ts`).
 - **Service pages.** `/hemstadning`, `/flyttstadning`, `/storstadning`, `/fonsterputs` (English: `/home-cleaning`, `/move-out-cleaning`, `/deep-cleaning`, `/window-cleaning`) share `<ServicePage>`. Footer, home cards, sitemap and hreflang follow from `routing.ts` and `service-pages.ts`. Wizard links use neutral values (`?service=move`); both languages' values and the plain ids are accepted.
 - **Hero slider.** The bathroom photo is first. Autoplay is **on** by default with a pause button (set `HERO_AUTOPLAY=false` at build time to turn it off); it never runs with reduced motion.
-- **Indexing.** Only the production domain in a production deployment is indexable (`src/config/indexing.ts`). `X-Robots-Tag: noindex, nofollow` is sent on every other host (and on all hosts when `VERCEL_ENV` is not `production`), and robots.txt disallows everything outside production.
+- **Indexing.** Indexing depends only on the request host (`src/config/indexing.ts`), never on a hosting-platform variable such as `VERCEL_ENV`. `wedo365.se` and `www.wedo365.se` (the host of `NEXT_PUBLIC_SITE_URL`, with and without `www`) are indexable: robots.txt says `Allow: /` with `Sitemap: https://www.wedo365.se/sitemap.xml`, and there is no noindex header or meta tag (only `/tack` is noindex, by design). Every other host (localhost, `*.netlify.app`, `*.vercel.app`, previews) gets `X-Robots-Tag: noindex, nofollow` (rule in `next.config.ts`) and a robots.txt with `Disallow: /` (`src/app/robots.txt/route.ts`, rendered per request).
 - **Icons and share image** are made by `node scripts/make-brand-assets.mjs` (stand-in "W" tile icon, share image from a site photo and the emblem). Replace `src/app/icon.svg` with the real square emblem when it exists and run the script again.
 - **404 page.** The only console entry is the browser's own "Failed to load resource: 404" for the page itself; that comes with a real 404 status and is not a bug.
 

@@ -1,9 +1,13 @@
 import type { Locale } from "@/i18n/routing";
 import { COMPANY } from "./company";
 
-/** Public site URL. Change the domain here (or via NEXT_PUBLIC_SITE_URL). */
+/**
+ * Canonical public URL: every canonical tag, hreflang, Open Graph URL, the
+ * sitemap and robots.txt use it. The live site redirects wedo365.se to
+ * www.wedo365.se, so the canonical host is www. Change it via NEXT_PUBLIC_SITE_URL.
+ */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? `https://${COMPANY.domain}`
+  process.env.NEXT_PUBLIC_SITE_URL ?? `https://www.${COMPANY.domain}`
 ).replace(/\/$/, "");
 
 /** Service ids used by the wizard and its ?tjanst= / ?service= preselect. */
