@@ -66,3 +66,42 @@ for (const lang of LANGS) {
     });
   }
 }
+
+for (const lang of LANGS) {
+  for (const width of [390, 500]) {
+    test(`step indicator stays on one row (${lang.name}, ${width}px)`, async ({
+      page,
+    }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(lang.path);
+      await page.evaluate(() => document.fonts.ready);
+
+      const check = async () => {
+        const items = page.locator("ol[aria-label] > li");
+        await expect(items).toHaveCount(4);
+        const boxes = await items.evaluateAll((lis) =>
+          lis.map((li) => {
+            const r = li.getBoundingClientRect();
+            return { t: Math.round(r.top), r: r.right };
+          }),
+        );
+        expect(new Set(boxes.map((b) => b.t)).size).toBe(1);
+        for (const b of boxes) expect(b.r).toBeLessThanOrEqual(width);
+        const scrolls = await page.evaluate(
+          () => document.documentElement.scrollWidth > window.innerWidth + 1,
+        );
+        expect(scrolls).toBe(false);
+      };
+
+      const next = page.locator('form button[type="submit"]');
+      await check();
+      await next.click();
+      await check();
+      await page.locator("#size").fill("60");
+      await page.locator("#frequency").click();
+      await next.click();
+      await expect(page.locator("#frequency")).toBeHidden();
+      await check();
+    });
+  }
+}

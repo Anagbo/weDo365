@@ -254,7 +254,7 @@ export function BookingWizard({ initialService, consent }: Props) {
       {/* Step indicator */}
       <ol
         aria-label={t("stepLabel")}
-        className="flex flex-wrap gap-x-6 gap-y-2"
+        className="flex flex-wrap gap-x-6 gap-y-2 max-[520px]:flex-nowrap max-[520px]:gap-x-3"
       >
         {steps.map((label, i) => {
           const done = i < step;
@@ -277,7 +277,13 @@ export function BookingWizard({ initialService, consent }: Props) {
               >
                 {done ? <CheckIcon className="size-4" /> : i + 1}
               </span>
-              <span className={current ? "font-semibold" : "text-muted"}>
+              <span
+                className={`whitespace-nowrap ${
+                  current
+                    ? "font-semibold"
+                    : "text-muted max-[520px]:sr-only"
+                }`}
+              >
                 {label}
               </span>
             </li>
