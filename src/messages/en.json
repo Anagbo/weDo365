@@ -18,7 +18,7 @@
     "call": "Call"
   },
   "footer": {
-    "about": "{company} · Cleaning company in Stockholm, 365 days a year · {employees} employees.",
+    "about": "{company} · Cleaning company in Stockholm, 365 days a year.",
     "org": "Org. no. {orgNr} · Approved for F‑tax",
     "services": "Services",
     "contact": "Contact",
@@ -58,6 +58,8 @@
     "h1": "Clean at home and at work. We take care of the rest.",
     "lead": "Tell us what you need and we will contact you with a suggested time and price.",
     "heroPhotoAlt": "A WeDo 365 AB cleaner in a company T-shirt and black gloves smiles at the camera while running a Wetrok Mambo floor scrubber on the rubber floor of a gym.",
+    "teamPhotoAlt": "Six WeDo 365 AB team members in company T-shirts gathered around a table, smiling at the camera",
+    "teamPhotoCaption": "The WeDo 365 AB team in Stockholm",
     "doorHomes": {
       "title": "For homes",
       "text": "Home cleaning, move-out cleaning, deep cleaning and window cleaning.",

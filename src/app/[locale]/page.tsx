@@ -22,6 +22,7 @@ import { Eyebrow } from "@/components/sections/Eyebrow";
 import { HeroSlider } from "@/components/sections/HeroSlider";
 import { SiteImage } from "@/components/sections/SiteImage";
 import { SiteVideo } from "@/components/sections/SiteVideo";
+import { TeamBand } from "@/components/sections/TeamBand";
 import { Steps, type Step } from "@/components/sections/Steps";
 import { Faq, type FaqItem } from "@/components/sections/Faq";
 import { EndCta } from "@/components/sections/EndCta";
@@ -102,6 +103,8 @@ export default async function HomePage() {
   return (
     <>
       <JsonLd data={companyJsonLd(SITE_URL)} />
+
+      <TeamBand alt={t("teamPhotoAlt")} caption={t("teamPhotoCaption")} />
 
       {/* 1. Hero */}
       <section

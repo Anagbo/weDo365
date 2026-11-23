@@ -94,6 +94,47 @@ export const BUSINESS_SLIDES: readonly SiteImage[] = [
 export const hasImage = (key: ImageKey) => IMAGES[key] !== null;
 
 /**
+ * The team photo band at the very top of the home page (TeamBand): one photo
+ * of the six team members, cropped three ways so that all six faces are fully
+ * inside the frame at every width. The crops are made from
+ * design-assets/home-page1.jpeg by scripts/process-team-photo.mjs (2040px
+ * wide, no metadata). `from` is the min-width (px) where a crop takes over;
+ * `position` is the focal point (the faces) for object-fit: cover. Alt text
+ * and caption are `home.teamPhotoAlt` and `home.teamPhotoCaption`.
+ */
+export type TeamCrop = SiteImage & { from: number };
+
+export const TEAM_PHOTO: Record<"landscape" | "tablet" | "phone", TeamCrop> = {
+  // >= 768px: 3.23:1, about 220px tall at 768, 300px at 1024, 355px at 1280+.
+  landscape: {
+    src: "/images/team-wedo365-landscape.jpg",
+    width: 2040,
+    height: 632,
+    blurDataURL: BLUR["team-wedo365-landscape"],
+    position: "50% 45%",
+    from: 768,
+  },
+  // 480-767px: 2.4:1.
+  tablet: {
+    src: "/images/team-wedo365-tablet.jpg",
+    width: 2040,
+    height: 850,
+    blurDataURL: BLUR["team-wedo365-tablet"],
+    position: "50% 45%",
+    from: 480,
+  },
+  // < 480px: 4:3, the whole photo.
+  phone: {
+    src: "/images/team-wedo365-phone.jpg",
+    width: 2040,
+    height: 1530,
+    blurDataURL: BLUR["team-wedo365-phone"],
+    position: "50% 30%",
+    from: 0,
+  },
+};
+
+/**
  * The emblem, transparent PNG (338×140), shown at most 116×48 so it is always
  * at least 2x. There is no vector original yet (owner to supply one); both
  * files are transparent, so they sit directly on the page background.

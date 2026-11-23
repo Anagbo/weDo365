@@ -18,7 +18,7 @@
     "call": "Ring"
   },
   "footer": {
-    "about": "{company} · Städfirma i Stockholm, 365 dagar om året · {employees} anställda.",
+    "about": "{company} · Städfirma i Stockholm, 365 dagar om året.",
     "org": "Org.nr {orgNr} · Godkänd för F‑skatt",
     "services": "Tjänster",
     "contact": "Kontakt",
@@ -58,6 +58,8 @@
     "h1": "Rent hemma och på jobbet. Vi tar hand om resten.",
     "lead": "Berätta vad du behöver, så kontaktar vi dig med ett förslag på tid och pris.",
     "heroPhotoAlt": "En medarbetare från WeDo 365 AB, i firmatröja och svarta handskar, ler mot kameran och kör en Wetrok Mambo-skurmaskin på gummigolvet i ett gym.",
+    "teamPhotoAlt": "Sex medarbetare från WeDo 365 AB i firmatröjor samlade runt ett bord och tittar in i kameran",
+    "teamPhotoCaption": "WeDo 365 AB-teamet i Stockholm",
     "doorHomes": {
       "title": "För hemmet",
       "text": "Hemstädning, flyttstädning, storstädning och fönsterputs.",
