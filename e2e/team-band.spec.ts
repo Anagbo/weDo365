@@ -38,6 +38,44 @@ for (const width of WIDTHS) {
   });
 }
 
+for (const width of [1280, 1440, 1920, 2560]) {
+  test(`team band lines up with the header and hero at ${width}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+    await page.evaluate(() => document.fonts.ready);
+    const edges = await page.evaluate(() => {
+      const box = (el: Element | null) => el!.getBoundingClientRect();
+      const row = document.querySelector('[data-testid="site-header-row"]')!;
+      const links = [...row.querySelectorAll("a")].filter(
+        (a) => a.getBoundingClientRect().width > 0,
+      );
+      return {
+        band: box(document.querySelector('[data-testid="team-band"] picture')),
+        caption: box(
+          document.querySelector('[data-testid="team-band"] figcaption'),
+        ),
+        h1: box(document.querySelector("h1")),
+        logo: box(links[0]),
+        send: box(links[links.length - 1]),
+        slider: box(
+          document.querySelector('[aria-roledescription="carousel"] ul'),
+        ),
+      };
+    });
+    expect(Math.abs(edges.band.left - edges.h1.left)).toBeLessThanOrEqual(1);
+    expect(Math.abs(edges.band.left - edges.logo.left)).toBeLessThanOrEqual(1);
+    expect(Math.abs(edges.caption.left - edges.h1.left)).toBeLessThanOrEqual(1);
+    expect(Math.abs(edges.band.right - edges.slider.right)).toBeLessThanOrEqual(
+      1,
+    );
+    expect(Math.abs(edges.band.right - edges.send.right)).toBeLessThanOrEqual(
+      1,
+    );
+  });
+}
+
 for (const [width, height] of [
   [1440, 900],
   [1280, 720],

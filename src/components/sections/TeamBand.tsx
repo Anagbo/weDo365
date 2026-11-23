@@ -6,10 +6,12 @@ import { TEAM_PHOTO } from "@/config/images";
  * per width (see TEAM_PHOTO), each shown in a box of its own aspect ratio, so
  * the space is reserved before the image loads and all six faces always fit.
  * It is the largest content on the page, so it is fetched with high priority.
- * The blur placeholders are CSS backgrounds, one per crop. From md the box is
- * as wide as the viewport height allows (--band-h, about 300px at 900px tall,
- * never under 184px), so the headline stays above the fold on laptops; the
- * caption sits in the gap below, which is the hero's own top padding.
+ * The blur placeholders are CSS backgrounds, one per crop. The band is always
+ * the full width of the page container, so it lines up with the header and
+ * the hero. Only on short screens (under 860px tall, from md) is it narrower,
+ * left-aligned and sized by --band-h (never under 184px), so the headline stays
+ * above the fold on small laptops. The caption sits in the gap below, which is
+ * the hero's own top padding.
  */
 export function TeamBand({ alt, caption }: { alt: string; caption: string }) {
   const { landscape, tablet, phone } = TEAM_PHOTO;
@@ -38,10 +40,10 @@ export function TeamBand({ alt, caption }: { alt: string; caption: string }) {
       <figure
         style={
           {
-            "--band-h": "clamp(184px, calc(100svh - 600px), 360px)",
+            "--band-h": "clamp(184px, calc(100svh - 600px), 329px)",
           } as React.CSSProperties
         }
-        className="relative mx-auto md:w-[min(100%,calc(var(--band-h)*2040/632))]"
+        className="relative md:[@media(max-height:859px)]:w-[min(100%,calc(var(--band-h)*2040/583))]"
       >
         <div
           style={
@@ -51,7 +53,7 @@ export function TeamBand({ alt, caption }: { alt: string; caption: string }) {
               "--blur-landscape": `url("${landscape.blurDataURL}")`,
             } as React.CSSProperties
           }
-          className="aspect-[2040/1530] overflow-hidden rounded-photo bg-(image:--blur-phone) bg-cover min-[480px]:aspect-[2040/850] min-[480px]:bg-(image:--blur-tablet) md:aspect-[2040/632] md:bg-(image:--blur-landscape)"
+          className="aspect-[2040/1530] overflow-hidden rounded-photo bg-(image:--blur-phone) bg-cover min-[480px]:aspect-[2040/850] min-[480px]:bg-(image:--blur-tablet) md:aspect-[2040/583] md:bg-(image:--blur-landscape)"
         >
           <picture>
             <source

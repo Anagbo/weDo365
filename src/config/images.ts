@@ -105,11 +105,11 @@ export const hasImage = (key: ImageKey) => IMAGES[key] !== null;
 export type TeamCrop = SiteImage & { from: number };
 
 export const TEAM_PHOTO: Record<"landscape" | "tablet" | "phone", TeamCrop> = {
-  // >= 768px: 3.23:1, about 220px tall at 768, 300px at 1024, 355px at 1280+.
+  // >= 768px: 3.5:1, about 206px tall at 768, 329px at the full 1152px.
   landscape: {
     src: "/images/team-wedo365-landscape.jpg",
     width: 2040,
-    height: 632,
+    height: 583,
     blurDataURL: BLUR["team-wedo365-landscape"],
     position: "50% 45%",
     from: 768,

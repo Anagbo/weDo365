@@ -26,8 +26,8 @@ const OUT = path.join(ROOT, "public/images");
 
 const WIDTH = 2040;
 const CROPS = [
-  // Desktop and tablet, 3.23:1. Ends just below the front-left chin.
-  { name: "team-wedo365-landscape", top: 138, height: 632 },
+  // Desktop and tablet, 3.5:1. Ends just below the front-left chin.
+  { name: "team-wedo365-landscape", top: 150, height: 583 },
   // Large phones, 2.4:1.
   { name: "team-wedo365-tablet", top: 20, height: 850 },
   // Phones, 4:3: the whole photo.
