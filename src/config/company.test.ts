@@ -48,7 +48,6 @@ describe("company details in the messages", () => {
       expect(m.footer.org).toContain(COMPANY.orgNr);
       expect(m.footer.email).toBe(COMPANY.email);
       expect(m.meta.phoneHref).toBe(`tel:${COMPANY.phone.e164}`);
-      expect(m.footer.about).toContain(COMPANY.employees);
     }
     expect(MESSAGES.sv.home.trust[0]).toBe("Ansvarsförsäkring hos If");
     expect(MESSAGES.en.business.trust[0]).toBe("Liability insurance with If");

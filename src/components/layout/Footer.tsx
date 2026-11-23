@@ -5,7 +5,6 @@ import { SERVICE_IDS } from "@/config/site";
 import { SERVICE_PAGE_PATH } from "@/config/service-pages";
 import { socialLinks } from "@/config/company";
 import { Logo } from "@/components/Logo";
-import { PostalAddress } from "@/components/PostalAddress";
 
 type Href = ComponentProps<typeof Link>["href"];
 
@@ -96,10 +95,6 @@ export async function Footer() {
               </li>
             ))}
           </ul>
-          <PostalAddress
-            label={t("postalAddress")}
-            className="mt-2 text-sm text-white/85"
-          />
         </Column>
 
         <Column title={t("legal")}>
