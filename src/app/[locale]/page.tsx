@@ -9,7 +9,12 @@ import {
   SHOW_REVIEWS,
   SITE_URL,
 } from "@/config/site";
-import { BUSINESS_BAND_VIDEO, HERO_SLIDES, IMAGES, hasImage } from "@/config/images";
+import {
+  BUSINESS_BAND_VIDEO,
+  HERO_SLIDES,
+  IMAGES,
+  hasImage,
+} from "@/config/images";
 import { companyJsonLd } from "@/config/company";
 import { pageMetadata } from "@/lib/seo";
 import { hasTodo } from "@/lib/todo";
@@ -104,11 +109,15 @@ export default async function HomePage() {
     <>
       <JsonLd data={companyJsonLd(SITE_URL)} />
 
-      <TeamBand alt={t("teamPhotoAlt")} caption={t("teamPhotoCaption")} />
+      <TeamBand
+        alt={t("teamPhotoAlt")}
+        caption={t("teamPhotoCaption")}
+        trust={t.raw("trust") as string[]}
+      />
 
       {/* 1. Hero */}
       <section
-        className={`container-site grid items-center gap-12 pt-12 md:pt-14 ${
+        className={`container-site grid items-center gap-12 pt-12 md:pt-14 md:[@media(max-height:859px)]:items-start md:[@media(max-height:859px)]:pt-8 ${
           HERO_SLIDES.length > 0 ? "lg:grid-cols-2" : ""
         }`}
       >
@@ -166,8 +175,11 @@ export default async function HomePage() {
         ))}
       </div>
 
-      {/* 3. Trust bar */}
-      <div className={`container-site ${SECTION}`}>
+      {/* 3. Trust bar (the team band shows these points itself on short screens) */}
+      <div
+        data-testid="trust-bar"
+        className={`container-site ${SECTION} md:[@media(max-height:859px)]:hidden`}
+      >
         <ul className="flex flex-wrap justify-between gap-x-10 gap-y-4 border-y border-line py-5">
           {trust.map((item) => (
             <li
